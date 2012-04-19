@@ -3,7 +3,7 @@ layout: page
 title: Mookrs
 tagline: fuck
 ---
-试试中文
+
 ifffffff
 fasjfklasjlfsklfjklsajfkla
 Here's a sample "posts list".
