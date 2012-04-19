@@ -1,19 +1,14 @@
 ---
 layout: page
-title: Mookrs
-tagline: fuck
+title: 或此或彼
+tagline: A way to remember.
 ---
-需要中文啊少年
+> 这是Mookrs的个人博客
 
 
-Here's a sample "posts list".jiasjfasjfa
-dfsjfsjkafja
-dffafjijlajf
 <ul class="posts">
-  {% for post in site.posts %}
-    <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
+{% for post in site.posts %}
+<li><span class="index-date-tag-fixed-width">{{ post.date | date_to_string }}</span> &raquo; <a href="{{ post.url }}">{{ post.title }}</a></li>
+{% endfor %}
 </ul>
-
-
 
