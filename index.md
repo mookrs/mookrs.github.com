@@ -1,10 +1,9 @@
 ---
 layout: page
-title: 或此或彼
+title: Mookrs' Blog
 tagline: A way to remember.
 ---
 > 这是Mookrs的个人博客
-
 
 <ul class="posts">
 {% for post in site.posts %}
