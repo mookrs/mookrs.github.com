@@ -3,10 +3,7 @@ layout: page
 title: Mookrs
 tagline: fuck
 ---
-
-fffifffffff
-fasjfklasjlfsklfjklsajfkla
-heheh
+需要中文啊少年
 
 
 Here's a sample "posts list".jiasjfasjfa
