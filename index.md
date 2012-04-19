@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Mookrs' Blog
-tagline: A way to remember.
+title: Mookrs
+tagline: Remember.Let go.Move on.
 ---
 > 这是Mookrs的个人博客
 
