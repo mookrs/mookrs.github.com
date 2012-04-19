@@ -27,7 +27,7 @@ comments :
       short_name : mookrs
     livefyre :
       site_id : 
-    intensedebate : 
+    intensedebate :
       account : 
     facebook :
       appid : 123
@@ -35,16 +35,16 @@ comments :
       width: 580
       colorscheme: light
 
-analytics :
+  analytics :
     provider : google 
     google : 
         tracking_id : 'UA-123-12'
     getclicky :
-        site_id : 
+      site_id : 
     mixpanel :
         token : '_MIXPANEL_TOKEN_'
 
-sharing :
+  sharing :
     provider : false
 
 exclude: .rbenv-version
