@@ -3,7 +3,7 @@
 permalink: /:year/:month/:title.html 
 auto: true
 pygments: true
-markdown: rdiscount
+markdown: Maruku
 var:
   archive_path: /archive.html
   categories_path : /categories.html
@@ -13,11 +13,11 @@ var:
 production_url : http://mookrs.github.com # or your custom domain name
 title : Mookrs
 
-author :
+author : 
   name : Mookrs
   email : moookrs@gmail.com
   github : mookrs
   twitter : mookrs
-  feedbuder : v2ex
+  feedbuder : 
 
 exclude: .rbenv-version

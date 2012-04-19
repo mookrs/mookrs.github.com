@@ -3,7 +3,9 @@ layout: page
 title: Mookrs
 tagline: fuck
 ---
-damn it
+试试中文
+ifffffff
+fasjfklasjlfsklfjklsajfkla
 Here's a sample "posts list".
 
 <ul class="posts">
