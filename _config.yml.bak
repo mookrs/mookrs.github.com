@@ -2,9 +2,8 @@
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
 permalink: /:year/:month/:title.html 
 auto: true
-markdown: rdiscount
 pygments: true
-
+markdown: rdiscount
 var:
   archive_path: /archive.html
   categories_path : /categories.html
