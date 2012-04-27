@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "ArcGIS Desktop 10 图文安装教程"
+title: "ArcGIS Desktop 10图文安装教程"
 description: ""
 category: tech
 tags: [arcgis,software]
