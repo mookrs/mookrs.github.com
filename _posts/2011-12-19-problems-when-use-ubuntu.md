@@ -3,8 +3,9 @@ layout: post
 title: "Ubuntu使用过程中的几个小问题"
 description: ""
 category: tech
-tags: [linux,ubuntu,skill]
+tags: [linux, ubuntu, skill]
 ---
+{% include JB/setup %}
 
 作为一个Ubuntu的初学者，之前参照[《鸟哥的Linux私房菜（基础学习篇）》](http://linux.vbird.org/linux_basic/ "在线版地址")折腾时出现了不少问题。凭印象整理了几个小问题，备忘和分享一下。环境：Ubuntu 11.10 64-bit
 

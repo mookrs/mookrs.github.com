@@ -3,8 +3,9 @@ layout: post
 title: "消除SRT字幕乱码的一个办法"
 description: ""
 category: tech
-tags: [encoding,subtitle,skill]
+tags: [encoding, subtitle, skill]
 ---
+{% include JB/setup %}
 
 最近读三岛由纪夫的《[春雪](http://book.douban.com/subject/3987362/ "豆瓣链接")》，非常喜欢。刚好下载到改编自这本书的[同名电影](http://movie.douban.com/subject/1478789/ "豆瓣链接")，打算观看却发现外挂字幕显示乱码。查了一下这个是简体中文中文编码GB2312和繁体中文编码BIG5的不一致的问题。
 

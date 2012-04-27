@@ -5,6 +5,7 @@ description: ""
 category: books
 tags: [book,Ian McEwan]
 ---
+{% include JB/setup %}
 
 如果你不知道伊恩·麦克尤恩（Ian McEwan，1948—）这个名字，那么你或许看过电影《赎罪》（*Atonement*），伊恩·麦克尤恩即是电影的原著作者；你或许也听过前两年很畅销的一本书《最初的爱情，最后的仪式》（*First Love, Last Rites*），那本据总结是写了杀妻、操妹、死姐、群P、溺童、返童、兽交、异装<sup>[1]</sup>八个故事的书。如果你真的确定对他一无所知，那么在做好心理准备后，请从这本《水泥花园》（*The Cement Garden*）跟我开始吧。
 

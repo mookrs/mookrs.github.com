@@ -3,8 +3,9 @@ layout: post
 title: "绮怀"
 description: ""
 category: essays
-tags: [lion,love]
+tags: [lion, love]
 ---
+{% include JB/setup %}
 
 凉风起，枯叶吹落在二人中间，不觉入秋。武汉的夏天长得很，习惯了穿着鞋托和大裤头，手拖手走啊走的。
 
