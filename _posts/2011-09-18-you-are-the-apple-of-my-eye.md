@@ -2,7 +2,7 @@
 layout: post
 title: "绮怀"
 description: ""
-category: essay
+category: essays
 tags: [lion,love]
 ---
 

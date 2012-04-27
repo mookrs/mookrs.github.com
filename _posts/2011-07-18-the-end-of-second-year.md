@@ -2,7 +2,7 @@
 layout: post
 title: "于是我终于踏上奔三的不归路"
 description: ""
-category: essay
+category: essays
 tags: [summary,vocation]
 ---
 
