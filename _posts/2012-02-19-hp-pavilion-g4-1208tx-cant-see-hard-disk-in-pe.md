@@ -3,7 +3,7 @@ layout: post
 title: "HP Pavilion g4-1208tx笔记本PE下不识别硬盘"
 description: ""
 category: tech
-tags: [ide, pe, sata, skill]
+tags: [ide, sata, skill]
 ---
 {% include JB/setup %}
 

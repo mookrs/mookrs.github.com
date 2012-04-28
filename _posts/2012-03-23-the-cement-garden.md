@@ -3,7 +3,7 @@ layout: post
 title: "水泥花园：重口味的平静感"
 description: ""
 category: books
-tags: [book,Ian McEwan]
+tags: [阅读, Ian McEwan]
 ---
 {% include JB/setup %}
 
