@@ -49,7 +49,7 @@ tags: [jekyll, skill]
 
 `gem install rdiscount kramdown`
 
-####配置_config.yml文件
+####配置 _config.yml 文件
 
 _config.yml里的的冒号后必须要有空格，否则会报错。如果有中文，需要存成UTF-8格式。修改固定链接格式为'/:year/:month/:title.html'，其它选项有必要的都一一修改好。
 
