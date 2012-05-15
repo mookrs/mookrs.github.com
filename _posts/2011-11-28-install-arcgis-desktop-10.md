@@ -9,7 +9,7 @@ tags: [arcgis, software]
 
 地理信息系统相关专业的同学一定少不了要用到ArcGIS。之前有同学要我帮忙装这个软件，我想既然“授人以鱼不如授人以渔”，那我来结合网上的文章写一个教程好啦。
 
-#### 1.下载ArcGIS Desktop 10 ####
+#### 1.下载ArcGIS Desktop 10
 
 (1) [官方地址](http://software.esri.com/akdlm/software/arcgis/10.0/final/ArcGIS_Desktop10_122519.iso?downloadID=FA0A478D-1C44-4915-83E1-4BC130EBFF48&__gda__=1283497777_a635b797d7b418fd134cf372fc88e67e&ext=.iso&__gdb__=1283497778_cc0ecad33f057a2fbbe5b79fc5d77825&fileExt=.iso)  [eMule地址](ed2k://|file|ArcGIS_Desktop10_122519.iso|4031676416|B77214643D9068A51826E4B77365B4C7|h=ABDJVPGGZJEMVNIA24SBT42D2B7C3HJS|/)
 
@@ -24,7 +24,7 @@ tags: [arcgis, software]
 
 请务必保证非商业使用，仅供个人学习和研究，如需要请购买正版！
 
-#### 2.安装ArcGIS Desktop 10 ####
+#### 2.安装ArcGIS Desktop 10
 
 (1) 使用[DAEMON Tools Lite](http://www.xngq.com/products/dtLite)一类软件加载iso镜像文件，运行安装包里的ESRI.exe，选择安装ArcGIS Desktop。先安装Desktop或者License Manager都可以。
 
@@ -68,7 +68,7 @@ Desktop安装完出现ArcGIS Administrator Wizard，如图，第2项填localhost
 
 ![](http://farm8.staticflickr.com/7109/7112392903_0506de48ae_z.jpg)
 
-#### 3.进行授权 ####
+#### 3.进行授权
 
 (1) 打开注册机，Feature选择ARC/INFO，点击All，会生成授权文件内容
 
