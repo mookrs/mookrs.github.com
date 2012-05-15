@@ -53,7 +53,7 @@ _config.yml 里的的冒号后必须要有空格，否则会报错。如果有�
 
 **Windows 系统下文章或标题有中文则不能生成网站**
 
-参考了这里：[http://www.oschina.net/question/129471_37163](http://www.oschina.net/question/129471_37163)
+参考了这里：http://www.oschina.net/question/129471_37163
 
 编辑
 
