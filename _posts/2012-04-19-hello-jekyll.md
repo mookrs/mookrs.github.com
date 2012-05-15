@@ -7,9 +7,9 @@ tags: [jekyll, skill]
 ---
 {% include JB/setup %}
 
-这是我迁移到[Jekyll](https://github.com/mojombo/jekyll)后的第一篇文章。Jekyll是个很好的博客系统，可以部署到免费的[Heroku](http://www.heroku.com/)或[Github Page](http://pages.github.com/)上，也可以部署到自己的服务器伤。之前在Windows和Ubuntu环境下尝试配置了[Octopress](http://octopress.org/)，但总有小毛病，于是转向Jekyll（其实是用了[Jekyll-Bootstrap](http://jekyllbootstrap.com/)）。我没有接触过Ruby，也不懂得git原理，所以其中的过程可谓历尽波折，编码就困扰过我一个通宵……However, it works now!
+这是我迁移到 [Jekyll](https://github.com/mojombo/jekyll) 后的第一篇文章。Jekyll 是个很好的博客系统，可以部署到免费的 [Heroku](http://www.heroku.com/) 或 [Github Page](http://pages.github.com/) 上，也可以部署到自己的服务器伤。之前在 Windows 和 Ubuntu 环境下尝试配置了 [Octopress](http://octopress.org/)，但总有小毛病，于是转向 Jekyll（其实是用了 [Jekyll-Bootstrap](http://jekyllbootstrap.com/)）。我没有接触过 Ruby，也不懂得 git 原理，所以其中的过程可谓历尽波折，编码就困扰过我一个通宵……However, it works now!
 
-以下是部署Jekyll或Octopress的参考链接：
+以下是部署 Jekyll 或 Octopress 的参考链接：
 
 [在 Windows7 下从头开始安装部署 Octopress](http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/)
 
