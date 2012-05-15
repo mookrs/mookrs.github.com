@@ -19,7 +19,7 @@ tags: [jekyll, skill]
 
 [Octopress搭建Blog：配置篇](http://evsseny.appspot.com/2012/03/30/Octopress-blog-Configuration.html)
 
-学习Git的参考链接：
+学习 Git 的参考链接：
 
 [git - 简易指南](http://rogerdudler.github.com/git-guide/index.zh.html)（适合初学者的概览）
 
@@ -27,7 +27,7 @@ tags: [jekyll, skill]
 
 [Git Community Book 中文版](http://gitbook.liuhui998.com/index.html)
 
-在Windows上搭建Ruby on Rails环境，强烈建议使用[RailsInstaller](http://railsinstaller.org/)，它包含了[Ruby](http://ruby-lang.org/) 、[Rails](http://rubyonrails.org/)、 [Bundler](http://gembundler.com/)、 [Git](http://git-scm.com/)、[Sqlite](http://sqlite.org/)、 [TinyTDS](https://github.com/rails-sqlserver/tiny_tds)、 [SQL Server support](https://github.com/rails-sqlserver/activerecord-sqlserver-adapter)和[DevKit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)。我换了个git的版本。
+在 Windows 上搭建 Ruby on Rails 环境，强烈建议使用[RailsInstaller](http://railsinstaller.org/)，它包含了[Ruby](http://ruby-lang.org/) 、[Rails](http://rubyonrails.org/)、 [Bundler](http://gembundler.com/)、 [Git](http://git-scm.com/)、[Sqlite](http://sqlite.org/)、 [TinyTDS](https://github.com/rails-sqlserver/tiny_tds)、 [SQL Server support](https://github.com/rails-sqlserver/activerecord-sqlserver-adapter)和[DevKit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)。我换了个git的版本。
 
 一些需要记录的：
 
