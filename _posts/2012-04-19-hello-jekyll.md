@@ -27,27 +27,27 @@ tags: [jekyll, skill]
 
 [Git Community Book 中文版](http://gitbook.liuhui998.com/index.html)
 
-在Windows上搭建Ruby on Rails环境，强烈建议使用[RailsInstaller](http://railsinstaller.org/)，它包含了[Ruby](http://ruby-lang.org/)、[Rails](http://rubyonrails.org/)、[Bundler](http://gembundler.com/)、[Git](http://git-scm.com/)、[Sqlite](http://sqlite.org/)、[TinyTDS](https://github.com/rails-sqlserver/tiny_tds)、[SQL Server support](https://github.com/rails-sqlserver/activerecord-sqlserver-adapter)和[DevKit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)。我换了个git的版本。
+在Windows上搭建Ruby on Rails环境，强烈建议使用[RailsInstaller](http://railsinstaller.org/)，它包含了[Ruby](http://ruby-lang.org/) 、[Rails](http://rubyonrails.org/)、 [Bundler](http://gembundler.com/)、 [Git](http://git-scm.com/)、[Sqlite](http://sqlite.org/)、 [TinyTDS](https://github.com/rails-sqlserver/tiny_tds)、 [SQL Server support](https://github.com/rails-sqlserver/activerecord-sqlserver-adapter)和[DevKit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)。我换了个git的版本。
 
 一些需要记录的：
 
 ####设置gem的更新源
 
-`gem sources --remove http://rubygems.org/'
+`gem sources --remove http://rubygems.org/`
 
-'gem sources -a http://ruby.taobao.org/'
+`gem sources -a http://ruby.taobao.org/`
 
-'gem sources -l`
+`gem sources -l`
 
-确保只有'http://ruby.taobao.org'输出
+确保只有`http://ruby.taobao.org`输出
 
 ####测试git是否连接正常
 
 `ssh -T git@github.com`
 
-###安装用来解析markdown语言的rdiscount或kramdown
+####安装用来解析markdown语言的rdiscount或kramdown
 
-'gem install rdiscount kramdown'
+`gem install rdiscount kramdown`
 
 ####配置_config.yml文件
 
