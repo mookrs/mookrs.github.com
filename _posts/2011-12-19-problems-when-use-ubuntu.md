@@ -11,7 +11,7 @@ tags: [linux, ubuntu, skill]
 
 **Ubuntu 软件中心打不开，停在载入状态**
 
-参考了 [http://zhangshijun0923.blog.163.com/blog/static/10266260820112250584912/](http://zhangshijun0923.blog.163.com/blog/static/10266260820112250584912/)
+参考了 <http://zhangshijun0923.blog.163.com/blog/static/10266260820112250584912/>
 
 依次运行下面的命令：
 
@@ -23,7 +23,7 @@ tags: [linux, ubuntu, skill]
 
 **Ubuntu 软件中心依然打不开，停在载入状态 & 更新管理器检查更新失败，出现提示“下载软件仓库信息失败，检查您的 internet 连接”，查看细节发现软件源报错**
 
-参考了 [http://forum.ubuntu.org.cn/viewtopic.php?f=52&t=173860](http://forum.ubuntu.org.cn/viewtopic.php?f=52&t=173860)
+参考了 <http://forum.ubuntu.org.cn/viewtopic.php?f=52&t=173860>
 
 移除旧源：
 
@@ -43,7 +43,7 @@ tags: [linux, ubuntu, skill]
 
 **为 Chrome 安装缺失 Flash 插件**
 
-参考了 [http://mtoou.info/ubuntu11-10-chrome-flash/](http://mtoou.info/ubuntu11-10-chrome-flash/)
+参考了 <http://mtoou.info/ubuntu11-10-chrome-flash/>
 
 基于64位 Linux 的 Chrome 浏览器没有自带 Flash 播放器，默认的 deb 都是基于 Firefox 的，所以要去 Adobe 下载 adobe flash player 11 for linux 64bit 的 tar.gz 包。下载完成后解压找到一个 libflashplayer.so 的文件，进入命令行，cd 到放 libflashplayer.so 文件的目录，执行：
 

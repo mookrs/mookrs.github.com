@@ -11,7 +11,7 @@ tags: [arcgis, software]
 
 #### 1.下载 ArcGIS Desktop 10
 
-(1) [官方地址](http://software.esri.com/akdlm/software/arcgis/10.0/final/ArcGIS_Desktop10_122519.iso?downloadID=FA0A478D-1C44-4915-83E1-4BC130EBFF48&__gda__=1283497777_a635b797d7b418fd134cf372fc88e67e&ext=.iso&__gdb__=1283497778_cc0ecad33f057a2fbbe5b79fc5d77825&fileExt=.iso)  [eMule 地址](ed2k://|file|ArcGIS_Desktop10_122519.iso|4031676416|B77214643D9068A51826E4B77365B4C7|h=ABDJVPGGZJEMVNIA24SBT42D2B7C3HJS|/)
+(1) [官方地址](http://software.esri.com/akdlm/software/arcgis/10.0/final/ArcGIS_Desktop10_122519.iso?downloadID=FA0A478D-1C44-4915-83E1-4BC130EBFF48&__gda__=1283497777_a635b797d7b418fd134cf372fc88e67e&ext=.iso&__gdb__=1283497778_cc0ecad33f057a2fbbe5b79fc5d77825&fileExt=.iso) 
 
 复制链接，在迅雷等下载软件里新建任务即可。注意，这个 3.75G 的 ArcGIS_Desktop10_122519.iso 文件为英文版，不包含补丁。
 
