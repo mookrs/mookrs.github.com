@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "「The realtek network controller was not found」的解决"
+title: "解决「The realtek network controller was not found」"
 description: ""
 category: tech
 tags: [realtek, windows, 驱动, skill]
