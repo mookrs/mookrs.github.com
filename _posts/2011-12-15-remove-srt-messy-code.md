@@ -3,7 +3,7 @@ layout: post
 title: "消除SRT字幕乱码的一个办法"
 description: ""
 category: tech
-tags: [编码, 字幕, skill]
+tags: [encoding, skill]
 ---
 {% include JB/setup %}
 

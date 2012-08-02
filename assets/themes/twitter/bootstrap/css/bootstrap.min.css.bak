@@ -17,10 +17,9 @@ input[type="search"]::-webkit-search-decoration,input[type="search"]::-webkit-se
 textarea{overflow:auto;vertical-align:top;}
 .clearfix{*zoom:1;}.clearfix:before,.clearfix:after{display:table;content:"";}
 .clearfix:after{clear:both;}
-body{margin:0;font-family:"Helvetica Neue","Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:14px;line-height:2px;color:#404040;background-color:#ffffff;}
+body{margin:0;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:13px;line-height:18px;color:#333333;background-color:#ffffff;}
 a{color:#0088cc;text-decoration:none;}
 a:hover{color:#005580;text-decoration:underline;}
-.index-date-tag-fixed-width{font-family:Monaco, "Andale Mono", "Courier New", monospace;font-size:12px;}
 .row{margin-left:-20px;*zoom:1;}.row:before,.row:after{display:table;content:"";}
 .row:after{clear:both;}
 [class*="span"]{float:left;margin-left:20px;}
@@ -63,11 +62,11 @@ a:hover{color:#005580;text-decoration:underline;}
 .row-fluid>.span10{width:82.97872339599999%;}
 .row-fluid>.span11{width:91.489361693%;}
 .row-fluid>.span12{width:99.99999998999999%;}
-.container{width:820px;margin-left:auto;margin-right:auto;*zoom:1;}.container:before,.container:after{display:table;content:"";}
+.container{width:940px;margin-left:auto;margin-right:auto;*zoom:1;}.container:before,.container:after{display:table;content:"";}
 .container:after{clear:both;}
 .container-fluid{padding-left:20px;padding-right:20px;*zoom:1;}.container-fluid:before,.container-fluid:after{display:table;content:"";}
 .container-fluid:after{clear:both;}
-p{margin:0 0 9px;font-family:"Helvetica Neue","Microsoft Yahei",Helvetica,Arial,sans-serif;font-size:14.5px;line-height:2.0em;}p small{font-size:11px;color:#bfbfbf;}
+p{margin:0 0 16px;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-size:14px;line-height:22px;}p small{font-size:11px;color:#bfbfbf;}
 .lead{margin-bottom:18px;font-size:20px;font-weight:200;line-height:27px;}
 h1,h2,h3,h4,h5,h6{margin:0;font-weight:bold;color:#404040;text-rendering:optimizelegibility;}h1 small,h2 small,h3 small,h4 small,h5 small,h6 small{font-weight:normal;color:#bfbfbf;}
 h1{font-size:30px;line-height:36px;}h1 small{font-size:18px;}

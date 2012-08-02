@@ -3,7 +3,7 @@ layout: post
 title: "绮怀"
 description: ""
 category: essays
-tags: [lion, love]
+tags: [love]
 ---
 {% include JB/setup %}
 

@@ -3,7 +3,7 @@ layout: post
 title: "解决「The realtek network controller was not found」"
 description: ""
 category: tech
-tags: [realtek, windows, 驱动, skill]
+tags: [realtek, windows, skill]
 ---
 {% include JB/setup %}
 
