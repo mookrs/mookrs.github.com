@@ -7,15 +7,13 @@ tags: [encoding, skill]
 ---
 {% include JB/setup %}
 
-最近读三岛由纪夫的《[春雪](http://book.douban.com/subject/3987362/ "豆瓣链接")》，非常喜欢。刚好下载到改编自这本书的[同名电影](http://movie.douban.com/subject/1478789/ "豆瓣链接")，打算观看却发现外挂字幕显示乱码。查了一下这个是简体中文中文编码 GB2312 和繁体中文编码 BIG5 的不一致的问题。
+最近在读三岛由纪夫的《[春雪](http://book.douban.com/subject/3987362/ "豆瓣链接")》，刚好下载到改编自这本书的[同名电影](http://movie.douban.com/subject/1478789/ "豆瓣链接")，打算观看却发现外挂字幕显示乱码。原因是字幕采用了繁体中文编码 BIG5，而我的 PotPlayer 播放器在字幕选项里编码设定的是简体中文编码 GB2312。为了不影响播放器正常播放简体中文字幕，采用下面的简单方法对字幕进行调整。
 
 ![](http://farm8.staticflickr.com/7086/7112438069_25958720b1.jpg)
 
-于是用比较简单的方法对字幕进行如下调整。
+1\.将乱码的 srt 格式字幕的后缀改为 txt，编码以 ANSI 保存而不是 Unicode。
 
-1\.将乱码的 srt 格式字幕的后缀改为 txt。
-
-2\.用浏览器（IE/Chrome/Firefox/Safari/Opera）打开这个 txt 文件。当然，还是乱码一片。
+2\.用浏览器打开这个 txt 文件。当然，还是乱码一片。
 
 ![](http://farm8.staticflickr.com/7185/6966361144_54be7b6f5e.jpg)
 
@@ -27,8 +25,8 @@ tags: [encoding, skill]
 
 ![](http://farm8.staticflickr.com/7048/6966360870_a3a4520c48_z.jpg)
 
-4\.把调整好的内容 ctrl+a 全部复制下来，覆盖到 txt 文件中，再将 txt 格式改为 srt。
+4\.把调整好的内容 ctrl+a 全部复制下来，覆盖到 txt 文件中，再将 txt 格式改回 srt。
 
-效果测试如下~
+效果测试如下：
 
 ![](http://farm8.staticflickr.com/7092/6966360684_f324aeacba.jpg)
