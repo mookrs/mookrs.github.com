@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "消除 SRT 字幕乱码"
+title: "消除BIG5编码造成的字幕乱码"
 description: ""
 category: tech
 tags: [encoding, skill]

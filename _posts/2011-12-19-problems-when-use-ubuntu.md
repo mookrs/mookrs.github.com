@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Ubuntu 折腾备忘"
+title: "Ubuntu折腾备忘"
 description: ""
 category: tech
 tags: [linux, ubuntu, skill]
