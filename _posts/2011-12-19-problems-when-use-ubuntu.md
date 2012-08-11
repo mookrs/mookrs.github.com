@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Ubuntu使用过程中的几个小问题"
+title: "Ubuntu 折腾备忘"
 description: ""
 category: tech
 tags: [linux, ubuntu, skill]
 ---
 {% include JB/setup %}
 
-作为一个 Ubuntu 的初学者，之前参照[《鸟哥的 Linux 私房菜（基础学习篇）》](http://linux.vbird.org/linux_basic/ "在线版地址")折腾时出现了不少问题。凭印象整理了几个小问题，备忘和分享一下。环境：Ubuntu 11.10 64-bit
+作为一个 Ubuntu 的使用者（更新：现已转投 Fedora），之前参照[《鸟哥的 Linux 私房菜（基础学习篇）》](http://linux.vbird.org/linux_basic/ "在线版地址")折腾时出现了不少问题。凭印象整理了几个小问题，备忘和分享一下。环境：Ubuntu 11.10 64-bit
 
 **Ubuntu 软件中心打不开，停在载入状态**
 

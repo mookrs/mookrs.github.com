@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "开启Windows「自动播放」功能"
+title: "开启 Windows「自动播放」功能"
 description: ""
 category: tech
 tags: [windows, skill]
