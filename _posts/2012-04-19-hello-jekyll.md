@@ -29,11 +29,6 @@ tags: [jekyll, skill]
 
 - [Git Community Book 中文版](http://gitbook.liuhui998.com/index.html)
 
----
-
-<font color="red">以下不是教程，只是个人记录：</font>
->
-
 **设置 gem 的更新源**
 
 `gem sources --remove http://rubygems.org/`
