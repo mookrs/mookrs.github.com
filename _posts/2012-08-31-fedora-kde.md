@@ -85,7 +85,9 @@ via <http://252376896.blog.163.com/blog/static/7820418220119162313789/>
 
 每次开机 Kwrite 总是自启动，然后造成系统卡死，kill 掉进程才正常。一怒之下卸载 Kwrite，连资源管理器都没了，以为能解决，结果换成了 Calligra Words 自启动。于是我怀疑系统是在试图用文本编辑器打开某个文件，可是总打不开。
 
-果然，由于为了设置 GoAgent 开机启动在 `~/.kde/Autostart/` 中多了一项 `python ～⁄linux⁄software⁄goagent⁄proxy.py.desktop`
+果然，由于为了设置 GoAgent 开机启动在 `~/.kde/Autostart/` 中多了一项
+
+`python ～⁄linux⁄software⁄goagent⁄proxy.py.desktop`
 
 删除之，问题解决。
 
