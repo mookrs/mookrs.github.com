@@ -7,7 +7,7 @@ tags: [linux, fedora, kde]
 ---
 {% include JB/setup %}
 
-Gnome 用时间久了审美疲劳，作为懒人本来打算转到 [Archbang](http://archbang.org/)，安装过程中没有图形化界面一下子不敢继续碰了。于是受[壳酱的蛊惑](http://shellex.info/why-i-use-kde-instead-of-gnome-1)把 Fodora 16 Gnome 换成了 Fedora 17 KDE，一开始非常不顺手，现在用着用着也很带感啊……以下是配置过程中的记录。
+Gnome 用久了审美疲劳，身为懒人本打算转到 [Archbang](http://archbang.org/)，结果安装过程中没有 GUI 不敢继续碰了。于是受 [壳酱的蛊惑](http://shellex.info/why-i-use-kde-instead-of-gnome-1) 把 Fodora 16 Gnome 换成了 Fedora 17 KDE，一开始非常不顺手，现在用着用着也很带感啊……以下是配置过程中的记录。
 
 **安装**
 
@@ -21,9 +21,7 @@ system settings - locale - coutry/region & language - languages - 把「Chinese 
 
 输入法：应用程序 - 设置 - 输入法选择器，选择「使用IBus（推荐）」。
 
-登陆界面换成中文，编辑 `/etc/sysconfig/i18n：`
-
-`vi /etc/sysconfig/i18n`
+登陆界面换成中文：编辑 `/etc/sysconfig/i18n：`
 
 原来是 `LANG="en_US.UTF-8"`
 
@@ -45,7 +43,7 @@ Fedora 17 启动的时候，出现一条一闪而过的错误信息：
 
 `GRUB2 error: file ‘/boot/grub2/locale/en.mo.gz’ not found`
 
-解决办法是进入系统之后，在 Konsole 中以root权限输入：
+解决办法是在 Konsole 中以 root 权限输入：
 
 `# cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub2/locale/en.mo`
 
@@ -65,7 +63,7 @@ via <http://imobile365.com/articles/6331>
 
 **关闭 Kwallet**
 
-Kwallet 是用来存密码的，自动连接无线网络时总会出现提示窗口，很烦人，于是我决定关了它。
+Kwallet 是用来存密码的，连接无线网络时总会出现提示窗口，很烦人，于是我决定关了它。
 
 点击「应用程序菜单」，搜索「Kwallet」。
 
@@ -85,9 +83,9 @@ via <http://252376896.blog.163.com/blog/static/7820418220119162313789/>
 
 **开机自动启动 Kwrite 并卡死**
 
-每次开机 Kwrite 总是自启动，然后卡死，关闭进程系统才正常。卸载 Kwrite 连资源管理器都没了，结果换成了 Calligra Words 自启动。于是我怀系统是在试图用文本编辑器打开某个文件，可是总打不开。
+每次开机 Kwrite 总是自启动，然后造成系统卡死，kill 掉进程才正常。一怒之下卸载 Kwrite，连资源管理器都没了，以为能解决，结果换成了 Calligra Words 自启动。于是我怀疑系统是在试图用文本编辑器打开某个文件，可是总打不开。
 
-果然由于为了设置 GoAgent 开机启动在 `~/.kde/Autostart/` 中多了一项 `python ～⁄linux⁄software⁄goagent⁄proxy.py.desktop`
+果然，由于为了设置 GoAgent 开机启动在 `~/.kde/Autostart/` 中多了一项 `python ～⁄linux⁄software⁄goagent⁄proxy.py.desktop`
 
 删除之，问题解决。
 
@@ -95,7 +93,7 @@ via <https://bugs.kde.org/show_bug.cgi?id=286658>
 
 **修改 DNS**
 
-不喜欢用电信提供的DNS。编辑 `/etc/resolv.conf` 中的内容，把 nameserver 后的数值改成自己到 DNS。
+不喜欢用电信提供的DNS。编辑 `/etc/resolv.conf` 中的内容，把 nameserver 后的数值改成自己的 DNS。
 
 **视频播放**
 
@@ -115,11 +113,11 @@ via <https://bugs.kde.org/show_bug.cgi?id=286658>
 
 `＃ yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly`
 
-4.安装mplayer,smplayer
+4.安装 mplayer 和 smplayer
 
 `# yum install mplayer mplayer-gui smplayer`
 
-成功安装mplayer后，配置一下再使用：
+成功安装 mplayer 后，配置一下再使用：
 
 (1) 打开「mplayer」, 右键点击选择「Preferences」，打开设置界面；
 
@@ -139,12 +137,12 @@ via <http://blog.163.com/chfc2009@yeah/blog/static/130705634201251101755355/>
 
 在 `/etc/yum.repos.d/google-chrome.repo` 中加入
 
-`[google-chrome]  
+<pre>[google-chrome]  
 name=google-chrome - 64-bit  
 baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64  
 enabled=1  
 gpgcheck=1  
-gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub`
+gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</pre>
 
 然后 `yum install google-chrome-stable`
 
