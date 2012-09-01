@@ -21,7 +21,7 @@ system settings - locale - coutry/region & language - languages - 把「Chinese 
 
 输入法：应用程序 - 设置 - 输入法选择器，选择「使用IBus（推荐）」。
 
-登陆界面换成中文：编辑 `/etc/sysconfig/i18n：`
+登陆界面换成中文：编辑 `/etc/sysconfig/i18n`
 
 原来是 `LANG="en_US.UTF-8"`
 
@@ -146,13 +146,13 @@ enabled=1
 gpgcheck=1  
 gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</pre>
 
-然后 `yum install google-chrome-stable`
+然后 `# yum install google-chrome-stable`
 
 via <http://www.if-not-true-then-false.com/2010/install-google-chrome-with-yum-on-fedora-red-hat-rhel/>
 
 **安装 FireFox**
 
-`yum list firefox`
+`# yum list firefox`
 
 via <http://www.if-not-true-then-false.com/2011/install-firefox-on-fedora-centos-red-hat-rhel/>
 
