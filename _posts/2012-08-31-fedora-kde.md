@@ -139,11 +139,11 @@ via <http://blog.163.com/chfc2009@yeah/blog/static/130705634201251101755355/>
 
 在 `/etc/yum.repos.d/google-chrome.repo` 中加入
 
-<pre>[google-chrome]  
-name=google-chrome - 64-bit  
-baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64  
-enabled=1  
-gpgcheck=1  
+<pre>[google-chrome]
+name=google-chrome - 64-bit
+baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64
+enabled=1
+gpgcheck=1
 gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</pre>
 
 然后 `# yum install google-chrome-stable`
@@ -155,5 +155,22 @@ via <http://www.if-not-true-then-false.com/2010/install-google-chrome-with-yum-o
 `# yum list firefox`
 
 via <http://www.if-not-true-then-false.com/2011/install-firefox-on-fedora-centos-red-hat-rhel/>
+
+**安装 LibreOffice**
+
+安装 LibreOffice
+
+`# yum groupinstall "Office/Productivity"`
+
+安装 LibreOffice 中文语言包
+
+`# yum -y install  libreoffice-langpack-zh-Han*`
+
+卸载 LibreOffice
+
+`# yum remove libreoffice*`
+
+via <http://wangye.org/blog/archives/626/>
+
 
 
