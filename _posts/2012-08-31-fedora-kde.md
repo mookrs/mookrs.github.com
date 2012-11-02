@@ -7,13 +7,13 @@ tags: [linux, fedora, kde]
 ---
 {% include JB/setup %}
 
-Gnome 用久了审美疲劳，身为懒人本打算转到 [Archbang](http://archbang.org/)，结果安装过程中没有 GUI 不敢继续碰了。于是受 [壳酱的蛊惑](http://shellex.info/why-i-use-kde-instead-of-gnome-1) 把 Fodora 16 Gnome 换成了 Fedora 17 KDE，一开始非常不顺手，现在用着用着也很带感啊……以下是配置过程中的记录。
+Gnome 用久了审美疲劳，身为懒人本打算转到 [Archbang](http://archbang.org/)，结果安装过程中没有 GUI 不敢继续碰了。于是受 [壳酱的蛊惑](http://shellex.info/why-i-use-kde-instead-of-gnome-1) 把 Fodora 16 Gnome 换成了 Fedora 17 KDE，一开始非常不顺手，现在用着用着也很不错。以下是配置过程中的记录。
 
-**安装**
+#### 安装
 
 我下载的镜像为 Fedora-17-x86_64-Live-KDE.iso，利用 [Universal USB Installer](http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/) 软件进行U盘安装。
 
-**中文支持**
+#### 中文支持
 
 应用程序 - 管理 - 语言 里选择「Chinese(P.R.China) - 中文(简体)」，系统会自动下载中文语言包。
 
@@ -27,7 +27,7 @@ system settings - locale - coutry/region & language - languages - 把「Chinese 
 
 添加 `LANG="zh_CN.UTF-8"`
 
-**更新**
+#### 更新
 
 更新系统和软件
 
@@ -37,7 +37,7 @@ system settings - locale - coutry/region & language - languages - 把「Chinese 
 
 `# yum clean all`
 
-**修复启动错误**
+#### 修复启动错误
 
 Fedora 17 启动的时候，出现一条一闪而过的错误信息：
 
@@ -51,9 +51,13 @@ Fedora 17 启动的时候，出现一条一闪而过的错误信息：
 
 via <http://www.linuxidc.com/Linux/2012-08/69083.htm> & <https://bugzilla.redhat.com/show_bug.cgi?id=817187>
 
-**中文美化**
+#### 界面美化
 
-Fedora 的默认字体就是个渣渣，可以安装一个补丁改善。
+不像 gnome 那么麻烦，在 KDE 的 系统设置 - 应用程序外观 中即可调整风格、颜色和图标。
+
+#### 中文美化
+
+Fedora 的默认字体很渣，可以安装一个补丁改善。
 
 `# rpm -Uvh http://www.infinality.net/fedora/linux/infinality-repo-1.0-1.noarch.rpm`
 
@@ -61,7 +65,64 @@ Fedora 的默认字体就是个渣渣，可以安装一个补丁改善。
 
 via <http://imobile365.com/articles/6331>
 
-**关闭 Kwallet**
+#### 使用微软雅黑字体
+
+虽然在 Fedora 上装雅黑有点蛋疼，但是安装的话可以这样：
+
+将雅黑字体复制到 `/usr/share/fonts/chinese/TrueType` 目录下.（`/chinese/TrueType` 是自己建立的路径）
+
+修改字体权限，使 root 以外的用户可以使用这些字体。
+
+建立字体缓存
+
+`# cd /usr/share/fonts/chinses/TrueType`
+
+`# mkfontscale`
+
+`# mkfontdir`
+
+`# fc-cache -fv`
+
+重启即可。
+
+via <http://www.selfcai.com.cn/2010/05/694.html>
+
+#### fcitx 小企鹅输入法使用搜狗词库
+
+专用于 fcitx-utf8 的词库下载地址：
+
+fcitx-utf8 的搜狗词库精简版，仅整合搜狗词库、计算机词汇和诗词古句等：<http://hslinuxextra.googlecode.com/files/fcitx-sougou-phrase-small.7z>
+
+fcitx-utf8 的搜狗词库，非常全面：<http://hslinuxextra.googlecode.com/files/fcitx-sougou-phrase-full.7z>
+
+
+> 虽然 full 的这个词库很大，但是如果机器资源足够的话问题倒不大，响应速度没有太大影响。small 这个词库仅仅是搜狗官方词库、计算机专业词库、网络流行词和诗词古句等。
+
+
+> 如果你的 fcitx-utf8 是源代码安装的，只要把下载目录的 `pyPhrase.org` 替换掉原来的 `data` 目录下的同名文件再编译安装即可。
+
+
+> 如果你的 fcitx-utf8 是二进制包，那么用终端进入到下载目录中，执行 `./run.sh`，然后把生成的下列文件 `pybase.mb` 和 `pyphrase.mb` 复制到 `/usr/share/fcitx/data` 目录下覆盖原文件即可。（在 4.2.0 的 fcitx 中已经变成了 `/usr/share/fcitx/pinyin`）
+
+
+> 覆盖后请查看词库文件权限，可以设置为777，否则可能fcitx无法顺利调用词库文件。
+
+
+> 加载词库需要时间，所以第一次使用反应会比较慢，但之后词库完全载入内存，速度就非常快了。
+
+via <http://www.snowhawkyrf.name/2012/05/fcitx.html>
+
+#### fcitx 输入法的一些个性设置
+
+颜文字：使用 fcitx 的快速输入功能（按 `;` 键进入快速输入），建立 `～/.config/fcitx/data/QuickPhrase.mb` 文件，在里面加入自己喜欢的颜文字和对应的拼音。
+
+特殊符号： 在 `~/.config/fcitx/pinyin/pySym.mb` 文件里定义。（里面已有例子）
+
+更多设置查看下面的参考链接：
+
+via <http://tieba.baidu.com/p/1769479692>
+
+#### 关闭 Kwallet
 
 Kwallet 是用来存密码的，连接无线网络时总会出现提示窗口，很烦人，于是我决定关了它。
 
@@ -73,7 +134,7 @@ Kwallet 是用来存密码的，连接无线网络时总会出现提示窗口，
 
 via <http://zh.opensuse.org/SDB:VPN_配置>
 
-**Konsole 光标漂移**
+#### Konsole 光标漂移
 
 貌似因为我把字体改了，Konsole 光标的出现了漂移。
 
@@ -81,7 +142,7 @@ via <http://zh.opensuse.org/SDB:VPN_配置>
 
 via <http://252376896.blog.163.com/blog/static/7820418220119162313789/>
 
-**开机自动启动 Kwrite 并卡死**
+#### 开机自动启动 Kwrite 并卡死
 
 每次开机 Kwrite 总是自启动，然后造成系统卡死，kill 掉进程才正常。一怒之下卸载 Kwrite，连资源管理器都没了，以为能解决，结果换成了 Calligra Words 自启动。于是我怀疑系统是在试图用文本编辑器打开某个文件，可是总打不开。
 
@@ -93,11 +154,11 @@ via <http://252376896.blog.163.com/blog/static/7820418220119162313789/>
 
 via <https://bugs.kde.org/show_bug.cgi?id=286658>
 
-**修改 DNS**
+#### 修改 DNS
 
-不喜欢用电信提供的DNS。编辑 `/etc/resolv.conf` 中的内容，把 nameserver 后的数值改成自己的 DNS。
+不喜欢用 ISP 提供的DNS。编辑 `/etc/resolv.conf` 中的内容，把 nameserver 后的数值改成自己的 DNS。
 
-**视频播放**
+#### 视频播放
 
 1.添加软件源
 
@@ -135,7 +196,7 @@ via <https://bugs.kde.org/show_bug.cgi?id=286658>
 
 via <http://blog.163.com/chfc2009@yeah/blog/static/130705634201251101755355/>
 
-**安装 Chrome**
+#### 安装 Chrome
 
 在 `/etc/yum.repos.d/google-chrome.repo` 中加入
 
@@ -150,15 +211,13 @@ gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</pre>
 
 via <http://www.if-not-true-then-false.com/2010/install-google-chrome-with-yum-on-fedora-red-hat-rhel/>
 
-**安装 FireFox**
+#### 安装 FireFox
 
 `# yum list firefox`
 
 via <http://www.if-not-true-then-false.com/2011/install-firefox-on-fedora-centos-red-hat-rhel/>
 
-**安装 LibreOffice**
-
-安装 LibreOffice
+#### 安装 LibreOffice
 
 `# yum groupinstall "Office/Productivity"`
 
@@ -172,5 +231,6 @@ via <http://www.if-not-true-then-false.com/2011/install-firefox-on-fedora-centos
 
 via <http://wangye.org/blog/archives/626/>
 
+#### 安装 Sublime Text 2
 
-
+via <http://crabby.iteye.com/blog/1542141>
