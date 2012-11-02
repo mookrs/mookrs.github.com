@@ -11,7 +11,7 @@ tags: [jekyll, skill]
 
 在 Windows 上搭建 Ruby on Rails 环境，强烈建议使用 [RailsInstaller](http://railsinstaller.org/)，它简化了 Rails 在 Windows 上的安装过程，包含有 [Ruby](http://ruby-lang.org/)、[Rails](http://rubyonrails.org/)、[Bundler](http://gembundler.com/)、[Git](http://git-scm.com/)、[Sqlite](http://sqlite.org/)、[TinyTDS](https://github.com/rails-sqlserver/tiny_tds)、[SQL Server support](https://github.com/rails-sqlserver/activerecord-sqlserver-adapter) 和 [DevKit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)。我换了个 Git 的版本。
 
-**以下是部署 Jekyll 或 Octopress 的参考链接：**
+#### 以下是部署 Jekyll 或 Octopress 的参考链接：
 
 - [在 Windows7 下从头开始安装部署 Octopress](http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/)
 
@@ -21,7 +21,7 @@ tags: [jekyll, skill]
 
 - [Octopress 搭建 Blog：配置篇](http://evsseny.appspot.com/2012/03/30/Octopress-blog-Configuration.html)
 
-**学习 Git 的参考链接：**
+#### 学习 Git 的参考链接：
 
 - [git - 简易指南](http://rogerdudler.github.com/git-guide/index.zh.html)（适合初学者的概览）
 
@@ -29,7 +29,7 @@ tags: [jekyll, skill]
 
 - [Git Community Book 中文版](http://gitbook.liuhui998.com/index.html)
 
-**设置 gem 的更新源**
+#### 设置 gem 的更新源
 
 `gem sources --remove http://rubygems.org/`
 
@@ -37,21 +37,21 @@ tags: [jekyll, skill]
 
 当 `gem sources -l` 时确保只有 `http://ruby.taobao.org` 输出
 
-**测试 git 是否连接正常**
+#### 测试 git 是否连接正常
 
 `ssh -T git@github.com`
 
-**安装用来解析 markdown 语言的 rdiscount 或 kramdown**
+#### 安装用来解析 markdown 语言的 rdiscount 或 kramdown
 
 `gem install rdiscount kramdown`
 
-**配置 _config.yml 文件**
+#### 配置 _config.yml 文件
 
 _config.yml 里的的冒号后必须要有空格，否则会报错。如果有中文，需要存成 UTF-8 格式。修改固定链接格式为 `/:year/:month/:title.html`，其它选项有必要的都一一修改好。
 
-**Windows 系统下文章或标题有中文则不能生成网站**
+#### Windows 系统下文章或标题有中文则不能生成网站
 
-参考了这里：<http://www.oschina.net/question/129471_37163>
+via <http://www.oschina.net/question/129471_37163>
 
 编辑
 
@@ -65,7 +65,7 @@ _config.yml 里的的冒号后必须要有空格，否则会报错。如果有�
 
 `self.content = File.read(File.join(base, name), :encoding => "utf-8")`
 
-**其它**
+#### 其它
 
 添加 CNAME，404 页面。
 

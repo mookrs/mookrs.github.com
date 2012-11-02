@@ -69,7 +69,7 @@ via <http://imobile365.com/articles/6331>
 
 虽然在 Fedora 上装雅黑有点蛋疼，但是安装的话可以这样：
 
-将雅黑字体复制到 `/usr/share/fonts/chinese/TrueType` 目录下.（`/chinese/TrueType` 是自己建立的路径）
+将雅黑字体复制到 `/usr/share/fonts/chinese/TrueType` 目录下。（`/chinese/TrueType` 是自己建立的路径）
 
 修改字体权限，使 root 以外的用户可以使用这些字体。
 
@@ -91,20 +91,17 @@ via <http://www.selfcai.com.cn/2010/05/694.html>
 
 专用于 fcitx-utf8 的词库下载地址：
 
-fcitx-utf8 的搜狗词库精简版，仅整合搜狗词库、计算机词汇和诗词古句等：<http://hslinuxextra.googlecode.com/files/fcitx-sougou-phrase-small.7z>
+fcitx-utf8 的搜狗词库精简版，仅整合搜狗词库、计算机词汇和诗词古句等：   
+<http://hslinuxextra.googlecode.com/files/fcitx-sougou-phrase-small.7z>
 
 fcitx-utf8 的搜狗词库，非常全面：<http://hslinuxextra.googlecode.com/files/fcitx-sougou-phrase-full.7z>
 
-
 > 虽然 full 的这个词库很大，但是如果机器资源足够的话问题倒不大，响应速度没有太大影响。small 这个词库仅仅是搜狗官方词库、计算机专业词库、网络流行词和诗词古句等。
-
-
+> 
 > 如果你的 fcitx-utf8 是源代码安装的，只要把下载目录的 `pyPhrase.org` 替换掉原来的 `data` 目录下的同名文件再编译安装即可。
-
-
+> 
 > 如果你的 fcitx-utf8 是二进制包，那么用终端进入到下载目录中，执行 `./run.sh`，然后把生成的下列文件 `pybase.mb` 和 `pyphrase.mb` 复制到 `/usr/share/fcitx/data` 目录下覆盖原文件即可。（在 4.2.0 的 fcitx 中已经变成了 `/usr/share/fcitx/pinyin`）
-
-
+> 
 > 覆盖后请查看词库文件权限，可以设置为777，否则可能fcitx无法顺利调用词库文件。
 
 
