@@ -20,7 +20,7 @@ tags: [arcgis, software]
 目前 ArcGIS Desktop 10 的版本已更新到 Service Pack 3（2011-10-12）。但因为我手头没有这个补丁，下载又比较费时间，这里以 sp2 演示。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
 ![](http://farm8.staticflickr.com/7036/7112394987_baa93b3916_z.jpg)
 
-(3) 注册机 [115地址](http://115.com/file/dn3p6nh8#) [Box地址](http://www.box.com/s/elb10n41962jmbujrm0v)
+(3) 注册机 [百度网盘地址](http://pan.baidu.com/share/link?shareid=107486&uk=3037464795) [Box地址](http://www.box.com/s/elb10n41962jmbujrm0v)
 
 请务必保证非商业使用，仅供个人学习和研究，如需要请购买正版！
 

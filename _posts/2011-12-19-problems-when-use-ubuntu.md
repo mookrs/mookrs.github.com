@@ -27,7 +27,9 @@ via <http://zhangshijun0923.blog.163.com/blog/static/10266260820112250584912/>
 
 `sudo apt-get install –reinstall software-center`
 
-#### Ubuntu 软件中心依然打不开，停在载入状态 & 更新管理器检查更新失败，出现提示“下载软件仓库信息失败，检查您的 internet 连接”，查看细节发现软件源报错**
+#### Ubuntu 软件中心依然打不开，停在载入状态
+
+具体为：更新管理器检查更新失败，出现提示“下载软件仓库信息失败，检查您的 internet 连接”，查看细节发现软件源报错。
 
 via <http://forum.ubuntu.org.cn/viewtopic.php?f=52&t=173860>
 

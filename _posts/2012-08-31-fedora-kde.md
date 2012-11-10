@@ -103,8 +103,7 @@ fcitx-utf8 的搜狗词库，非常全面：<http://hslinuxextra.googlecode.com/
 > 如果你的 fcitx-utf8 是二进制包，那么用终端进入到下载目录中，执行 `./run.sh`，然后把生成的下列文件 `pybase.mb` 和 `pyphrase.mb` 复制到 `/usr/share/fcitx/data` 目录下覆盖原文件即可。（在 4.2.0 的 fcitx 中已经变成了 `/usr/share/fcitx/pinyin`）
 > 
 > 覆盖后请查看词库文件权限，可以设置为777，否则可能fcitx无法顺利调用词库文件。
-
-
+>
 > 加载词库需要时间，所以第一次使用反应会比较慢，但之后词库完全载入内存，速度就非常快了。
 
 via <http://www.snowhawkyrf.name/2012/05/fcitx.html>
