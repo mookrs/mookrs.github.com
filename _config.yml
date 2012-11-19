@@ -1,6 +1,6 @@
 # This is the default format. 
 # For more see: https://github.com/mojombo/jekyll/wiki/Permalinks
-permalink: /:year/:month/:title.html 
+permalink: /:title/ 
 
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
 auto: true
@@ -14,7 +14,7 @@ title : Mookrs
 tagline: A way to remember.
 author :
   name : Mookrs
-  email : mookrs@gmail.com
+  email : 
   github : mookrs
   twitter : mookrs
   feedburner : mookrs
@@ -27,7 +27,7 @@ author :
 # Else if you are pushing to username.github.com, replace with your username.
 # Finally if you are pushing to a GitHub project page, include the project name at the end.
 #
-production_url : http://mookrs.com
+production_url : http://mookrs.com/
 
 # All Jekyll-Bootstrap specific configurations are namespaced into this hash
 #
