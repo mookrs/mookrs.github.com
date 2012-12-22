@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Mookrs
+title: 蘑殼四研究所
 tagline: 
 ---
 {% include JB/setup %}
