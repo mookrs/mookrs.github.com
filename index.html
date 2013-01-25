@@ -1,8 +1,11 @@
-<html>
-<title>
-	hello world！
-</title>
-<body>
-	<p>新的开始</p>
-</body>
-</html>
+---
+　　layout: default
+　　title: Mookrs
+　　---
+　　<h2>{{ page.title }}</h2>
+　　<p>这个页面正在施工中 稍等...</p>
+　　<ul>
+　　　　{% for post in site.posts %}
+　　　　　　<li>{{ post.date | date_to_string }} <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+　　　　{% endfor %}
+　　</ul>
