@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>解决使用Ubuntu时的几个小问题</title>
+    <meta name="description" content="">
+    <meta name="author" content="Mookrs">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML elements -->
+    <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le styles -->
+    <link href="/assets/themes/twitter/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/assets/themes/twitter/css/style.css?body=1" rel="stylesheet" type="text/css" media="all">
+
+    <!-- Le fav and touch icons -->
+  <!-- Update these with your own images
+    <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="images/apple-touch-icon-114x114.png">
+  -->
+  </head>
+
+  <body>
+
+    <div class="navbar">
+      <div class="navbar-inner">
+        <div class="container">
+          <a class="brand" href="/">Mookrs</a>
+          <ul class="nav">
+            
+            
+            
+
+
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/about.html">About</a></li>
+      	
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/archive.html">Archive</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/categories.html">Categories</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/pages.html">Pages</a></li>
+      	
+      
+    
+  
+    
+      
+    
+  
+    
+      
+      	
+      	<li><a href="/tags.html">Tags</a></li>
+      	
+      
+    
+  
+
+
+
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <div class="content">
+        
+<div class="page-header">
+  <h1>解决使用Ubuntu时的几个小问题 <small></small></h1>
+</div>
+
+<div class="row">
+  <div class="span9">
+    
+<p>作为一个 Ubuntu 的使用者（<em>更新：现已转投 Fedora</em>），之前参照<a href="http://linux.vbird.org/linux_basic/" title="在线版地址">《鸟哥的 Linux 私房菜（基础学习篇）》</a>折腾时出现了不少问题。凭印象整理了几个小问题，备忘和分享一下。环境：Ubuntu 11.10 64-bit</p>
+
+<h4 id="ubuntu-">安装 Ubuntu 时卡在「正在探测文件系统」</h4>
+
+<p>安装前打开终端，硬盘安装输入  <code>sudo umount -l /isodevice</code></p>
+
+<p>光盘安装输入  <code>sudo umount -l /cdrom</code></p>
+
+<h4 id="ubuntu--1">Ubuntu 软件中心打不开，停在载入状态</h4>
+
+<p>via <a href="http://zhangshijun0923.blog.163.com/blog/static/10266260820112250584912/">http://zhangshijun0923.blog.163.com/blog/static/10266260820112250584912/</a></p>
+
+<p>依次运行下面的命令：</p>
+
+<p><code>sudo apt-get update</code></p>
+
+<p><code>sudo apt-get dist-upgrade</code></p>
+
+<p><code>sudo apt-get install –reinstall software-center</code></p>
+
+<h4 id="ubuntu--2">Ubuntu 软件中心依然打不开，停在载入状态</h4>
+
+<p>具体为：更新管理器检查更新失败，出现提示“下载软件仓库信息失败，检查您的 internet 连接”，查看细节发现软件源报错。</p>
+
+<p>via <a href="http://forum.ubuntu.org.cn/viewtopic.php?f=52&amp;t=173860">http://forum.ubuntu.org.cn/viewtopic.php?f=52&amp;t=173860</a></p>
+
+<p>移除旧源：</p>
+
+<p><code>sudo rm /var/lib/apt/lists/* -vf</code></p>
+
+<p>使用上述命令后运行“更新管理器”－“设置”－“Ubuntu 软件”－“下载自”，换一个软件源。推荐使用中国的服务器，或者选择“自定义服务器”，在终端里输入：</p>
+
+<p><code>sudo gedit  /etc/apt/sources.list</code></p>
+
+<p>屏蔽掉出错的地方，加入 163、sohu、台湾源之类速度较快的源，重新更新。 </p>
+
+<h4 id="section">已经更换软件源，更新时依然报错，而且还是软件源报错</h4>
+
+<p>打开 sources.list，发现删掉的源又回来了。</p>
+
+<p>经过研究是和之前安装的 gnome3 有关。查看 /etc/apt ，sources.list.d 文件夹里发现有 gnome 之类的文件，打开发现其中含有报错的源，删除它们。至此，终于可以更新了。</p>
+
+<h4 id="chromium--flash-">为 Chromium 安装缺失 Flash 插件</h4>
+
+<p>基于64位 Linux 的 Chromium 浏览器没有自带 Flash 播放器，默认的 deb 都是基于 Firefox 的，所以要去 Adobe 下载 adobe flash player 11 for linux 64bit 的 tar.gz 包。下载完成后解压找到一个 libflashplayer.so 的文件，进入终端，cd 到放 libflashplayer.so 文件的目录，执行：</p>
+
+<p><code>sudo cp libflashplayer.so /usr/lib/chromium-browser/plugins/</code>    # 拷贝 flashplayer 到插件文件夹</p>
+
+    <hr>
+    <div class="pagination">
+      <ul>
+      
+        <li class="prev"><a href="/remove-srt-messy-code/" title="消除BIG5编码造成的字幕乱码">&larr; Previous</a></li>
+      
+        <li><a href="/archive.html">Archive</a></li>
+      
+        <li class="next"><a href="/turn-on-windows-autoplay/" title="开启Windows「自动播放」功能">Next &rarr;</a></li>
+      
+      </ul>
+    </div>
+    <hr>
+    
+
+
+  <div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_developer = 1;
+    var disqus_shortname = 'mookrs'; // required: replace example with your forum shortname
+    
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">Blog Comments Powered by <span class="logo-disqus">Disqus</span></a>
+
+
+
+
+  </div>
+  
+  <div class="span3">
+    <h4>Published</h4>
+    <div class="date"><span>19 December 2011</span></div>
+
+  
+    <h4>Tags</h4>
+    <ul class="tag_box">
+    
+    
+
+
+  
+     
+    	<li><a href="/tags.html#linux-ref">linux <span>2</span></a></li>
+     
+    	<li><a href="/tags.html#ubuntu-ref">ubuntu <span>1</span></a></li>
+     
+    	<li><a href="/tags.html#skill-ref">skill <span>6</span></a></li>
+    
+  
+
+
+
+    </ul>
+    
+  </div>
+</div>
+
+
+      </div>
+
+      <footer>
+        <p>&copy; Mookrs 2011-2012 
+          with help from <a href="http://jekyllbootstrap.com" target="_blank" title="The Definitive Jekyll Blogging Framework">Jekyll Bootstrap</a>
+          and <a href="http://twitter.github.com/bootstrap/" target="_blank">Twitter Bootstrap</a>
+        </p>
+      </footer>
+
+    </div> <!-- /container -->
+
+    
+  </body>
+</html>
+
