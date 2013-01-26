@@ -4,7 +4,7 @@ This is the source code of <http://mookrs.com/> .
 
 ## Thanks
 
-* [Jekyll-Bootstrap](http://jekyllbootstrap.com)
+* Jekyll
 
 * [GitHub Pages](http://pages.github.com/) 
 
