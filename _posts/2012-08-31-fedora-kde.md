@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "Fedora 17 KDE 个人配置"
-description: ""
 category: tech
 tags: [linux, fedora, kde]
 ---
-{% include JB/setup %}
 
 Gnome 用久了审美疲劳，身为懒人本打算转到 [Archbang](http://archbang.org/)，结果安装过程中没有 GUI 不敢继续碰了。于是受 [壳酱的蛊惑](http://shellex.info/why-i-use-kde-instead-of-gnome-1) 把 Fodora 16 Gnome 换成了 Fedora 17 KDE，一开始非常不顺手，现在用着用着也很不错。以下是配置过程中的记录。
 

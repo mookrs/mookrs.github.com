@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "秋日偶感"
-description: ""
 category: essays
 tags: [dream]
 ---
-{% include JB/setup %}
 
 从无话不说到无话可说，从一个眼神都是默契到一个表情一句不经意的话都是误会。
 

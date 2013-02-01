@@ -1,11 +1,9 @@
 ---
 layout: post
 title: "ArcGIS Desktop 10 图文安装教程"
-description: ""
 category: tech
 tags: [arcgis, software]
 ---
-{% include JB/setup %}
 
 地理信息系统相关专业的同学一定少不了要用到 ArcGIS。之前有同学要我帮忙装这个软件，我想既然“授人以鱼不如授人以渔”，那我来结合网上的文章写一个教程好啦。
 
