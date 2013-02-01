@@ -3,6 +3,7 @@ layout: post
 title: "解决「The realtek network controller was not found」"
 category: tech
 tags: [realtek, windows, skill]
+comments: yes
 ---
 
 家里今天配了一台电脑，主板是昂达 N68GD3，Win7 32 位下有线网卡不能直接驱动。当时没有其它电脑在手边，还好试着挂载了一下 Ubuntu 镜像，能连上网络。根据 [ZOL](http://detail.zol.com.cn/motherboard/index294964.shtml) 的硬件信息找到 Realtek RTL8103E 的相关驱动，安装报错“FindFile failed”，然后继续报错“The Realtek Network Controller was not found.IF Deep Sleep Mode is enabled Please Plug the Cable.”意思是 Realtek 网络控制器未找到，如果进入了深度睡眠状态，请插上网线。

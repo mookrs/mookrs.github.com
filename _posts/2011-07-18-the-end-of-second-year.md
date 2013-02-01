@@ -3,6 +3,7 @@ layout: post
 title: "于是我终于踏上奔三的不归路"
 category: essays
 tags: [summary, vocation]
+comments: yes
 ---
 
 之前参加国际交流营，15号才结束的一个活动，因而在武汉羁留到今天

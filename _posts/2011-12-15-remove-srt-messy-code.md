@@ -3,6 +3,7 @@ layout: post
 title: "消除BIG5编码造成的字幕乱码"
 category: tech
 tags: [encoding, skill]
+comments: yes
 ---
 
 最近在读三岛由纪夫的《[春雪](http://book.douban.com/subject/3987362/ "豆瓣链接")》，刚好下载到改编自这本书的[同名电影](http://movie.douban.com/subject/1478789/ "豆瓣链接")，打算观看却发现外挂字幕显示乱码。原因在于字幕采用了繁体中文编码 BIG5，而我的 PotPlayer 播放器在字幕选项里编码设定的是简体中文编码 GB2312。为了不影响播放器正常播放简体中文字幕，采用下面的简单方法对字幕进行调整。
