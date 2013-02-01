@@ -4,5 +4,6 @@ title: Mookrs
 author: Mookrs
 markdown: rdiscount
 auto: true
+safe: true
 pygments: true
 exclude: [".rvmrc", ".rbenv-version", "README.md", "Rakefile", "changelog.md"]
