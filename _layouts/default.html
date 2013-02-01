@@ -4,24 +4,24 @@
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="author" content="{{ site.author }}">
     {% if page.title %}
-    <title>{{ page.title }}</title>
+    <title>{{ page.title }} - {{ site.name }}</title>
     {% else %}
     <title>{{ site.name }}</title>
     {% endif %}
     <link rel='alternate' type='application/rss+xml' title='Mookrs' href='/feed'>
-    <title>Mookrs</title>
+    <title>{{ site.name }}</title>
     <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-<h1><a href="{{ site.url }}/">Mookrs</a></h1>
+<h1><a href="{{ site.url }}/">{{ site.name }}</a></h1>
 <div id="header">
     <ul id="nav">
-        <li><a href="{{ site.url }}/" class="current">Home</a></li>
-        <li><a href="{{ site.url }}/blog/archives/" class="current">Blog</a></li>
-        <li><a href="{{ site.url }}/projects/" class="current">Projects</a></li>
-        <li><a href="{{ site.url }}/links/" class="current">Links</a></li>
-        <li><a href="{{ site.url }}/about/" class="current">About</a></li>
+        <li><a title="Home" href="{{ site.url }}/" class="current">Home</a></li>
+        <li><a title="Blog Archives" href="{{ site.url }}/blog/archives/" class="current">Blog</a></li>
+        <li><a title="My Projects" href="{{ site.url }}/projects/" class="current">Projects</a></li>
+        <li><a title="Links" href="{{ site.url }}/links/" class="current">Links</a></li>
+        <li><a title="About Me" href="{{ site.url }}/about/" class="current">About</a></li>
     </ul>
 </div>
 
@@ -36,9 +36,8 @@
 
 <div align="center" >
 <footer>
-  <p><small>Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a> on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a> | &copy; <a href="{{ site.url }}/">Mookrs</a> 2011 - {{site.time | date:"%Y"}} | Fork <a href="https://github.com/mookrs/mookrs.github.com" title="Fork me on Github" target="_blank">me</a></small></p>
+  <p><small>Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a> on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a> | Copyright &copy; 2011 - {{site.time | date:"%Y"}} <a href="{{ site.url }}/">Mookrs</a> | Fork <a href="https://github.com/mookrs/mookrs.github.com" title="Fork me on Github" target="_blank">me</a></small></p>
 </footer>
 </div>
 </body>
 </html>
-
