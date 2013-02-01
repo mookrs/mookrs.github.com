@@ -1,19 +1,27 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-	<meta name="author" content="{{ site.author }}" />
-    <link rel='alternate' type='application/rss+xml' title='atom 1.0' href='/feed' />
-    <title> Mookrs</title>
-	<link rel="shortcut icon" href="/favicon.ico">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="author" content="{{ site.author }}">
+    {% if page.title %}
+    <title>{{ page.title }}</title>
+    {% else %}
+    <title>{{ site.name }}</title>
+    {% endif %}
+    <link rel='alternate' type='application/rss+xml' title='Mookrs' href='/feed'>
+    <title>Mookrs</title>
+    <link rel="shortcut icon" href="/favicon.png">
     <link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
-
+<h1><a href="{{ site.url }}/">Mookrs</a></h1>
 <div id="header">
     <ul id="nav">
-        <li><a href="{{ site.url }}/" class="current">HOME</a></li>
-		<li><a href="{{ site.url }}/about/" >ABOUT</a></li>
+        <li><a href="{{ site.url }}/" class="current">Home</a></li>
+        <li><a href="{{ site.url }}/blog/archives/" class="current">Blog</a></li>
+        <li><a href="{{ site.url }}/projects/" class="current">Projects</a></li>
+        <li><a href="{{ site.url }}/links/" class="current">Links</a></li>
+        <li><a href="{{ site.url }}/about/" class="current">About</a></li>
     </ul>
 </div>
 
@@ -25,21 +33,10 @@
 		{{ content }}
     </article>
 </div>
-    <script type="text/javascript">
-    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'mookrs'; // required: replace example with your forum shortname
 
-    /* * * DON'T EDIT BELOW THIS LINE * * */
-    (function () {
-        var s = document.createElement('script'); s.async = true;
-        s.type = 'text/javascript';
-        s.src = 'http://' + disqus_shortname + '.disqus.com/count.js';
-        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
-    }());
-    </script>
 <div align="center" >
 <footer>
-  <p><small>Powered by <a href="https://github.com/mojombo/jekyll">Jekyll</a> on GitHub | Mookrs 2011 - {{site.time | date:"%Y"}} by <a href="http://mookrs.com/">Mookrs</a> | <span class="label label-info">{{site.time | date:"%Y-%m-%d %H:%M:%S"}}</span></small></p>
+  <p><small>Powered by <a href="https://github.com/mojombo/jekyll" target="_blank">Jekyll</a> on <a href="http://pages.github.com/" target="_blank">GitHub Pages</a> | &copy; <a href="{{ site.url }}/">Mookrs</a> 2011 - {{site.time | date:"%Y"}} | Fork <a href="https://github.com/mookrs/mookrs.github.com" title="Fork me on Github" target="_blank">me</a></small></p>
 </footer>
 </div>
 </body>
