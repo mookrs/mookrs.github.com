@@ -1,9 +1,8 @@
 ---
-title: Mookrs
 layout: page
 ---
 
-My name is Zhang Hong. I am a student OF WHU. On the internet I usually use the ID "Mookrs".
+I am a student of WHU. On the internet I usually use the ID "Mookrs". The website is still under building, just have your fun! :)
 
 ### Recent posts
 <ul class="posts">
