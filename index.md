@@ -2,7 +2,9 @@
 layout: page
 ---
 
-I am a student of WHU. On the internet I usually use the ID "Mookrs". The website is still under building, just have your fun! :)
+> What happened, happened.
+
+> Remember. Let go. Move on. I will miss it more than I can ever say. 
 
 ### Recent posts
 <ul class="posts">

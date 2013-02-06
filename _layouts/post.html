@@ -1,10 +1,50 @@
 ---
 layout: default
 ---
+<section class="meta">
 
-<section class="post">
+<span class="datetime">
+  <time datetime="{{ page.date | date:"%Y-%m-%d" }}">{{ page.date | date:"%Y-%m-%d" }}</time>
+</span> 
+
+{% if page.categories %}
+<span class="categories">
+  {% for cat in page.categories %}
+  <a href="{{ site.url }}/blog/categories/#{{ cat }}" title="{{ cat }}">{{ cat }}</a>&nbsp;
+  {% endfor %}
+</span>
+{% endif %}
+
+{% if page.tags %}
+<span class="tags">
+  {% for tag in page.tags %}
+  <a href="{{ site.url }}/blog/tags/#{{ tag }}" title="{{ tag }}">{{ tag }}</a>&nbsp;
+  {% endfor %}
+</span>
+{% endif %}
+
+</section>
+
+<section id="content">
 {{ content }}
 </section>
+
+<div class="pager">
+  <ul>
+  {% if page.previous %}
+    <li class="pre"><a href="{{ page.previous.url }}" title="{{ page.previous.title }}">&larr; Previous</a></li>
+    {% else %}
+    <li class="pre_disabled"><a>&larr; Previous</a></li>
+    {% endif %}
+    {% if page.next %}
+    <li class="next"><a href="{{ page.next.url }}" title="{{ page.next.title }}">Next &rarr;</a></li>
+    {% else %}
+    <li class="next_disabled"><a>Next &rarr;</a></li>
+    {% endif %}
+  </ul>
+</div>
+
+<!--
 
 <section class="meta">
 <span class="author">
@@ -37,6 +77,8 @@ layout: default
 </span>
 {% endif %}
 </section>
+
+-->
 
 {% if page.comments %}
 {% include comments.md %}

@@ -6,7 +6,7 @@ comments: false
 
 Some places I usually go :
 
-- [Twitter](http://twitter.com/mookrs "Mookrs") / [新浪微博](http://weibo.com/mookrs "活蹦乱跳异戊二烯黏豆包") / [豆瓣](http://www.douban.com/people/Aisophy/ "蘑殼四")
+- [Twitter](http://twitter.com/mookrs "Mookrs") / [新浪微博](http://weibo.com/mookrs "茄子饲养员") / [豆瓣](http://www.douban.com/people/Aisophy/ "蘑殼四")
 
 - [Github](https://github.com/mookrs "mookrs") / [V2EX](http://www.v2ex.com/member/mimzy "mimzy") / [知乎](http://www.zhihu.com/people/mookrs "Mookrs")
 
