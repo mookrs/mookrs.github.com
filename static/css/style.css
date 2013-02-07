@@ -7,7 +7,7 @@ body {
     width: 820px;
     margin: 0 auto;
     -webkit-text-size-adjust:none;
-    background-image: url(/static/img/bg.jpg);
+    /*background-image: url(/static/img/bg.jpg);*/
     background-repeat: repeat;
     background-attachment: fixed;
 }
