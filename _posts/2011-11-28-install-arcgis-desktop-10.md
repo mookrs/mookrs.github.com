@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "ArcGIS Desktop 10 图文安装教程"
-category: tech
-tags: [arcgis, software]
+category: Tech
+tags: [ArcGIS, software]
 comments: yes
 ---
 
@@ -14,9 +14,10 @@ comments: yes
 
 复制链接，在迅雷等下载软件里新建任务即可。注意，这个 3.75G 的 ArcGIS_Desktop10_122519.iso 文件为英文版，不包含补丁。
 
-(2) [sp2补丁地址](http://resources.arcgis.com/zh-cn/content/patches-and-service-packs?fa=viewPatch&PID=15&MetaID=1752)  [sp3补丁地址](http://resources.arcgis.com/zh-cn/content/patches-and-service-packs?fa=viewPatch&PID=15&MetaID=1807)
+(2) [sp5补丁地址](http://support.esri.com/en/downloads/patches-servicepacks/view/productid/66/metaid/1876)
 
-目前 ArcGIS Desktop 10 的版本已更新到 Service Pack 3（2011-10-12）。但因为我手头没有这个补丁，下载又比较费时间，这里以 sp2 演示。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
+ArcGIS Desktop 10 的版本已更新到最终版 sp5 （2012-7-10），最新的 ArcGIS （2012-10-30）版本号为 [10.1](http://kuai.xunlei.com/d/GGVSLKJHOHOZ)，这里以ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
+
 ![](http://farm8.staticflickr.com/7036/7112394987_baa93b3916_z.jpg)
 
 (3) 注册机 [百度网盘地址](http://pan.baidu.com/share/link?shareid=107486&uk=3037464795) [Box地址](http://www.box.com/s/elb10n41962jmbujrm0v)
@@ -47,7 +48,7 @@ ArcGIS Desktop 10 需要 .NET Framwork 3.5 SP1 支持，如果系统中没有安
 
 ![](http://farm8.staticflickr.com/7051/6966316786_dc35a49398_z.jpg)
 
-Desktop 安装完出现 ArcGIS Administrator Wizard，如图，第2项填 localhost，也可以在后面配置：
+Desktop 安装完出现 ArcGIS Administrator Wizard，如图，第2项填 localhost，也可以在后面配置（因为有时这一步是无法配置的）：
 
 ![](http://farm8.staticflickr.com/7248/7112393523_f563a365da_z.jpg)
 
@@ -93,6 +94,4 @@ Desktop 安装完出现 ArcGIS Administrator Wizard，如图，第2项填 localh
 
 ![](http://farm8.staticflickr.com/7179/6966316220_bbd3ae28ef_z.jpg)
 
-为了写这篇文章我把早装好的 ArcGIS 卸载了……真是……胃疼啊……截了这么多图应该没有让人不明白的地方了吧……
-
-另外安装的时候可能会出现某些比较奇怪的问题，这些奇奇怪怪的问题大部分是由于系统精简和清理过度造成的，不在讨论范围内……这个，我从来是建议重装系统的……
+另外安装的时候可能会出现某些比较奇怪的问题，这些奇奇怪怪的问题大部分是由于系统精简和清理过度造成的，不在讨论范围内……

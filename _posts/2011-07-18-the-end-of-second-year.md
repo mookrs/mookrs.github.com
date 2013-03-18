@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "于是我终于踏上奔三的不归路"
-category: essays
-tags: [summary, vocation]
+category: Essays
+tags: [summary]
 comments: yes
 ---
 

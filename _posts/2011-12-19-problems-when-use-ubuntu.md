@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "解决使用Ubuntu时的几个小问题"
-category: tech
-tags: [linux, ubuntu, skill]
+title: "Ubuntu 备忘"
+category: Tech
+tags: [Linux, Ubuntu]
 comments: yes
 ---
 

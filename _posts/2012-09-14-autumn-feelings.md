@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "秋日偶感"
-category: essays
-tags: [dream]
+category: Essays
+tags: [Day & Night]
 comments: yes
 ---
 
@@ -27,4 +27,3 @@ comments: yes
 秋天来啦，数学书还有那么多没看，可是为什么我蹦跶蹦跶得好开心啊。像一只……斑猪！:D
 
 因为——pH 学妹，我认识了你呀。
-

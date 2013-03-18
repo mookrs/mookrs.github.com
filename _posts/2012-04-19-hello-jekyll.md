@@ -1,12 +1,12 @@
 ---
 layout: post
 title: "Hello Jekyll"
-category: tech
-tags: [jekyll, skill]
+category: Tech
+tags: [Jekyll]
 comments: yes
 ---
 
-这是我迁移到 [Jekyll](https://github.com/mojombo/jekyll) 后的第一篇文章。Jekyll 是一个很好的博客系统，可以部署到免费的 [Github Page](http://pages.github.com/) 或 [Heroku](http://www.heroku.com/) 上，也可以部署到自己的服务器上。之前在 Windows 和 Ubuntu 环境下尝试配置了 [Octopress](http://octopress.org/)，但总有小毛病，于是转向 Jekyll（其实是用了 [Jekyll-Bootstrap](http://jekyllbootstrap.com/)）。我没有接触过 Ruby，也不很懂得 Git 原理，所以其中的过程可谓历尽波折，Windows 上的编码就困扰过我一个通宵……However, it works now!
+这是我迁移到 [Jekyll](https://github.com/mojombo/jekyll) 后的第一篇文章。Jekyll 是一个很好的博客系统，可以部署到免费的 [Github Page](http://pages.github.com/) 或 [Heroku](http://www.heroku.com/) 上，也可以部署到自己的服务器上。之前在 Windows 和 Ubuntu 环境下尝试配置了 [Octopress](http://octopress.org/)，但总有小毛病，于是转向 [Jekyll-Bootstrap](http://jekyllbootstrap.com/)（*更新：现已转为纯粹的 Jekyll*）。我没有接触过 Ruby，也不很懂得 Git，所以其中的过程可谓历尽波折，Windows 上的编码就困扰过我一个通宵……
 
 在 Windows 上搭建 Ruby on Rails 环境，强烈建议使用 [RailsInstaller](http://railsinstaller.org/)，它简化了 Rails 在 Windows 上的安装过程，包含有 [Ruby](http://ruby-lang.org/)、[Rails](http://rubyonrails.org/)、[Bundler](http://gembundler.com/)、[Git](http://git-scm.com/)、[Sqlite](http://sqlite.org/)、[TinyTDS](https://github.com/rails-sqlserver/tiny_tds)、[SQL Server support](https://github.com/rails-sqlserver/activerecord-sqlserver-adapter) 和 [DevKit](https://github.com/oneclick/rubyinstaller/wiki/Development-Kit)。我换了个 Git 的版本。
 

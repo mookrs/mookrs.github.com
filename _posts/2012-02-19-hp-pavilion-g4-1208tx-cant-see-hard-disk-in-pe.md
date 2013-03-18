@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "HP Pavilion g4-1208tx笔记本PE下不识别硬盘"
-category: tech
-tags: [windows, hard disk, skill]
+title: "HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘"
+category: Tech
+tags: [Windows, PE]
 comments: yes
 ---
 

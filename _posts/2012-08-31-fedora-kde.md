@@ -1,8 +1,8 @@
 ---
 layout: post
 title: "Fedora 17 KDE 个人配置"
-category: tech
-tags: [linux, fedora, kde]
+category: Tech
+tags: [Linux, Fedora, KDE]
 comments: yes
 ---
 

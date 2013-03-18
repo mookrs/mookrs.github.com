@@ -232,8 +232,8 @@ strong {
 }
 
 #content code{
-    border: 1px solid #e0e0e0;
-    background: #eeeeee;
+    /*border: 1px solid #e0e0e0;*/
+    background: #ffffff;
     padding: 3px 5px;
     margin: 0 2px;
     font-size: 13px;

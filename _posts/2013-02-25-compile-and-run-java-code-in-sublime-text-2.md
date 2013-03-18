@@ -43,4 +43,4 @@ java %~n1
 
 4\. 写好 Java 代码后 CTRL + B 即可编译运行
 
-via http://www.oschina.net/translate/compile-and-run-java-programs-in-sublime-text-2?cmp
+via <http://www.oschina.net/translate/compile-and-run-java-programs-in-sublime-text-2?cmp>
