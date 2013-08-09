@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "关于一次面试"
+title: "一次面试"
 categories: Tech
 tags: [面试]
 comments: yes
@@ -24,13 +24,13 @@ comments: yes
 
 作为算法白痴我就说了个二分法排序……
 
-参考：(排序算法)[http://zh.wikipedia.org/wiki/排序算法]
+参考：[排序算法](http://zh.wikipedia.org/wiki/排序算法)
 
 > Java 中 Array 与 ArrayList 的主要区别？
 
 我：……
 
-参考：(数组与 ArrayList 的关系与区别)[http://www.blogjava.net/flysky19/archive/2013/05/05/92775.html]
+参考：[数组与 ArrayList 的关系与区别](http://www.blogjava.net/flysky19/archive/2013/05/05/92775.html)
 
 > Android 中的 Activity 是什么？为什么 Android 要使用 Activity？
 
@@ -42,4 +42,4 @@ comments: yes
 
 我：您觉得作为程序员最重要的是什么？
 
-> 自学的能力和对技术的热爱。如果你写了 1000 万行代码，能力不说超强也差不到哪儿去。光看书是不够的，要动手去做。知其然，不知其所以然是很容易犯的错误。
+> 自学的能力和对技术的热爱。如果你写了 1000 万行代码，能力即使不是一流，也差不到哪里。光看书是不够的，要动手去做。知其然，不知其所以然是很容易犯的错误。
