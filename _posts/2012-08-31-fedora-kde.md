@@ -6,7 +6,7 @@ tags: [Linux, Fedora, KDE]
 comments: yes
 ---
 
-Gnome 用久了审美疲劳，身为懒人本打算转到 [Archbang](http://archbang.org/)，结果安装过程中没有 GUI 不敢继续碰了。于是受 [壳酱的蛊惑](http://shellex.info/why-i-use-kde-instead-of-gnome-1) 把 Fodora 16 Gnome 换成了 Fedora 17 KDE，一开始非常不顺手，现在用着用着也很不错。以下是配置过程中的记录。
+把 Fodora 16 Gnome 换成了 Fedora 17 KDE，以下是配置过程中的记录。
 
 #### 安装
 
@@ -16,7 +16,7 @@ Gnome 用久了审美疲劳，身为懒人本打算转到 [Archbang](http://arch
 
 应用程序 - 管理 - 语言 里选择「Chinese(P.R.China) - 中文(简体)」，系统会自动下载中文语言包。
 
-system settings - locale - coutry/region & language - languages - 把「Chinese Simplified」 加到 「Prefered Languages」 并且按 apply。
+system settings - locale - coutry/region & language - languages - 把「Chinese Simplified」 加到 「Prefered Languages」 并按 apply。
 
 输入法：应用程序 - 设置 - 输入法选择器，选择「使用IBus（推荐）」。
 
@@ -52,7 +52,7 @@ via <http://www.linuxidc.com/Linux/2012-08/69083.htm> & <https://bugzilla.redhat
 
 #### 界面美化
 
-不像 gnome 那么麻烦，在 KDE 的 系统设置 - 应用程序外观 中即可调整风格、颜色和图标。
+不像 gnome 那么麻烦，在 KDE 的「系统设置」-「应用程序外观」中即可调整风格、颜色和图标。
 
 #### 中文美化
 
@@ -119,7 +119,7 @@ via <http://tieba.baidu.com/p/1769479692>
 
 #### 关闭 Kwallet
 
-Kwallet 是用来存密码的，连接无线网络时总会出现提示窗口，很烦人，于是我决定关了它。
+Kwallet 是用来存密码的，连接无线网络时总会出现提示窗口，很烦人，我决定关了它。
 
 点击「应用程序菜单」，搜索「Kwallet」。
 
@@ -151,7 +151,7 @@ via <https://bugs.kde.org/show_bug.cgi?id=286658>
 
 #### 修改 DNS
 
-不喜欢用 ISP 提供的DNS。编辑 `/etc/resolv.conf` 中的内容，把 nameserver 后的数值改成自己的 DNS。
+不喜欢用 ISP 提供的DNS，可以编辑 `/etc/resolv.conf` 中的内容，把 nameserver 后的数值改成自己的 DNS。
 
 #### 视频播放
 
@@ -167,9 +167,9 @@ via <https://bugs.kde.org/show_bug.cgi?id=286658>
 
 `# yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg xvidcore libdvdread libdvdnav lsdvd gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly gstreamer-plugins-bad gstreamer-ffmpeg gnome-mplayer`
 
-`＃ yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg xvidcore libdvdread libdvdnav lsdvd`
+`# yum install ffmpeg ffmpeg-libs gstreamer-ffmpeg xvidcore libdvdread libdvdnav lsdvd`
 
-`＃ yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly`
+`# yum install gstreamer-plugins-good gstreamer-plugins-bad gstreamer-plugins-ugly`
 
 4.安装 mplayer 和 smplayer
 
@@ -225,7 +225,3 @@ via <http://www.if-not-true-then-false.com/2011/install-firefox-on-fedora-centos
 `# yum remove libreoffice*`
 
 via <http://wangye.org/blog/archives/626/>
-
-#### 安装 Sublime Text 2
-
-via <http://crabby.iteye.com/blog/1542141>

@@ -13,5 +13,3 @@ comments: yes
 - `Win+R` 打开运行，输入 `services.msc` 并回车，确保 `Shell Hardware Detection` 服务开启 
 
 - 运行 `gpedit.msc`，打开 计算机配置 > 管理模板 > Windows 组件 > 自动播放策略 > 关闭自动播放，双击，勾选 `已禁用(D)`
-
-这样就可以打开「自动播放」功能了。

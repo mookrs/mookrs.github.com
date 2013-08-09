@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "在 Sublime Text 2 中编译和运行 Java 代码（Windows）"
+title: "在 Sublime Text 2 中编译和运行 Java 代码"
 categories: Tech
 tags: [Java, Sublime Text 2, Windows]
 comments: yes

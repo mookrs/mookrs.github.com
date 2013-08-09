@@ -16,17 +16,15 @@ comments: yes
 
 (2) [sp5补丁地址](http://support.esri.com/en/downloads/patches-servicepacks/view/productid/66/metaid/1876)
 
-ArcGIS Desktop 10 的版本已更新到最终版 sp5 （2012-7-10），最新的 ArcGIS （2012-10-30）版本号为 [10.1](http://kuai.xunlei.com/d/GGVSLKJHOHOZ)，这里以ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
+ArcGIS Desktop 10 的版本已更新到最终版 sp5 （2012-7-10），最新的 ArcGIS （截至 2012-10-30）版本号为 [10.1](http://kuai.xunlei.com/d/GGVSLKJHOHOZ)，这里以 ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
 
 ![](http://farm8.staticflickr.com/7036/7112394987_baa93b3916_z.jpg)
 
-(3) 注册机 [百度网盘地址](http://pan.baidu.com/share/link?shareid=107486&uk=3037464795) [Box地址](http://www.box.com/s/elb10n41962jmbujrm0v)
-
-请务必保证非商业使用，仅供个人学习和研究，如需要请购买正版！
+(3) 注册机 [Box地址](http://www.box.com/s/elb10n41962jmbujrm0v)
 
 #### 2.安装 ArcGIS Desktop 10
 
-(1) 使用 [DAEMON Tools Lite](http://www.xngq.com/products/dtLite) 一类软件加载 iso 镜像文件，运行安装包里的 ESRI.exe，选择安装 ArcGIS Desktop。先安装 Desktop 或者 License Manager 都可以。
+(1) 使用 [DAEMON Tools Lite](http://www.xngq.com/products/dtLite) 之类的软件加载 iso 镜像文件，运行安装包里的 ESRI.exe，选择安装 ArcGIS Desktop。先安装 Desktop 或者 License Manager 都可以。
 
 ![](http://farm9.staticflickr.com/8007/6966317916_c0ded6745a_z.jpg)
 
@@ -34,7 +32,7 @@ ArcGIS Desktop 10 需要 .NET Framwork 3.5 SP1 支持，如果系统中没有安
 
 ![](http://farm8.staticflickr.com/7240/7112394707_569b98c6c1_z.jpg)
 
-安装全过程看图说话：
+安装全过程如图：
 
 ![](http://farm8.staticflickr.com/7125/6966317674_30d34d9f67_z.jpg)
 
@@ -58,7 +56,7 @@ Desktop 安装完出现 ArcGIS Administrator Wizard，如图，第2项填 localh
 
 ![](http://farm8.staticflickr.com/7069/6966317336_1fac231855_z.jpg)
 
-一路 next 就好了哇……
+一路 next 就好了
 
 ![](http://farm6.staticflickr.com/5441/6966316108_68ec96bb76_z.jpg)
 

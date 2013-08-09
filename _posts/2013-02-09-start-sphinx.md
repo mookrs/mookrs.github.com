@@ -134,6 +134,6 @@ Sphinx 主题 <http://sphinx-doc.org/theming.html#builtin-themes>
 
 [2]  [Sphinx 1.1.2 documentation（中文）](http://sphinx-doc-zh.readthedocs.org/en/latest/)
 
-[3]  [sphinx使用及其简单配置](http://www.wlog.cn/geek/first-steps-with-sphinx.html)
+[3]  [sphinx 使用及其简单配置](http://www.wlog.cn/geek/first-steps-with-sphinx.html)
 
 [4]  [Sphinx Project How-To](https://code.google.com/p/pymotwcn/wiki/SphinxprojectHowto)
