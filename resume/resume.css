@@ -1,40 +1,56 @@
 body {
-	background-color: #CDE6FF;
-	background-image: url(images/bg_body.png);
-	background-repeat: repeat-x;
-	padding-top: 100px;
+	background: #000;
+	color: #53d4ff;
+	font-family: Verdana;
+	font-size:  .93em/1.5 ;
+	margin: 2em;
 }
-
 h1 {
-	color: #C7AA8D;
-	font-size: 3em;
-	font-family: "Arial Black", Arial, sans-serif;
+	color: #aff;
+	font-family: Tahoma;
+	font-size: 2.5em ;
+	text-shadow: rgba(208, 208, 208, .7) 2px 2px 3px;
+	text-align: center;
+	font-weight: bold;
+}
+body>div {
+	margin: 1em 0;
+}
+div, p, ol {
 	margin: 0;
+	padding: 0;
 }
-
-h2 {
-	color: #B1967C;
-	font-weight: normal;
-	font-family:  "Palatino Linotype", Baskerville, serif;
-	font-size: 2.2em;
-	border-bottom: 2px white solid;
-	background: url(image/bullet_flower.png) no repeat;
-	padding: 0 0 2px 80px;
-	margin: 0;
+a {
+	color: #53d4ff;
 }
-
-.intro {
-	color: #6A94CC;
-	font-family: Arial, Helvertica, sans-serif;
-	font-size: 1.2em;
-	margin-left: 0;
-	margin-bottom: 25px;
+a:hover, a:active {
+ color: #fc707b;
 }
-
-p {
-	font-family: "Palatino Linotype", Baskerville, serif;
-	color: #616161;
-	line-height: 150%;
-	margin-top: 10px;
-	margin-left: 80px;
+pre {
+	color: #f92;
+	word-wrap: break-word;
+	white-space: pre-wrap;
+	font-family: .93em/1.5 "Droid Sans Mono", "DejaVu Sans Mono", "Lucida Console", "Courier New", monospace;
+	border-bottom: solid 1px #444;
+}
+.comment {
+	color: #64e70c;
+}
+ol {
+	list-style: none;
+}
+li {
+	border-top: solid 1px #444;
+}
+li:hover {
+	background: #1a1a1a;
+}
+.string {
+	color: #b8d;
+}
+.keyword {
+	color: #4093cc;
+}
+.symbol {
+	color: #eee;
 }
