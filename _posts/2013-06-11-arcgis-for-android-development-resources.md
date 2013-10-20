@@ -68,7 +68,7 @@ Esri 中国社区 ArcGIS Server 技术版：<http://bbs.esrichina-bj.cn/ESRI/for
 
 ## 视频
 
-推荐 Mars 老师的 Android 教程（武大内珞樱 PT 的下载地址，仅限校园网访问）：<http://pt.whu6.edu.cn/details.php?id=320> 也可以追重制版，现在更新到了第二季：<http://www.marschen.com/forum.php?mod=forumdisplay&fid=2>
+推荐 Mars 老师的 Android 教程（武大珞樱 PT 上的下载地址，仅限校园网访问）：<http://pt.whu6.edu.cn/details.php?id=320> 也可以追重制版，现在更新到了第二季：<http://www.marschen.com/forum.php?mod=forumdisplay&fid=2>
 
 ## 工具
 

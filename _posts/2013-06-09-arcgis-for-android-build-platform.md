@@ -6,7 +6,7 @@ tags: [ArcGIS, Android]
 comments: true
 ---
 
-前言：ArcGIS for Android 开发这几篇文章本来是我为师弟写的一份入门指导。水平有限，难免有错误之处，欢迎指正，仅供参考。 :)
+前言：《ArcGIS for Android 开发》这几篇文章本来是我为师弟写的一份入门指导。水平有限，难免有错误之处，欢迎指正，仅供参考。 :)
 
 ## 清单：
 
