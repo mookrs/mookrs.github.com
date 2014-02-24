@@ -154,22 +154,19 @@ strong {
 /* nav */
 
 #nav {
-    display: inline-block;
-    width: 100%;
-    margin: -10px 0 0 0;
+    display: inline;
+    width: 400px;
+    float: right;
+    margin: 10px -10px 10px 0;
     padding: 0;
 }
 
 #nav li{
     display: inline-block;
+    float: left;
     list-style-type: none;
-    float: right;
     margin: 0;
     padding: 0;
-}
-
-#nav li:first-child:before {
-    content: " ";
 }
 
 #nav a {
@@ -179,15 +176,6 @@ strong {
     text-decoration: none;
     color: #000000;
     padding: 1px 15px;
-}
-
-#nav a.current{
-    color: #000000;
-}
-
-#nav a.current:before{
-    color: #ccc;
-    font-size: 12px;
 }
 
 /* content */

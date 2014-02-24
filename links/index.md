@@ -6,7 +6,7 @@ comments: false
 
 Some places I usually go :
 
-- [Twitter](http://twitter.com/mookrs "Mookrs") / [新浪微博](http://weibo.com/mookrs "长颈鹿饲养员") / [豆瓣](http://www.douban.com/people/Aisophy/ "短尾斑猪")
+- [Twitter](http://twitter.com/mookrs "Mookrs") / [新浪微博](http://weibo.com/mookrs "长颈鹿种植员") / [豆瓣](http://www.douban.com/people/Aisophy/ "短尾斑猪")
 
 - [Github](https://github.com/mookrs "mookrs") / [V2EX](http://www.v2ex.com/member/mimzy "mimzy") / [知乎](http://www.zhihu.com/people/mookrs "mookrs")
 
