@@ -16,7 +16,7 @@ comments: yes
 
 原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。
 
-解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值，例如 `OffsetX="15" OffsetY="25"` 即可：
+解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 `OffsetX="15" OffsetY="25"` 即可：
 
 ![](/static/img/2013/11/PictureMarkerSymbol-3.jpg)
 
