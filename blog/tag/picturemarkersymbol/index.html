@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</title>
+  <title>Yet Another Mookrs - PictureMarkerSymbol</title>
   <meta name="author" content="Mookrs">
 
 
@@ -38,16 +38,18 @@
 
 <ul class="main-navigation">
       <li><a href="/about-me/">About Me</a></li>
-    <li class="active">
+    <li >
     <a href="/blog/category/tech">Tech</a>
     </li>
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
+<div class="blog-index">
+  		<article>
 <header>
-      <h1 class="entry-title">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</h1>
+      <h1 class="entry-title">
+        <a href="/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
+      </h1>
       <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
 </header>
 
@@ -59,30 +61,20 @@
 <p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
 <p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
 <p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Mookrs</span>
-  </span>
-<time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time>  <span class="categories">
-    <a class="category" href="/blog/tag/arcgis/">ArcGIS</a>
-    <a class="category" href="/blog/tag/wpf/">WPF</a>
-    <a class="category" href="/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
+  <footer>
+    <a rel="full-article" href="/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
 
-</div>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
           <a href="/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </li>
-      <li class="post">
-          <a href="/blog/arcgis-for-android-server-configuration/">"ArcGIS for Android 开发：ArcGIS for Server 配置"</a>
       </li>
     </ul>
   </section>
@@ -124,9 +116,6 @@
 </p></footer>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
-          var disqus_identifier = '/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/';
-          var disqus_url = '/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/';
-          var disqus_title = 'ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
