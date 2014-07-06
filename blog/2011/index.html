@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</title>
+  <title>Yet Another Mookrs</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,40 +41,16 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div>
-  <article class="hentry" role="article">
-<header>
-      <h1 class="entry-title">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</h1>
-      <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
-</header>
+<h1>Archives for 2011</h1>
 
-  <div class="entry-content"><p>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /></p>
-<p>这种情况下，一旦缩小地图，偏移量就会特别厉害：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /></p>
-<p>原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。</p>
-<p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
-<p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
-    <footer>
-<p class="meta">
-  <span class="byline author vcard">
-    Posted by <span class="fn">Mookrs</span>
-  </span>
-<time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time>  <span class="categories">
-    <a class="category" href="http://mookrs.com/tag/arcgis.html">ArcGIS</a>
-    <a class="category" href="http://mookrs.com/tag/wpf.html">WPF</a>
-    <a class="category" href="http://mookrs.com/tag/picturemarkersymbol.html">PictureMarkerSymbol</a>
-  </span>
-</p><div class="sharing">
-</div>    </footer>
-  </article>
-
-  <section>
-    <h1>Comments</h1>
-    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
-  </section>
-</div>
+<dl>
+    <dt>周一 19 十二月 2011</dt>
+    <dd><a href="http://mookrs.com/blog/problems-when-use-ubuntu/">Ubuntu 使用备忘</a></dd>
+    <dt>周一 12 十二月 2011</dt>
+    <dd><a href="http://mookrs.com/blog/youth/">书抄：青春</a></dd>
+    <dt>周一 28 十一月 2011</dt>
+    <dd><a href="http://mookrs.com/blog/install-arcgis-desktop-10/">ArcGIS Desktop 10 图文安装教程</a></dd>
+</dl>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -131,7 +107,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2011-2014  - Mookrs -
+    Copyright &copy;  2011  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -154,9 +130,6 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
-          var disqus_identifier = '/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/';
-          var disqus_url = 'http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/';
-          var disqus_title = 'ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
