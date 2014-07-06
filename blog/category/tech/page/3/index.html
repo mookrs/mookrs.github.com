@@ -41,22 +41,74 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<h1>Archives for 2013</h1>
+<div class="blog-index">
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/turn-on-windows-autoplay/">开启Windows「自动播放」功能</a>
+      </h1>
+      <p class="meta"><time datetime="2012-02-05T00:00:00" pubdate>周日 05 二月 2012</time></p>
+</header>
 
-<dl>
-    <dt>周五 29 十一月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a></dd>
-    <dt>周二 11 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a></dd>
-    <dt>周一 10 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-server-configuration/">ArcGIS for Android 开发：ArcGIS for Server 配置</a></dd>
-    <dt>周日 09 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-build-platform/">ArcGIS for Android 开发：Android 平台搭建</a></dd>
-    <dt>周五 03 五月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/an-interview/">一次面试</a></dd>
-    <dt>周六 09 二月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/start-sphinx/">使用 Sphinx 制作文档</a></dd>
-</dl>
+  <div class="entry-content"><p>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想开启「自动播放」功能，可以通过打开 控制面-系统和安全-硬件和声音-自动播放，勾选「为所有媒体和设备使用自动播放(U)」。</p>
+<p>若这样做无效，则进一步确定以下两点：</p>
+<ul>
+<li>
+<p><code>Win+R</code> 打开运行，输入 <code>services.msc</code> 并回车，确保 <code>Shell Hardware Detection</code> 服务开启 </p>
+</li>
+<li>
+<p>运行 <code>gpedit.msc</code>，打开 计算机配置 &gt; 管理模板 &gt; Windows 组件 &gt; 自动播放策略 &gt; 关闭自动播放，双击，勾选 <code>已禁用(D)</code></p>
+</li>
+</ul></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/turn-on-windows-autoplay/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/problems-when-use-ubuntu/">Ubuntu 使用备忘</a>
+      </h1>
+      <p class="meta"><time datetime="2011-12-19T00:00:00" pubdate>周一 19 十二月 2011</time></p>
+</header>
+
+  <div class="entry-content"><p>折腾 Ubuntu 时出现了不少问题，凭印象整理了几个小问题，备忘一下。环境：Ubuntu 11.10 64-bit</p>
+<h4>安装 Ubuntu 时卡在「正在探测文件系统」</h4>
+<p>安装前打开终端，硬盘安装输入  <code>sudo umount -l /isodevice</code></p>
+<p>光盘安装输入  <code>sudo umount -l /cdrom</code></p>
+<h4>Ubuntu 软件中心打不开，停在载入状态</h4>
+<p>依次运行下面的命令：</p>
+<p><code>sudo apt-get update</code></p>
+<p><code>sudo apt-get dist-upgrade</code></p>
+<p><code>sudo apt-get install –reinstall software-center</code></p>
+<h4>Ubuntu 软件中心依然打不开，停在载入状态</h4>
+<p>具体为：更新管理器检查更新失败，出现提示「下载软件仓库信息失败，检查您的 internet 连接 ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/problems-when-use-ubuntu/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/install-arcgis-desktop-10/">ArcGIS Desktop 10 图文安装教程</a>
+      </h1>
+      <p class="meta"><time datetime="2011-11-28T00:00:00" pubdate>周一 28 十一月 2011</time></p>
+</header>
+
+  <div class="entry-content"><h4>1.下载 ArcGIS Desktop 10</h4>
+<p>(1) <a href="http://software.esri.com/akdlm/software/arcgis/10.0/final/ArcGIS_Desktop10_122519.iso?downloadID=FA0A478D-1C44-4915-83E1-4BC130EBFF48&amp;__gda__=1283497777_a635b797d7b418fd134cf372fc88e67e&amp;ext=.iso&amp;__gdb__=1283497778_cc0ecad33f057a2fbbe5b79fc5d77825&amp;fileExt=.iso">官方地址</a> </p>
+<p>复制链接，在迅雷等下载软件里新建任务即可。注意，这个 3.75G 的 ArcGIS_Desktop10_122519.iso 文件为英文版，不包含补丁。</p>
+<p>(2) <a href="http://support.esri.com/en/downloads/patches-servicepacks/view/productid/66/metaid/1876">sp5补丁地址</a></p>
+<p>ArcGIS Desktop 10 的版本已更新到最终版 sp5 （2012-7-10），最新的 ArcGIS （截至 2012-10-30）版本号为 10.1，这里以 ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/install-arcgis-desktop-10/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+    <a class="next" href="http://mookrs.com/blog/category/tech/page/2/">Newer &rarr;</a>
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -113,7 +165,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - Mookrs -
+    Copyright &copy;  2011-2013  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">

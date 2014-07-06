@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>使用 Sphinx 制作文档</title>
+  <meta name="author" content="Mookrs">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="http://mookrs.com/favicon.png" rel="icon">
+  <link href="http://mookrs.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="http://mookrs.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://mookrs.com/theme/js/ender.js"></script>
+  <script src="http://mookrs.com/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://mookrs.com/">Yet Another Mookrs</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+      <li><a href="http://mookrs.com/about/">About</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">使用 Sphinx 制作文档</h1>
+      <p class="meta"><time datetime="2013-02-09T00:00:00" pubdate>周六 09 二月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p><a href="http://sphinx-doc.org/">Sphinx</a> 是一个由 Python 编写的文档生成工具，可以用 <a href="http://wstudio.web.fc2.com/others/restructuredtext.html">reStructuredText</a> 语法生成美观的文档。</p>
+<p>1. 确保已经安装 <a href="http://www.python.org/download/">Python</a></p>
+<p>2. 安装 <a href="https://pypi.python.org/pypi/setuptools">setuptools</a>，以便使用 <code>easy_install</code> 命令</p>
+<p>3. 安装 Sphinx</p>
+<p><code>easy_install sphinx</code></p>
+<p>4. Sphinx 使用</p>
+<ul>
+<li>使用向导创建文档项目，执行 <code>sphinx-quickstart</code></li>
+</ul>
+<pre>
+Welcome to the Sphinx 1.1.3 quickstart utility.
+
+Please enter values for the following settings (just press Enter to
+accept a default value, if one is given in brackets).
+
+Enter the root path for documentation.
+> Root path for the documentation [.]:
+// 输入根目录，默认为当前目录
+
+You have two options for placing the build directory for Sphinx output.
+Either, you use a directory "_build" within the root path, or you separate
+"source" and "build" directories within the root path.
+> Separate source and build directories (y/N) [n]:
+// 是否分离 source 和 build 目录，默认「否」，我选择了「是」
+
+Inside the root directory, two more directories will be created; "_templates"
+for custom HTML templates and "_static" for custom stylesheets and other static
+files. You can enter another prefix (such as ".") to replace the underscore.
+> Name prefix for templates and static dir [_]:
+// templates 和 static 文件夹的前缀，默认为下划线
+
+The project name will occur in several places in the built documentation.
+> Project name: // 项目名称
+> Author name(s): // 作者名称
+
+Sphinx has the notion of a "version" and a "release" for the
+software. Each version can have multiple releases. For example, for
+Python the version is something like 2.5 or 3.0, while the release is
+something like 2.5.1 or 3.0a1.  If you don't need this dual structure,
+just set both to the same value.
+> Project version: 
+> Project release []: 
+// 项目版本号
+
+The file name suffix for source files. Commonly, this is either ".txt"
+or ".rst".  Only files with this suffix are considered documents.
+> Source file suffix [.rst]:
+// 源文件扩展名，默认为.rst
+
+One document is special in that it is considered the top node of the
+"contents tree", that is, it is the root of the hierarchical structure
+of the documents. Normally, this is "index", but if your "index"
+document is a custom template, you can also set this to another filename.
+> Name of your master document (without suffix) [index]:
+
+Sphinx can also add configuration for epub output:
+> Do you want to use the epub builder (y/N) [n]:
+
+Please indicate if you want to use one of the following Sphinx extensions:
+> autodoc: automatically insert docstrings from modules (y/N) [n]:
+> doctest: automatically test code snippets in doctest blocks (y/N) [n]:
+> intersphinx: link between Sphinx documentation of different projects (y/N) [
+:
+> todo: write "todo" entries that can be shown or hidden on build (y/N) [n]:
+> coverage: checks for documentation coverage (y/N) [n]:
+> pngmath: include math, rendered as PNG images (y/N) [n]:
+> mathjax: include math, rendered in the browser by MathJax (y/N) [n]:
+> ifconfig: conditional inclusion of content based on config values (y/N) [n]:
+> viewcode: include links to the source code of documented Python objects (y/N
+[n]:
+
+A Makefile and a Windows command file can be generated for you so that you
+only have to run e.g. `make html' instead of invoking sphinx-build
+directly.
+> Create Makefile? (Y/n) [y]:
+> Create Windows command file? (Y/n) [y]:
+
+// 以上自己看着选就好
+</pre>
+
+<ul>
+<li>
+<p>工作目录列表</p>
+<blockquote>
+<p>Makefile：一个包含指令的文件，在使用 make 命令时，可以使用这些指令来构建文档输出。</p>
+<p>_build：存放所生成的文件的目录。</p>
+<p>_static：不属于源代码的文件均存放于此处，稍后会在构建目录中将它们链接在一起。</p>
+<p>conf.py：这是一个 Python 文件，用于存放 Sphinx 的配置值，包括在终端执行 sphinx-quickstart 时选中的那些值。</p>
+<p>index.rst：文档项目的 root 目录。如果将文档划分为其他文件，该目录会连接这些文件。</p>
+</blockquote>
+</li>
+<li>
+<p>生成 HTML</p>
+</li>
+</ul>
+<p><code>make html</code></p>
+<p>因为 make 命令在我的 Windows 系统上不起作用，我写了下面这个 Python 脚本生成 HTML：</p>
+<p>{% highlight python %}</p>
+<h1>/usr/bin/env python</h1>
+<p>import subprocess</p>
+<p>class RunCmd(object):
+    def cmd_run(self, cmd):
+        self.cmd = cmd
+        subprocess.call(self.cmd, shell=True)</p>
+<p>a = RunCmd()
+a.cmd_run('sphinx-build -b html source build ')</p>
+<p _="%" endhighlight="endhighlight">raw_input()</p>
+<ul>
+<li>其它</li>
+</ul>
+<p>Sphinx 主题 <a href="http://sphinx-doc.org/theming.html#builtin-themes">http://sphinx-doc.org/theming.html#builtin-themes</a></p>
+<p>参考链接：</p>
+<p>[1]  <a href="http://www.ibm.com/developerworks/cn/opensource/os-sphinx-documentation/">使用 sphinx 制作简洁而又美观的文档</a></p>
+<p>[2]  <a href="http://sphinx-doc-zh.readthedocs.org/en/latest/">Sphinx 1.1.2 documentation（中文）</a></p>
+<p>[3]  <a href="http://www.wlog.cn/geek/first-steps-with-sphinx.html">sphinx 使用及其简单配置</a></p>
+<p>[4]  <a href="https://code.google.com/p/pymotwcn/wiki/SphinxprojectHowto">Sphinx Project How-To</a></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2013-02-09T00:00:00" pubdate>周六 09 二月 2013</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>
+    <a class="category" href="http://mookrs.com/blog/tag/windows/">Windows</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blog/arcgis-for-android-server-configuration/">ArcGIS for Android 开发：ArcGIS for Server 配置</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blog/arcgis-for-android-build-platform/">ArcGIS for Android 开发：Android 平台搭建</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blog/an-interview/">一次面试</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
+        <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
+        <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://mookrs.com/blog/tag/wpf/">WPF</a>,    <a href="http://mookrs.com/blog/tag/realtek/">Realtek</a>,    <a href="http://mookrs.com/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/blog/tag/fedora/">Fedora</a>,    <a href="http://mookrs.com/blog/tag/jekyll/">Jekyll</a>,    <a href="http://mookrs.com/blog/tag/windows/">Windows</a>,    <a href="http://mookrs.com/blog/tag/kde/">KDE</a>,    <a href="http://mookrs.com/blog/tag/pe/">PE</a>,    <a href="http://mookrs.com/blog/tag/yue-du/">阅读</a>,    <a href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>,    <a href="http://mookrs.com/blog/tag/mian-shi/">面试</a>,    <a href="http://mookrs.com/blog/tag/han-han/">韩寒</a>,    <a href="http://mookrs.com/blog/tag/linux/">Linux</a>,    <a href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>,    <a href="http://mookrs.com/blog/tag/ph/">pH</a>,    <a href="http://mookrs.com/blog/tag/android/">Android</a>,    <a href="http://mookrs.com/blog/tag/ubuntu/">Ubuntu</a>,    <a href="http://mookrs.com/blog/tag/software/">software</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://twitter.com/mookrs" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/mookrs" target="_blank">Github</a></li>
+            <li><a href="http://weibo.com/mookrs" target="_blank">微博</a></li>
+            <li><a href="http://www.douban.com/people/Aisophy/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="http://start.mookrs.com/" target="_blank">Mookrs Start Page</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2011-2013  - Mookrs -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23664006-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23664006-4');
+    ga('send', 'pageview');
+</script>
+	<script type="text/javascript">
+	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blog/start-sphinx/';
+          var disqus_url = 'http://mookrs.com/blog/start-sphinx/';
+          var disqus_title = '使用 Sphinx 制作文档';
+	  (function() {
+	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	   })();
+	</script>
+</body>
+</html>

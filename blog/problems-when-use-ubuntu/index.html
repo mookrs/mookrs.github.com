@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>Ubuntu 使用备忘</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,22 +41,53 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<h1>Archives for 2013</h1>
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">Ubuntu 使用备忘</h1>
+      <p class="meta"><time datetime="2011-12-19T00:00:00" pubdate>周一 19 十二月 2011</time></p>
+</header>
 
-<dl>
-    <dt>周五 29 十一月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a></dd>
-    <dt>周二 11 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a></dd>
-    <dt>周一 10 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-server-configuration/">ArcGIS for Android 开发：ArcGIS for Server 配置</a></dd>
-    <dt>周日 09 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-build-platform/">ArcGIS for Android 开发：Android 平台搭建</a></dd>
-    <dt>周五 03 五月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/an-interview/">一次面试</a></dd>
-    <dt>周六 09 二月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/start-sphinx/">使用 Sphinx 制作文档</a></dd>
-</dl>
+  <div class="entry-content"><p>折腾 Ubuntu 时出现了不少问题，凭印象整理了几个小问题，备忘一下。环境：Ubuntu 11.10 64-bit</p>
+<h4>安装 Ubuntu 时卡在「正在探测文件系统」</h4>
+<p>安装前打开终端，硬盘安装输入  <code>sudo umount -l /isodevice</code></p>
+<p>光盘安装输入  <code>sudo umount -l /cdrom</code></p>
+<h4>Ubuntu 软件中心打不开，停在载入状态</h4>
+<p>依次运行下面的命令：</p>
+<p><code>sudo apt-get update</code></p>
+<p><code>sudo apt-get dist-upgrade</code></p>
+<p><code>sudo apt-get install –reinstall software-center</code></p>
+<h4>Ubuntu 软件中心依然打不开，停在载入状态</h4>
+<p>具体为：更新管理器检查更新失败，出现提示「下载软件仓库信息失败，检查您的 internet 连接」，查看细节发现软件源报错。</p>
+<p>移除旧源：</p>
+<p><code>sudo rm /var/lib/apt/lists/* -vf</code></p>
+<p>使用上述命令后运行「更新管理器」－「设置」－「Ubuntu 软件」－「下载自」，换一个软件源。推荐使用中国的服务器，或者选择「自定义服务器」，在终端里输入：</p>
+<p><code>sudo gedit /etc/apt/sources.list</code></p>
+<p>屏蔽掉出错的地方，加入 163、sohu、台湾源之类速度较快的源，重新更新。</p>
+<h4>已经更换软件源，更新时依然报错，而且还是软件源报错</h4>
+<p>打开 sources.list，发现删掉的源又回来了。</p>
+<p>经过研究是和之前安装的 gnome3 有关。查看 /etc/apt ，sources.list.d 文件夹里发现有 gnome 之类的文件，打开发现其中含有报错的源，删除它们。至此，终于可以更新了。</p>
+<h4>为 Chromium 安装缺失 Flash 插件</h4>
+<p>基于64位 Linux 的 Chromium 浏览器没有自带 Flash 播放器，默认的 deb 都是基于 Firefox 的，所以要去 Adobe 下载 adobe flash player 11 for linux 64bit 的 tar.gz 包。下载完成后解压找到一个 libflashplayer.so 的文件，进入终端，cd 到放 libflashplayer.so 文件的目录，执行：</p>
+<p><code>sudo cp libflashplayer.so /usr/lib/chromium-browser/plugins/</code></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2011-12-19T00:00:00" pubdate>周一 19 十二月 2011</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/blog/tag/linux/">Linux</a>
+    <a class="category" href="http://mookrs.com/blog/tag/ubuntu/">Ubuntu</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -113,7 +144,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - Mookrs -
+    Copyright &copy;  2011-2013  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -136,6 +167,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blog/problems-when-use-ubuntu/';
+          var disqus_url = 'http://mookrs.com/blog/problems-when-use-ubuntu/';
+          var disqus_title = 'Ubuntu 使用备忘';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>Yet Another Mookrs - PE</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,40 +41,31 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<h1>Archives for 2013</h1>
+<div class="blog-index">
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
+      </h1>
+      <p class="meta"><time datetime="2012-02-19T00:00:00" pubdate>周日 19 二月 2012</time></p>
+</header>
 
-<dl>
-    <dt>周五 29 十一月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a></dd>
-    <dt>周二 11 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a></dd>
-    <dt>周一 10 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-server-configuration/">ArcGIS for Android 开发：ArcGIS for Server 配置</a></dd>
-    <dt>周日 09 六月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/arcgis-for-android-build-platform/">ArcGIS for Android 开发：Android 平台搭建</a></dd>
-    <dt>周五 03 五月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/an-interview/">一次面试</a></dd>
-    <dt>周六 09 二月 2013</dt>
-    <dd><a href="http://mookrs.com/blog/start-sphinx/">使用 Sphinx 制作文档</a></dd>
-</dl>
+  <div class="entry-content"><p><a href="http://www.360buy.com/product/533472.html">HP Pavilion g4-1208tx</a> 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现 750G 的硬盘连根毛都没看着……只能看见我自己的U盘……</p>
+<p>经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/arcgis-for-android-server-configuration/">ArcGIS for Android 开发：ArcGIS for Server 配置</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/arcgis-for-android-build-platform/">ArcGIS for Android 开发：Android 平台搭建</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/an-interview/">一次面试</a>
+          <a href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
       </li>
     </ul>
   </section>
@@ -113,7 +104,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - Mookrs -
+    Copyright &copy;  2012  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
