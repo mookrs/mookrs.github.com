@@ -321,7 +321,7 @@ a.cmd_run('sphinx-build -b html source build ')&lt;/p&gt;
 &lt;p&gt;靠，太特么煽情了。&lt;/p&gt;
 &lt;p&gt;可是，她让人羡慕：会做梦、实现梦的人最幸福啊。&lt;/p&gt;
 &lt;p&gt;秋天来啦，数学书还有那么多没看，可是为什么我蹦跶蹦跶得好开心。像一只……斑猪！:D&lt;/p&gt;
-&lt;p&gt;因为——pH 学妹，我认识了你呀。&lt;/p&gt;</summary><category term="Day &amp; Night"></category></entry><entry><title>Fedora 17 KDE 个人配置</title><link href="http://mookrs.com/blog/fedora-kde/" rel="alternate"></link><updated>2012-08-31T00:00:00+08:00</updated><author><name>Mookrs</name></author><id>tag:mookrs.com,2012-08-31:blog/fedora-kde/</id><summary type="html">&lt;p&gt;把 Fodora 16 Gnome 换成了 Fedora 17 KDE，以下是配置过程中的记录。&lt;/p&gt;
+&lt;p&gt;因为——pH 学妹，我认识了你呀。&lt;/p&gt;</summary><category term="pH"></category></entry><entry><title>Fedora 17 KDE 个人配置</title><link href="http://mookrs.com/blog/fedora-kde/" rel="alternate"></link><updated>2012-08-31T00:00:00+08:00</updated><author><name>Mookrs</name></author><id>tag:mookrs.com,2012-08-31:blog/fedora-kde/</id><summary type="html">&lt;p&gt;把 Fodora 16 Gnome 换成了 Fedora 17 KDE，以下是配置过程中的记录。&lt;/p&gt;
 &lt;h4&gt;安装&lt;/h4&gt;
 &lt;p&gt;我下载的镜像为 Fedora-17-x86_64-Live-KDE.iso，利用 &lt;a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/"&gt;Universal USB Installer&lt;/a&gt; 软件进行U盘安装。&lt;/p&gt;
 &lt;h4&gt;中文支持&lt;/h4&gt;
