@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>解决「The realtek network controller was not found」</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,67 +41,34 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blogs//"></a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-06T00:00:00" pubdate>周日 06 七月 2014</time></p>
+      <h1 class="entry-title">解决「The realtek network controller was not found」</h1>
+      <p class="meta"><time datetime="2012-02-09T00:00:00" pubdate>周四 09 二月 2012</time></p>
 </header>
 
-  <div class="entry-content"></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blogs//">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blogs/autumn-feelings/">秋日偶感</a>
-      </h1>
-      <p class="meta"><time datetime="2012-09-14T00:00:00" pubdate>周五 14 九月 2012</time></p>
-</header>
+  <div class="entry-content"><p>家里今天装配了一台电脑，主板是昂达 N68GD3，Win7 32 位下有线网卡不能直接驱动。当时没有其它电脑在手边，还好试着挂载了一下 Ubuntu 镜像，能连上网络。根据 <a href="http://detail.zol.com.cn/motherboard/index294964.shtml">ZOL</a> 的硬件信息找到 Realtek RTL8103E 的相关驱动，安装报错“FindFile failed”，然后继续报错“The Realtek Network Controller was not found.IF Deep Sleep Mode is enabled Please Plug the Cable.”意思是 Realtek 网络控制器未找到，如果进入了深度睡眠状态，请插上网线。</p>
+<p>搜索到<a href="http://adeelejaz.com/blog/realteks-network-controller-deep-sleep-mode-issue/">国外的一个网站</a>是这样解答的：大意是要先关机，开机箱取出 CMOS 电池和内存条，等到主板、内存都处于掉电状态，相关信息自动重置后，再放入 CMOS 电池并插上内存条。但是我考虑电脑在 Ubuntu 下是可以联网的，应该不是网卡的问题也用不着拆机箱，再说也没法拆。</p>
+<p>我再去别的网站找网卡驱动，这次没有报错“FindFile failed”，不过还是报“The Realtek Network Controller was not found.IF Deep Sleep Mode is enabled Please Plug the Cable.”这时找到<a href="http://www.douban.com/note/189617233/">一个豆友的文章</a>，去了下 Realtek 的官网，到<a href="http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=3&amp;PNid=13&amp;PFid=5&amp;Level=5&amp;Conn=4&amp;DownTypeID=3&amp;GetDown=false">这个页面</a>下载了驱动文件 Win7 and WinServer 2008 R2 Auto Installation Program (SID:1483418)，安装后网卡在设备管理器里即可识别。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2012-02-09T00:00:00" pubdate>周四 09 二月 2012</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/tag/realtek.html">Realtek</a>
+    <a class="category" href="http://mookrs.com/tag/windows.html">Windows</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-  <div class="entry-content"><p>从无话不说到无话可说，从一个眼神都是默契到一个表情一句不经意的话都是误会。</p>
-<p>到底因为什么变成这样了呢。</p>
-<p>连日来反思走过的路，大概真的是起点不对，终点才无疾而终。一切温柔只是习惯，却忘了本该情不自禁地流露。</p>
-<p>偶尔还是会酸酸的吧。</p>
-<p>所以开始庆幸种种原因疏远了的人，巧合让他们变成可以怀念的部分。至少百无聊奈时能发条短信说一句，「嘿，我在听一首歌，想起你，最近过得怎样？」</p>
-<p>所以也会担心，口口声声以学长自诩的我，处事时是否不够成熟。莫怪。</p>
-<p>昨天遇见 XP，她讲起最近的纠结，甚至有想要放弃的念头。我忽然说，北大是你的梦想么？你曾经那么努力地去争取、去奋战到底的不就是为了这个梦想么。这个世界上有梦想的人越来越少，拥有梦想并为之殒身不恤，无论结果如何，都是值得骄傲毫无遗憾的事。</p>
-<p>靠，太特么煽情了。</p>
-<p>可是，她让人羡慕：会做梦、实现梦的人最幸福啊。</p>
-<p>秋天来啦，数学书还有那么多没看，可是为什么我蹦跶蹦跶得好开心。像一只……斑猪！:D</p>
-<p>因为——pH 学妹，我认识了你呀。</p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blogs/autumn-feelings/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blogs/fedora-kde/">Fedora 17 KDE 个人配置</a>
-      </h1>
-      <p class="meta"><time datetime="2012-08-31T00:00:00" pubdate>周五 31 八月 2012</time></p>
-</header>
-
-  <div class="entry-content"><p>把 Fodora 16 Gnome 换成了 Fedora 17 KDE，以下是配置过程中的记录。</p>
-<h4>安装</h4>
-<p>我下载的镜像为 Fedora-17-x86_64-Live-KDE.iso，利用 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/">Universal USB Installer</a> 软件进行U盘安装。</p>
-<h4>中文支持</h4>
-<p>应用程序 - 管理 - 语言 里选择「Chinese(P.R.China) - 中文(简体)」，系统会自动下载中文语言包。</p>
-<p>system settings - locale - coutry/region &amp; language - languages - 把「Chinese Simplified」 加到 「Prefered Languages」 并按 apply。</p>
-<p>输入法：应用程序 - 设置 - 输入法选择器，选择 ...</p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blogs/fedora-kde/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-    <a class="prev" href="http://mookrs.com/blog/page/2/">&larr; Older</a>
-
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -181,6 +148,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blogs/the-realtek-network-controller-was-not-found/';
+          var disqus_url = 'http://mookrs.com/blogs/the-realtek-network-controller-was-not-found/';
+          var disqus_title = '解决「The realtek network controller was not found」';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
