@@ -45,85 +45,88 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/an-interview/">一次面试</a>
+        <a href="http://mookrs.com/blog/hello-jekyll/">Hello Jekyll</a>
       </h1>
-      <p class="meta"><time datetime="2013-05-03T00:00:00" pubdate>周五 03 五月 2013</time></p>
+      <p class="meta"><time datetime="2012-04-19T00:00:00" pubdate>周四 19 四月 2012</time></p>
 </header>
 
-  <div class="entry-content"><p>四月份在北京参加完某事业单位面试后随手找了 S 公司的电话，询问那边是否有面试机会，HR 很热心地建议我把简历发过去。回学校投过简历之后，HR 安排了该公司国土部门进行了电话面试，面试官感觉不错，希望我来北京见面聊一下。不过由于实在不想再折腾，我婉言谢绝了这个机会。过了一周刚好他们公司另一个部门有负责人在武汉，HR 又给我打电话，希望我有时间过去一下。于是这成为了我最惨烈的一次面试。</p>
-<p>其实都是很简单的问题，主要是我太水了……</p>
-<blockquote>
-<p>Java 如何拆分字符串？</p>
-</blockquote>
-<p>我：没用过……</p>
-<p>参考：<a href="http://heisetoufa.iteye.com/blog/227238">substring &amp; split</a></p>
-<blockquote>
-<p>简单说说你了解的数据结构方面的知识？</p>
-</blockquote>
-<p>我：排序……</p>
-<blockquote>
-<p>说说你知道的排序算法？</p>
-</blockquote>
-<p>作为算法白痴我就说了个二分法排序……</p>
-<p>参考：<a href="http://zh.wikipedia.org/wiki/排序算法">排序算法</a></p>
-<blockquote>
-<p>Java 中 Array 与 ArrayList 的主要区别？</p>
-</blockquote>
-<p>我：……</p>
-<p>参考：<a href="http://www.blogjava.net/flysky19/archive/2013/05/05/92775.html">数组与 ArrayList 的关系与区别</a></p>
-<blockquote>
-<p>Android 中的 Activity 是什么？为什么 ...</p></blockquote></div>
+  <div class="entry-content"><p>这是我迁移到 <a href="https://github.com/mojombo/jekyll">Jekyll</a> 后的第一篇文章。Jekyll 是一个很好的静态内容生成系统，可以部署到免费的 <a href="http://pages.github.com/">Github Page</a> 或 <a href="http://www.heroku.com/">Heroku</a> 上，也可以部署到自己的服务器上。之前在 Windows 和 Ubuntu 环境下尝试配置了 <a href="http://octopress.org/">Octopress</a>，但总有小毛病，于是转向 <a href="http://jekyllbootstrap.com/">Jekyll-Bootstrap</a>。我没有接触过 Ruby，也不很懂得 Git，所以其中的过程可谓历尽波折，Windows 上的编码就困扰过我一个通宵……</p>
+<p>在 Windows 上搭建 Ruby on Rails 环境，强烈建议使用 <a href="http://railsinstaller.org/">RailsInstaller</a>，它简化了 Rails 在 Windows 上的安装过程，包含有 <a href="http://ruby-lang.org/">Ruby</a>、<a href="http://rubyonrails.org/">Rails</a>、<a href="http://gembundler.com/">Bundler</a>、<a href="http://git-scm.com/">Git</a>、<a href="http://sqlite.org/">Sqlite</a>、<a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>、<a href="https://github.com/rails-sqlserver/activerecord-sqlserver-adapter">SQL ...</a></p></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/an-interview/">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/blog/hello-jekyll/">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/start-sphinx/">使用 Sphinx 制作文档</a>
+        <a href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
       </h1>
-      <p class="meta"><time datetime="2013-02-09T00:00:00" pubdate>周六 09 二月 2013</time></p>
+      <p class="meta"><time datetime="2012-02-19T00:00:00" pubdate>周日 19 二月 2012</time></p>
 </header>
 
-  <div class="entry-content"><p><a href="http://sphinx-doc.org/">Sphinx</a> 是一个由 Python 编写的文档生成工具，可以用 <a href="http://wstudio.web.fc2.com/others/restructuredtext.html">reStructuredText</a> 语法生成美观的文档。</p>
-<p>1. 确保已经安装 <a href="http://www.python.org/download/">Python</a></p>
-<p>2. 安装 <a href="https://pypi.python.org/pypi/setuptools">setuptools</a>，以便使用 <code>easy_install</code> 命令</p>
-<p>3. 安装 Sphinx</p>
-<p><code>easy_install sphinx</code></p>
-<p>4. Sphinx 使用</p>
+  <div class="entry-content"><p><a href="http://www.360buy.com/product/533472.html">HP Pavilion g4-1208tx</a> 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现 750G 的硬盘连根毛都没看着……只能看见我自己的U盘……</p>
+<p>经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/the-realtek-network-controller-was-not-found/">解决「The realtek network controller was not found」</a>
+      </h1>
+      <p class="meta"><time datetime="2012-02-09T00:00:00" pubdate>周四 09 二月 2012</time></p>
+</header>
+
+  <div class="entry-content"><p>家里今天装配了一台电脑，主板是昂达 N68GD3，Win7 32 位下有线网卡不能直接驱动。当时没有其它电脑在手边，还好试着挂载了一下 Ubuntu 镜像，能连上网络。根据 <a href="http://detail.zol.com.cn/motherboard/index294964.shtml">ZOL</a> 的硬件信息找到 Realtek RTL8103E 的相关驱动，安装报错“FindFile failed”，然后继续报错“The Realtek Network Controller was not found.IF Deep Sleep Mode is enabled Please Plug the Cable.”意思是 Realtek 网络控制器未找到，如果进入了深度睡眠状态，请插上网线。</p>
+<p>搜索到<a href="http://adeelejaz.com/blog/realteks-network-controller-deep-sleep-mode-issue/">国外的一个网站</a>是这样解答的：大意是要先关机，开机箱取出 CMOS 电池和内存条 ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/the-realtek-network-controller-was-not-found/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/turn-on-windows-autoplay/">开启Windows「自动播放」功能</a>
+      </h1>
+      <p class="meta"><time datetime="2012-02-05T00:00:00" pubdate>周日 05 二月 2012</time></p>
+</header>
+
+  <div class="entry-content"><p>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想开启「自动播放」功能，可以通过打开 控制面-系统和安全-硬件和声音-自动播放，勾选「为所有媒体和设备使用自动播放(U)」。</p>
+<p>若这样做无效，则进一步确定以下两点：</p>
 <ul>
-<li>使用向导创建文档项目，执行 <code>sphinx-quickstart</code></li>
-</ul>
-<pre>
-Welcome to the Sphinx 1.1.3 quickstart utility.
-
-Please enter values for the following settings (just press Enter to
-accept a default ...</pre></div>
+<li>
+<p><code>Win+R</code> 打开运行，输入 <code>services.msc</code> 并回车，确保 <code>Shell Hardware Detection</code> 服务开启 </p>
+</li>
+<li>
+<p>运行 <code>gpedit.msc</code>，打开 计算机配置 &gt; 管理模板 &gt; Windows 组件 &gt; 自动播放策略 &gt; 关闭自动播放，双击，勾选 <code>已禁用(D)</code></p>
+</li>
+</ul></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/start-sphinx/">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/blog/turn-on-windows-autoplay/">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/autumn-feelings/">秋日偶感</a>
+        <a href="http://mookrs.com/blog/problems-when-use-ubuntu/">Ubuntu 使用备忘</a>
       </h1>
-      <p class="meta"><time datetime="2012-09-14T00:00:00" pubdate>周五 14 九月 2012</time></p>
+      <p class="meta"><time datetime="2011-12-19T00:00:00" pubdate>周一 19 十二月 2011</time></p>
 </header>
 
-  <div class="entry-content"><p>从无话不说到无话可说，从一个眼神都是默契到一个表情一句不经意的话都是误会。</p>
-<p>到底因为什么变成这样了呢。</p>
-<p>连日来反思走过的路，大概真的是起点不对，终点才无疾而终。一切温柔只是习惯，却忘了本该情不自禁地流露。</p>
-<p>偶尔还是会酸酸的吧。</p>
-<p>所以开始庆幸种种原因疏远了的人，巧合让他们变成可以怀念的部分。至少百无聊奈时能发条短信说一句，「嘿，我在听一首歌，想起你，最近过得怎样？」</p>
-<p>所以也会担心，口口声声以学长自诩的我，处事时是否不够成熟。莫怪。</p>
-<p>昨天遇见 XP，她讲起最近的纠结，甚至有想要放弃的念头。我忽然说，北大是你的梦想么？你曾经那么努力地去争取、去奋战到底的不就是为了这个梦想么。这个世界上有梦想的人越来越少，拥有梦想并为之殒身不恤，无论结果如何，都是值得骄傲毫无遗憾的事。</p>
-<p>靠，太特么煽情了。</p>
-<p>可是，她让人羡慕：会做梦、实现梦的人最幸福啊。</p>
-<p>秋天来啦，数学书还有那么多没看，可是为什么我蹦跶蹦跶得好开心。像一只……斑猪！:D</p>
-<p>因为——pH 学妹，我认识了你呀。</p></div>
+  <div class="entry-content"><p>折腾 Ubuntu 时出现了不少问题，凭印象整理了几个小问题，备忘一下。环境：Ubuntu 11.10 64-bit</p>
+<h4>安装 Ubuntu 时卡在「正在探测文件系统」</h4>
+<p>安装前打开终端，硬盘安装输入  <code>sudo umount -l /isodevice</code></p>
+<p>光盘安装输入  <code>sudo umount -l /cdrom</code></p>
+<h4>Ubuntu 软件中心打不开，停在载入状态</h4>
+<p>依次运行下面的命令：</p>
+<p><code>sudo apt-get update</code></p>
+<p><code>sudo apt-get dist-upgrade</code></p>
+<p><code>sudo apt-get install –reinstall software-center</code></p>
+<h4>Ubuntu 软件中心依然打不开，停在载入状态</h4>
+<p>具体为：更新管理器检查更新失败，出现提示「下载软件仓库信息失败，检查您的 internet 连接 ...</p></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/autumn-feelings/">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/blog/problems-when-use-ubuntu/">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
@@ -137,10 +140,10 @@ accept a default ...</pre></div>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://mookrs.com/blog//"></a>
+          <a href="http://mookrs.com/blog/null/">This is NULL</a>
       </li>
       <li class="post">
-          <a href="http://mookrs.com/blog/null/">This is NULL</a>
+          <a href="http://mookrs.com/blog//"></a>
       </li>
       <li class="post">
           <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
@@ -166,7 +169,7 @@ accept a default ...</pre></div>
 
   <section>
   <h1>Tags</h1>
-    <a href="http://mookrs.com/tag/.html"></a>,    <a href="http://mookrs.com/tag/realtek.html">Realtek</a>,    <a href="http://mookrs.com/tag/wpf.html">WPF</a>,    <a href="http://mookrs.com/tag/fedora.html">Fedora</a>,    <a href="http://mookrs.com/tag/jekyll.html">Jekyll</a>,    <a href="http://mookrs.com/tag/windows.html">Windows</a>,    <a href="http://mookrs.com/tag/kde.html">KDE</a>,    <a href="http://mookrs.com/tag/pe.html">PE</a>,    <a href="http://mookrs.com/tag/picturemarkersymbol.html">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/tag/yue-du.html">阅读</a>,    <a href="http://mookrs.com/tag/arcgis.html">ArcGIS</a>,    <a href="http://mookrs.com/tag/mian-shi.html">面试</a>,    <a href="http://mookrs.com/tag/han-han.html">韩寒</a>,    <a href="http://mookrs.com/tag/linux.html">Linux</a>,    <a href="http://mookrs.com/tag/sphinx.html">Sphinx</a>,    <a href="http://mookrs.com/tag/ph.html">pH</a>,    <a href="http://mookrs.com/tag/android.html">Android</a>,    <a href="http://mookrs.com/tag/ubuntu.html">Ubuntu</a>,    <a href="http://mookrs.com/tag/software.html">software</a>  </section>
+    <a href="http://mookrs.com/tag/.html"></a>,    <a href="http://mookrs.com/tag/realtek.html">Realtek</a>,    <a href="http://mookrs.com/tag/wpf.html">WPF</a>,    <a href="http://mookrs.com/tag/fedora.html">Fedora</a>,    <a href="http://mookrs.com/tag/jekyll.html">Jekyll</a>,    <a href="http://mookrs.com/tag/windows.html">Windows</a>,    <a href="http://mookrs.com/tag/kde.html">KDE</a>,    <a href="http://mookrs.com/tag/pe.html">PE</a>,    <a href="http://mookrs.com/tag/picturemarkersymbol.html">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/tag/yue-du.html">阅读</a>,    <a href="http://mookrs.com/blog/tag/1/">1</a>,    <a href="http://mookrs.com/tag/arcgis.html">ArcGIS</a>,    <a href="http://mookrs.com/tag/mian-shi.html">面试</a>,    <a href="http://mookrs.com/tag/han-han.html">韩寒</a>,    <a href="http://mookrs.com/tag/linux.html">Linux</a>,    <a href="http://mookrs.com/tag/sphinx.html">Sphinx</a>,    <a href="http://mookrs.com/tag/ph.html">pH</a>,    <a href="http://mookrs.com/tag/android.html">Android</a>,    <a href="http://mookrs.com/tag/ubuntu.html">Ubuntu</a>,    <a href="http://mookrs.com/tag/software.html">software</a>  </section>
 
 
     <section>
