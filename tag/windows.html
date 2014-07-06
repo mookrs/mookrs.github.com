@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>Yet Another Mookrs - Windows</title>
   <meta name="author" content="Mookrs">
 
 
@@ -45,87 +45,80 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/null.html">This is NULL</a>
+        <a href="http://mookrs.com/start-sphinx.html">使用 Sphinx 制作文档</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-07T00:00:00" pubdate>周一 07 七月 2014</time></p>
+      <p class="meta"><time datetime="2013-02-09T00:00:00" pubdate>周六 09 二月 2013</time></p>
 </header>
 
-  <div class="entry-content"><p>Null for this.</p></div>
+  <div class="entry-content"><p><a href="http://sphinx-doc.org/">Sphinx</a> 是一个由 Python 编写的文档生成工具，可以用 <a href="http://wstudio.web.fc2.com/others/restructuredtext.html">reStructuredText</a> 语法生成美观的文档。</p>
+<p>1. 确保已经安装 <a href="http://www.python.org/download/">Python</a></p>
+<p>2. 安装 <a href="https://pypi.python.org/pypi/setuptools">setuptools</a>，以便使用 <code>easy_install</code> 命令</p>
+<p>3. 安装 Sphinx</p>
+<p><code>easy_install sphinx</code></p>
+<p>4. Sphinx 使用</p>
+<ul>
+<li>使用向导创建文档项目，执行 <code>sphinx-quickstart</code></li>
+</ul>
+<pre>
+Welcome to the Sphinx 1.1.3 quickstart utility.
+
+Please enter values for the following settings (just press Enter to
+accept a default ...</pre></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/null.html">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/start-sphinx.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/.html"></a>
+        <a href="http://mookrs.com/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe.html">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-06T00:00:00" pubdate>周日 06 七月 2014</time></p>
+      <p class="meta"><time datetime="2012-02-19T00:00:00" pubdate>周日 19 二月 2012</time></p>
 </header>
 
-  <div class="entry-content"></div>
+  <div class="entry-content"><p><a href="http://www.360buy.com/product/533472.html">HP Pavilion g4-1208tx</a> 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现 750G 的硬盘连根毛都没看着……只能看见我自己的U盘……</p>
+<p>经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</p></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/.html">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf.html">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
+        <a href="http://mookrs.com/the-realtek-network-controller-was-not-found.html">解决「The realtek network controller was not found」</a>
       </h1>
-      <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
+      <p class="meta"><time datetime="2012-02-09T00:00:00" pubdate>周四 09 二月 2012</time></p>
 </header>
 
-  <div class="entry-content"><p>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /></p>
-<p>这种情况下，一旦缩小地图，偏移量就会特别厉害：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /></p>
-<p>原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。</p>
-<p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
-<p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
+  <div class="entry-content"><p>家里今天装配了一台电脑，主板是昂达 N68GD3，Win7 32 位下有线网卡不能直接驱动。当时没有其它电脑在手边，还好试着挂载了一下 Ubuntu 镜像，能连上网络。根据 <a href="http://detail.zol.com.cn/motherboard/index294964.shtml">ZOL</a> 的硬件信息找到 Realtek RTL8103E 的相关驱动，安装报错“FindFile failed”，然后继续报错“The Realtek Network Controller was not found.IF Deep Sleep Mode is enabled Please Plug the Cable.”意思是 Realtek 网络控制器未找到，如果进入了深度睡眠状态，请插上网线。</p>
+<p>搜索到<a href="http://adeelejaz.com/blog/realteks-network-controller-deep-sleep-mode-issue/">国外的一个网站</a>是这样解答的：大意是要先关机，开机箱取出 CMOS 电池和内存条 ...</p></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf.html">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/the-realtek-network-controller-was-not-found.html">Read On &crarr;</a>
   </footer>
   		</article>
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/arcgis-for-android-development-resources.html">ArcGIS for Android 开发：开发资源</a>
+        <a href="http://mookrs.com/turn-on-windows-autoplay.html">开启Windows「自动播放」功能</a>
       </h1>
-      <p class="meta"><time datetime="2013-06-11T00:00:00" pubdate>周二 11 六月 2013</time></p>
+      <p class="meta"><time datetime="2012-02-05T00:00:00" pubdate>周日 05 二月 2012</time></p>
 </header>
 
-  <div class="entry-content"><h2>文档</h2>
-<p>从比较实际的角度出发，最有用的是 Esri 的开发帮助文档。</p>
-<p>一份是《ArcGIS API for Android 案例教程》，这个时间上比较旧，不过其中用到的 API 没什么变化，开发的过程比较详细，如果有一点 Java 基础，可以轻松入门。下载地址：<a href="http://vdisk.weibo.com/s/Fkr1z">http://vdisk.weibo.com/s/Fkr1z</a> 在线地址：<a href="http://blog.csdn.net/warrenwyf/article/category/784554">http://blog.csdn.net/warrenwyf/article/category/784554</a> </p>
-<p>另一份是《ArcGIS for Android 2.0 开发教程基础版》，时间上相对新一点，对 API 的介绍较多。在线地址：<a href="http://blog.csdn.net/arcgis_mobile/article/category/1161606">http://blog ...</a></p></div>
+  <div class="entry-content"><p>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想开启「自动播放」功能，可以通过打开 控制面-系统和安全-硬件和声音-自动播放，勾选「为所有媒体和设备使用自动播放(U)」。</p>
+<p>若这样做无效，则进一步确定以下两点：</p>
+<ul>
+<li>
+<p><code>Win+R</code> 打开运行，输入 <code>services.msc</code> 并回车，确保 <code>Shell Hardware Detection</code> 服务开启 </p>
+</li>
+<li>
+<p>运行 <code>gpedit.msc</code>，打开 计算机配置 &gt; 管理模板 &gt; Windows 组件 &gt; 自动播放策略 &gt; 关闭自动播放，双击，勾选 <code>已禁用(D)</code></p>
+</li>
+</ul></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/arcgis-for-android-development-resources.html">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/arcgis-for-android-server-configuration.html">ArcGIS for Android 开发：ArcGIS for Server 配置</a>
-      </h1>
-      <p class="meta"><time datetime="2013-06-10T00:00:00" pubdate>周一 10 六月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>对于 Server 的安装以及配置，在《ArcGIS 10.1 for Server 入门教程》这份文档中有详细的说明，文档下载地址（你需要一个新浪微博账号登陆下载）：<a href="http://vdisk.weibo.com/s/FeDrG">http://vdisk.weibo.com/s/FeDrG</a></p>
-<h3>安装</h3>
-<p><a href="http://pan.baidu.com/share/link?shareid=1622335099&amp;uk=1731248969">ArcGIS 10.1 for Server 下载地址</a></p>
-<p>安装参考文档「2.2 Windows 系统下的安装」 。</p>
-<p>其中有一步需要创建 Server 账户和密码。该账户会在你的 Windows 系统中存在，跟 ArcGIS Server 有关的进程都会在此账户下运行。</p>
-<h3>授权</h3>
-<p>这部分请自行搜索方法。</p>
-<p><strong>注意：要想能够登陆 Manager，必须确保在任务管理器中 ArcGISServer.exe 进程正在运行 ...</strong></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/arcgis-for-android-server-configuration.html">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/turn-on-windows-autoplay.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
-    <a class="prev" href="http://mookrs.com/index2.html">&larr; Older</a>
 
   <br />
 </div></div>
@@ -134,19 +127,16 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://mookrs.com/null.html">This is NULL</a>
+          <a href="http://mookrs.com/start-sphinx.html">使用 Sphinx 制作文档</a>
       </li>
       <li class="post">
-          <a href="http://mookrs.com/.html"></a>
+          <a href="http://mookrs.com/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe.html">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
       </li>
       <li class="post">
-          <a href="http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf.html">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
+          <a href="http://mookrs.com/the-realtek-network-controller-was-not-found.html">解决「The realtek network controller was not found」</a>
       </li>
       <li class="post">
-          <a href="http://mookrs.com/arcgis-for-android-development-resources.html">ArcGIS for Android 开发：开发资源</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/arcgis-for-android-server-configuration.html">ArcGIS for Android 开发：ArcGIS for Server 配置</a>
+          <a href="http://mookrs.com/turn-on-windows-autoplay.html">开启Windows「自动播放」功能</a>
       </li>
     </ul>
   </section>
@@ -185,7 +175,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2011-2014  - Mookrs -
+    Copyright &copy;  2012-2013  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
