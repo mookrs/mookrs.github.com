@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>开启Windows「自动播放」功能</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,11 +41,40 @@
 </ul></nav>
   <div id="main">
     <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">开启Windows「自动播放」功能</h1>
+      <p class="meta"><time datetime="2012-02-05T00:00:00" pubdate>周日 05 二月 2012</time></p>
+</header>
+
+  <div class="entry-content"><p>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想开启「自动播放」功能，可以通过打开 控制面-系统和安全-硬件和声音-自动播放，勾选「为所有媒体和设备使用自动播放(U)」。</p>
+<p>若这样做无效，则进一步确定以下两点：</p>
 <ul>
-    <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
-    <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
-    <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
-</ul>
+<li>
+<p><code>Win+R</code> 打开运行，输入 <code>services.msc</code> 并回车，确保 <code>Shell Hardware Detection</code> 服务开启 </p>
+</li>
+<li>
+<p>运行 <code>gpedit.msc</code>，打开 计算机配置 &gt; 管理模板 &gt; Windows 组件 &gt; 自动播放策略 &gt; 关闭自动播放，双击，勾选 <code>已禁用(D)</code></p>
+</li>
+</ul></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2012-02-05T00:00:00" pubdate>周日 05 二月 2012</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/blog/tag/windows/">Windows</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -125,6 +154,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/turn-on-windows-autoplay.html';
+          var disqus_url = 'http://mookrs.com/turn-on-windows-autoplay.html';
+          var disqus_title = '开启Windows「自动播放」功能';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs - </title>
+  <title>Yet Another Mookrs - WPF</title>
   <meta name="author" content="Mookrs">
 
 
@@ -37,6 +37,7 @@
 
 
 <ul class="main-navigation">
+      <li><a href="http://mookrs.com/a/about/">About</a></li>
 </ul></nav>
   <div id="main">
     <div id="content">
@@ -44,14 +45,21 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/.html"></a>
+        <a href="http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf.html">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-06T00:00:00" pubdate>周日 06 七月 2014</time></p>
+      <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
 </header>
 
-  <div class="entry-content"></div>
+  <div class="entry-content"><p>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：</p>
+<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /></p>
+<p>这种情况下，一旦缩小地图，偏移量就会特别厉害：</p>
+<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /></p>
+<p>原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。</p>
+<p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
+<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
+<p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/.html">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf.html">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
@@ -63,7 +71,7 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://mookrs.com/.html"></a>
+          <a href="http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf.html">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
       </li>
     </ul>
   </section>
@@ -71,6 +79,8 @@
       
     <h1>Categories</h1>
     <ul id="recent_posts">
+        <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
+        <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
         <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
     </ul>
   </section>
@@ -78,7 +88,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="http://mookrs.com/blog/tag//"></a>  </section>
+    <a href="http://mookrs.com/blog/tag/wpf/">WPF</a>,    <a href="http://mookrs.com/blog/tag/realtek/">Realtek</a>,    <a href="http://mookrs.com/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/blog/tag/fedora/">Fedora</a>,    <a href="http://mookrs.com/blog/tag/jekyll/">Jekyll</a>,    <a href="http://mookrs.com/blog/tag/windows/">Windows</a>,    <a href="http://mookrs.com/blog/tag/kde/">KDE</a>,    <a href="http://mookrs.com/blog/tag/pe/">PE</a>,    <a href="http://mookrs.com/blog/tag/yue-du/">阅读</a>,    <a href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>,    <a href="http://mookrs.com/blog/tag/mian-shi/">面试</a>,    <a href="http://mookrs.com/blog/tag/han-han/">韩寒</a>,    <a href="http://mookrs.com/blog/tag/linux/">Linux</a>,    <a href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>,    <a href="http://mookrs.com/blog/tag/ph/">pH</a>,    <a href="http://mookrs.com/blog/tag/android/">Android</a>,    <a href="http://mookrs.com/blog/tag/ubuntu/">Ubuntu</a>,    <a href="http://mookrs.com/blog/tag/software/">software</a>  </section>
 
 
     <section>
@@ -100,7 +110,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2014  - Mookrs -
+    Copyright &copy;  2013  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
