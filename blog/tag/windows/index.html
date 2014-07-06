@@ -71,6 +71,20 @@ accept a default ...</pre></div>
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
+      </h1>
+      <p class="meta"><time datetime="2012-02-19T00:00:00" pubdate>周日 19 二月 2012</time></p>
+</header>
+
+  <div class="entry-content"><p><a href="http://www.360buy.com/product/533472.html">HP Pavilion g4-1208tx</a> 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现 750G 的硬盘连根毛都没看着……只能看见我自己的U盘……</p>
+<p>经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="http://mookrs.com/blog/the-realtek-network-controller-was-not-found/">解决「The realtek network controller was not found」</a>
       </h1>
       <p class="meta"><time datetime="2012-02-09T00:00:00" pubdate>周四 09 二月 2012</time></p>
@@ -80,6 +94,28 @@ accept a default ...</pre></div>
 <p>搜索到<a href="http://adeelejaz.com/blog/realteks-network-controller-deep-sleep-mode-issue/">国外的一个网站</a>是这样解答的：大意是要先关机，开机箱取出 CMOS 电池和内存条 ...</p></div>
   <footer>
     <a rel="full-article" href="http://mookrs.com/blog/the-realtek-network-controller-was-not-found/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/turn-on-windows-autoplay/">开启Windows「自动播放」功能</a>
+      </h1>
+      <p class="meta"><time datetime="2012-02-05T00:00:00" pubdate>周日 05 二月 2012</time></p>
+</header>
+
+  <div class="entry-content"><p>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想开启「自动播放」功能，可以通过打开 控制面-系统和安全-硬件和声音-自动播放，勾选「为所有媒体和设备使用自动播放(U)」。</p>
+<p>若这样做无效，则进一步确定以下两点：</p>
+<ul>
+<li>
+<p><code>Win+R</code> 打开运行，输入 <code>services.msc</code> 并回车，确保 <code>Shell Hardware Detection</code> 服务开启 </p>
+</li>
+<li>
+<p>运行 <code>gpedit.msc</code>，打开 计算机配置 &gt; 管理模板 &gt; Windows 组件 &gt; 自动播放策略 &gt; 关闭自动播放，双击，勾选 <code>已禁用(D)</code></p>
+</li>
+</ul></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/turn-on-windows-autoplay/">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
@@ -94,7 +130,13 @@ accept a default ...</pre></div>
           <a href="http://mookrs.com/blog/start-sphinx/">使用 Sphinx 制作文档</a>
       </li>
       <li class="post">
+          <a href="http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</a>
+      </li>
+      <li class="post">
           <a href="http://mookrs.com/blog/the-realtek-network-controller-was-not-found/">解决「The realtek network controller was not found」</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blog/turn-on-windows-autoplay/">开启Windows「自动播放」功能</a>
       </li>
     </ul>
   </section>
@@ -102,6 +144,8 @@ accept a default ...</pre></div>
       
     <h1>Categories</h1>
     <ul id="recent_posts">
+        <li><a href="http://mookrs.com/blog/category/books">Books</a></li>
+        <li><a href="http://mookrs.com/blog/category/essays">Essays</a></li>
         <li><a href="http://mookrs.com/blog/category/tech">Tech</a></li>
     </ul>
   </section>
@@ -109,7 +153,7 @@ accept a default ...</pre></div>
 
   <section>
   <h1>Tags</h1>
-    <a href="http://mookrs.com/blog/tag//"></a>,    <a href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>,    <a href="http://mookrs.com/blog/tag/windows/">Windows</a>,    <a href="http://mookrs.com/blog/tag/realtek/">Realtek</a>,    <a href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>,    <a href="http://mookrs.com/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/blog/tag/android/">Android</a>,    <a href="http://mookrs.com/blog/tag/wpf/">WPF</a>  </section>
+    <a href="http://mookrs.com/blog/tag//"></a>,    <a href="http://mookrs.com/blog/tag/day-night/">Day & Night</a>,    <a href="http://mookrs.com/blog/tag/realtek/">Realtek</a>,    <a href="http://mookrs.com/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/blog/tag/fedora/">Fedora</a>,    <a href="http://mookrs.com/blog/tag/jekyll/">Jekyll</a>,    <a href="http://mookrs.com/blog/tag/windows/">Windows</a>,    <a href="http://mookrs.com/blog/tag/kde/">KDE</a>,    <a href="http://mookrs.com/blog/tag/pe/">PE</a>,    <a href="http://mookrs.com/blog/tag/yue-du/">阅读</a>,    <a href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>,    <a href="http://mookrs.com/blog/tag/mian-shi/">面试</a>,    <a href="http://mookrs.com/blog/tag/han-han/">韩寒</a>,    <a href="http://mookrs.com/blog/tag/linux/">Linux</a>,    <a href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>,    <a href="http://mookrs.com/blog/tag/android/">Android</a>,    <a href="http://mookrs.com/blog/tag/wpf/">WPF</a>,    <a href="http://mookrs.com/blog/tag/ubuntu/">Ubuntu</a>,    <a href="http://mookrs.com/blog/tag/software/">software</a>  </section>
 
 
     <section>
