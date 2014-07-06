@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,61 +41,33 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blog//"></a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-06T00:00:00" pubdate>周日 06 七月 2014</time></p>
+      <h1 class="entry-title">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</h1>
+      <p class="meta"><time datetime="2012-02-19T00:00:00" pubdate>周日 19 二月 2012</time></p>
 </header>
 
-  <div class="entry-content"></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blog//">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </h1>
-      <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
-</header>
+  <div class="entry-content"><p><a href="http://www.360buy.com/product/533472.html">HP Pavilion g4-1208tx</a> 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现 750G 的硬盘连根毛都没看着……只能看见我自己的U盘……</p>
+<p>经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2012-02-19T00:00:00" pubdate>周日 19 二月 2012</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/tag/windows.html">Windows</a>
+    <a class="category" href="http://mookrs.com/tag/pe.html">PE</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-  <div class="entry-content"><p>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /></p>
-<p>这种情况下，一旦缩小地图，偏移量就会特别厉害：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /></p>
-<p>原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。</p>
-<p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
-<p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
-      </h1>
-      <p class="meta"><time datetime="2013-06-11T00:00:00" pubdate>周二 11 六月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h2>文档</h2>
-<p>从比较实际的角度出发，最有用的是 Esri 的开发帮助文档。</p>
-<p>一份是《ArcGIS API for Android 案例教程》，这个时间上比较旧，不过其中用到的 API 没什么变化，开发的过程比较详细，如果有一点 Java 基础，可以轻松入门。下载地址：<a href="http://vdisk.weibo.com/s/Fkr1z">http://vdisk.weibo.com/s/Fkr1z</a> 在线地址：<a href="http://blog.csdn.net/warrenwyf/article/category/784554">http://blog.csdn.net/warrenwyf/article/category/784554</a> </p>
-<p>另一份是《ArcGIS for Android 2.0 开发教程基础版》，时间上相对新一点，对 API 的介绍较多。在线地址：<a href="http://blog.csdn.net/arcgis_mobile/article/category/1161606">http://blog ...</a></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/arcgis-for-android-development-resources/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-    <a class="prev" href="http://mookrs.com/blog/page/2/">&larr; Older</a>
-
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -175,6 +147,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/';
+          var disqus_url = 'http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/';
+          var disqus_title = 'HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

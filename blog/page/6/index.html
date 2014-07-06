@@ -45,55 +45,23 @@
   		<article>
 <header>
       <h1 class="entry-title">
-        <a href="http://mookrs.com/blog//"></a>
+        <a href="http://mookrs.com/blog/install-arcgis-desktop-10/">ArcGIS Desktop 10 图文安装教程</a>
       </h1>
-      <p class="meta"><time datetime="2014-07-06T00:00:00" pubdate>周日 06 七月 2014</time></p>
+      <p class="meta"><time datetime="2011-11-28T00:00:00" pubdate>周一 28 十一月 2011</time></p>
 </header>
 
-  <div class="entry-content"></div>
+  <div class="entry-content"><h4>1.下载 ArcGIS Desktop 10</h4>
+<p>(1) <a href="http://software.esri.com/akdlm/software/arcgis/10.0/final/ArcGIS_Desktop10_122519.iso?downloadID=FA0A478D-1C44-4915-83E1-4BC130EBFF48&amp;__gda__=1283497777_a635b797d7b418fd134cf372fc88e67e&amp;ext=.iso&amp;__gdb__=1283497778_cc0ecad33f057a2fbbe5b79fc5d77825&amp;fileExt=.iso">官方地址</a> </p>
+<p>复制链接，在迅雷等下载软件里新建任务即可。注意，这个 3.75G 的 ArcGIS_Desktop10_122519.iso 文件为英文版，不包含补丁。</p>
+<p>(2) <a href="http://support.esri.com/en/downloads/patches-servicepacks/view/productid/66/metaid/1876">sp5补丁地址</a></p>
+<p>ArcGIS Desktop 10 的版本已更新到最终版 sp5 （2012-7-10），最新的 ArcGIS （截至 2012-10-30）版本号为 10.1，这里以 ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 sp2 并不需要先升级到 sp1，可以直接安装 sp2 补丁。由于我们仅安装 Desktop ...</p></div>
   <footer>
-    <a rel="full-article" href="http://mookrs.com/blog//">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </h1>
-      <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /></p>
-<p>这种情况下，一旦缩小地图，偏移量就会特别厉害：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /></p>
-<p>原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。</p>
-<p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
-<p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
-      </h1>
-      <p class="meta"><time datetime="2013-06-11T00:00:00" pubdate>周二 11 六月 2013</time></p>
-</header>
-
-  <div class="entry-content"><h2>文档</h2>
-<p>从比较实际的角度出发，最有用的是 Esri 的开发帮助文档。</p>
-<p>一份是《ArcGIS API for Android 案例教程》，这个时间上比较旧，不过其中用到的 API 没什么变化，开发的过程比较详细，如果有一点 Java 基础，可以轻松入门。下载地址：<a href="http://vdisk.weibo.com/s/Fkr1z">http://vdisk.weibo.com/s/Fkr1z</a> 在线地址：<a href="http://blog.csdn.net/warrenwyf/article/category/784554">http://blog.csdn.net/warrenwyf/article/category/784554</a> </p>
-<p>另一份是《ArcGIS for Android 2.0 开发教程基础版》，时间上相对新一点，对 API 的介绍较多。在线地址：<a href="http://blog.csdn.net/arcgis_mobile/article/category/1161606">http://blog ...</a></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blog/arcgis-for-android-development-resources/">Read On &crarr;</a>
+    <a rel="full-article" href="http://mookrs.com/blog/install-arcgis-desktop-10/">Read On &crarr;</a>
   </footer>
   		</article>
 <div class="pagination">
-    <a class="prev" href="http://mookrs.com/blog/page/2/">&larr; Older</a>
 
+    <a class="next" href="http://mookrs.com/blog/page/5/">Newer &rarr;</a>
   <br />
 </div></div>
 <aside class="sidebar">
