@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>ArcGIS for Android 开发：Android 平台搭建</title>
+  <meta name="author" content="Mookrs">
+
+
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="http://mookrs.com/favicon.png" rel="icon">
+  <link href="http://mookrs.com/theme/css/main.css" media="screen, projection"
+        rel="stylesheet" type="text/css">
+  <script src="http://mookrs.com/theme/js/modernizr-2.0.js"></script>
+  <script src="http://mookrs.com/theme/js/ender.js"></script>
+  <script src="http://mookrs.com/theme/js/octopress.js" type="text/javascript"></script>
+
+  <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+  <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic"
+        rel="stylesheet" type="text/css">
+</head>
+
+<body>
+  <header role="banner"><hgroup>
+  <h1><a href="http://mookrs.com/">Yet Another Mookrs</a></h1>
+</hgroup></header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+</ul>
+
+
+
+<ul class="main-navigation">
+      <li><a href="http://mookrs.com/pages/about.html">About</a></li>
+</ul></nav>
+  <div id="main">
+    <div id="content">
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">ArcGIS for Android 开发：Android 平台搭建</h1>
+      <p class="meta"><time datetime="2013-06-09T00:00:00" pubdate>周日 09 六月 2013</time></p>
+</header>
+
+  <div class="entry-content"><p>前言：《ArcGIS for Android 开发》这几篇文章本来是我为师弟写的一份入门指导。水平有限，难免有错误之处，欢迎指正，仅供参考。</p>
+<h2>清单：</h2>
+<p>JDK + Eclipse + Android SDK + ADT + ArcGIS Runtime SDK for Android</p>
+<h2>一、安装 JDK</h2>
+<h3>1.下载 JDK</h3>
+<p>JDK（Java Development Kit）是 Oracle 公司针对 Java 开发人员发布的免费 SDK（Software Development Kit）。JDK 有多个类型版本，这里我们选择 Java SE（Standard Edition，标准版）。</p>
+<p>JDK 的下载地址在 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>，其页面如下图：</p>
+<p><img alt="" src="/static/img/2013/06/Java-SE-Downloads.png" /></p>
+<p>选择 Java Platform (JDK) 7u17，点击它的 DOWNLOAD 按钮，跳转到新的页面：</p>
+<p><img alt="" src="/static/img/2013/06/Java-SE-Development-Kit-7-Downloads.png" /></p>
+<p>这里有不同平台的版本可供下载，对于 Windows 系统分为 32 位（x86）和 64 位（x64）两种。我的电脑是 64 位 Windows 7 操作系统，所以选择下载 jdk-7u17-windows-x64.exe。下载相应版本的安装包前，需要接受相应的许可协议，默认是不接受许可协议（Decline License Agreement），必须先点击左边的单选按钮 Accept License Agreement，接受许可协议才能下载。</p>
+<h3>2.安装 JDK</h3>
+<p>如果下载的是 exe 可执行程序，只需要运行该程序进行安装，无需设置环境变量，在安装过程中可以指定安装的路径。当然你也可以检查一下环境变量设置得是否正确，可以新建或修改环境变量：</p>
+<p>1）开始 → 计算机 → 属性 → 高级系统设置 → 环境变量 → 系统变量 → 新建/编辑</p>
+<p>2）配置变量</p>
+<ul>
+<li>
+<p>变量名：JAVA_HOME</p>
+</li>
+<li>
+<p>变量值：D:\Java\jdk1.7.0_11（JDK 的安装路径，我这里是 D:\Java\jdk1.7.0_11） </p>
+</li>
+<li>
+<p>变量名：PATH </p>
+</li>
+<li>
+<p>变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin </p>
+</li>
+<li>
+<p>变量名：CLASSPATH </p>
+</li>
+<li>
+<p>变量值：.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\toos.jar</p>
+</li>
+</ul>
+<p><img alt="" src="/static/img/2013/06/Environment-Variables.png" /></p>
+<h3>3.验证环境变量</h3>
+<p>Win+R 输入 <code>cmd</code> 运行命令提示符窗口，在命令提示符窗口中输入 <code>java -version</code> 后按回车键，验证 Java 的环境变量是否配置成功。如果成功，会显示出相应的 Java 版本，例如我的 Java 版本为 1.7.0_11：</p>
+<p><img alt="" src="/static/img/2013/06/Java-Version.png" /></p>
+<h2>二、安装 Eclipse</h2>
+<p>配置好 JDK 后，就可以开始配置 Android 的集成开发环境（IDE）了。官方推荐的 IDE 为 Eclipse，所以我们就以 Eclipse 作为 IDE。Eclipse 在 <a href="http://www.eclipse.org/downloads/">http://www.eclipse.org/downloads/</a> 可以下载，我下载的版本是 Eclipse Classic 4.2.2 的 Windows 64 Bit 版本。</p>
+<p><img alt="" src="/static/img/2013/06/Eclipse-Downloads.png" /></p>
+<p>选择相应版本后进入下载页面，里面有许多链接，这是由于 Eclipse 下载的用户特别多，为了缓解主服务器的压力，官方提供了很多镜像站点，系统会根据用户电脑的 IP 自动选择最佳的镜像站点，如下图所示：</p>
+<p><img alt="" src="/static/img/2013/06/mirror-selection.png" /></p>
+<p>点击 [China] Northeastern University (http) 链接就可以下载了。Eclipse 是绿色软件，下载后的文件是一个 zip 压缩包，解压后直接运行 eclipse.exe 即可使用。</p>
+<h2>三、安装 Android SDK</h2>
+<h3>1.下载 Android SDK</h3>
+<p>Android SDK 可到 Android Developers 官网 <a href="https://developer.android.com/sdk/index.html">https://developer.android.com/sdk/index.html</a> 下载。因为我们已经安装了 Eclipse，所以要选择下方的 USE AN EXISTING IDE，点击 Download the SDK Tools for Windows。</p>
+<p><img alt="" src="/static/img/2013/06/Download-Android-SDK.png" /></p>
+<p>然后勾选 I have read and agree with the above terms and conditions，同意许可协议，即可下载 Android SDK。我下载的版本为 installer_r21.1-windows.exe。</p>
+<p><img alt="" src="/static/img/2013/06/agree-android-sdk-terms.png" /></p>
+<h3>2.设置环境变量</h3>
+<ul>
+<li>
+<p>变量名：PATH</p>
+</li>
+<li>
+<p>变量值：Android SDK 中 platform-tools 文件夹的绝对路径（例如我的位置为 D:\Program Files (X86)\Android\android-sdk\tools）</p>
+</li>
+</ul>
+<h3>3.检查 Android SDK 是否安装成功</h3>
+<p>设置好 Android SDK 的环境变量后，进入命令提示符窗口，运行 <code>android -h</code>。如果有类似以下的输出，表明安装成功：</p>
+<p><img alt="" src="/static/img/2013/06/android-h.png" /></p>
+<h3>4.安装开发所用的包</h3>
+<p>从开始菜单打开 SDK Manager，勾选需要的工具和 API，选择 Install packages。</p>
+<p><img alt="" src="/static/img/2013/06/Android-SDK-Manager.png" /></p>
+<p>点击 Accept License 同意用户协议，Install 开始安装。</p>
+<p><img alt="" src="/static/img/2013/06/Choose-Packages-to-Install.png" /></p>
+<h2>四、安装 ADT 插件（Android Development Tool）</h2>
+<p>打开 Eclipse，在菜单中选择 Help → Install New Software，在弹出的 Install 窗口中点击右上方的 Add 按钮，在 Location 栏目中加入 ADT 的下载地址：<a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a>，Name 栏目可以填写也可以不填写。然后点击 OK： </p>
+<p><img alt="" src="/static/img/2013/06/Install-ADT.png" /></p>
+<p>如果成功访问 Google 的相关服务器，会显示获取的 ADT 插件信息，全部选中里边的复选框：</p>
+<p><img alt="" src="/static/img/2013/06/ADT-Information.png" /></p>
+<p>点击 Next 按钮，会显示详细情况：</p>
+<p><img alt="" src="/static/img/2013/06/Install-Details.png" /></p>
+<p>继续点击 Next 按钮，会要求用户同意 License，默认为不同意，且下面的 Finish 按钮为灰，确保选中同意 License，然后点击 Finish 按钮：</p>
+<p><img alt="" src="/static/img/2013/06/Review-Licenses.png" /></p>
+<p>然后就进入 ADT 的下载安装过程中，根据用户的网络速度请耐心等待。如下图所示：</p>
+<p><img alt="" src="/static/img/2013/06/Install-Software.png" /></p>
+<p>如果出现警告信息，提示有未签名的插件，点击 OK 即可：</p>
+<p><img alt="" src="/static/img/2013/06/Security-Warning.png" /></p>
+<p>一旦下载安装成功会提示重启 Eclipse，点击 RestartNow 按钮重启 Eclipse。</p>
+<p>如果在上面的安装下载的过程中失败了，尝试重复上面的过程。如果不能访问 <a href="https://dl-ssl.google.com/android/eclipse/">https://dl-ssl.google.com/android/eclipse/</a> 的话就改用 <a href="http://dl-ssl.google.com/android/eclipse/">http://dl-ssl.google.com/android/eclipse/</a>，通常两个总有一个可以用，或者两个链接地址都可以用。仍然无法访问，挂上 VPN。</p>
+<p>最后打开 Eclipse 菜单中的 Window → Preferences，点击左侧的 Android，然后在右边 SDK Location 处设置 Android SDK 的位置，如图：</p>
+<p><img alt="" src="/static/img/2013/06/SDK-Location.png" /></p>
+<h2>五、安装 ArcGIS Runtime SDK for Android</h2>
+<p>ArcGIS Runtime SDK for Android 是 Esri 为开发者提供的 Android 应用开发工具包，内置了大量 API，可以从 Esri 官网下载插件，在本地进行安装。官网的插件下载地址为：<a href="http://developers.arcgis.com/en/android/">http://developers.arcgis.com/en/android/</a>，当前版本的文件为 ArcGISAndroidSDK_v10.1.1.zip，安装方法与 ADT 插件类似。在 Eclipse 菜单中选择 Help → Install New Software，在弹出的 Install 窗口中点击右上方的 Add 按钮，在弹出窗口中点击 Archive，选择已经下载的 ArcGISAndroidSDK_v10.1.1.zip 压缩包，完成安装即可。</p>
+<p><img alt="" src="/static/img/2013/06/Install-ArcGIS-Runtime-SDK-for-Android.png" /></p>
+<p>安装完成并重启 Eclipse 后，打开菜单 File → New → Project…，可以看到在 New Project 中，已经有 ArcGIS for Android 可供选择，说明 ArcGIS Runtime SDK for Android 已经安装成功。</p>
+<p><img alt="" src="/static/img/2013/06/New-Project-ArcGIS-for-Android.png" /></p>
+<h2>六、使用虚拟设备（AVD）或真机进行开发</h2>
+<h3>1.使用 AVD</h3>
+<p>在使用 Android 模拟器进行开发时，由于对 OpenGL ES2.0 的要求，需要模拟器支持 GPU。Android 4.0.3 及以上版本的模拟器提供对 GPU 的支持，所以要使用 Android 4.0.3 以上版本的模拟器。</p>
+<p>在 Eclipse 中打开 Android Virtual Device Manager（工具条上手机里的小绿人），新建一个 AVD。Device 我们选择较为常见的 4.0"，Target 选择 4.1.2，CPU/ABI 选择 ARM（armeabi-v7a），RAM 设置为 768，Emulation Options 中勾选 Use Host GPU，如下图所示：</p>
+<p><img alt="" src="/static/img/2013/06/New-AVD.png" /></p>
+<p>我们可以在菜单的 File → New → Project... 中找到 ArcGIS Samples for Android，新建一个 Demo 测试 AVD。</p>
+<p><img alt="" src="/static/img/2013/06/ArcGIS-Sample-for-Android.png" /></p>
+<p><strong>注意：因为我们安装的是 JDK 1.7（JDK 1.7 即 JDK 7），而 Android 默认使用的是 JDK 1.6，所以在运行前要在项目文件夹上单击鼠右键，选择 Android Tools → Fix Project Properties，将编译器改为 1.6 版本。另外，例子的 project.properties 文件中是 <code>target=android-10</code>，代表着使用的 Androd SDK 版本是 2.3.3，如果你没有安装 Android 2.3.3 的 API ，一定要改成自己使用的 API，例如 Android 4.1.2 对应的要改为 <code>target=android-16</code></strong></p>
+<p>在项目文件夹上单击鼠标右键，选择 Run As → Android Application 即可运行。</p>
+<h3>2.使用真机</h3>
+<p>如果有 Android 设备的话强烈建议用真机开发，AVD 除了占内存外运行的速度也十分糟糕。ArcGIS Runtime SDK for Android 对 Android 设备有些基本要求：Android 版本 2.2 及以上，支持 OpenGL ES2.0。除此之外，与一般 Android 项目在真机上开发没有区别。</p>
+<p>将 Android 设备通过数据线与电脑 USB 接口连接，在 Android 系统设置的「开发选项」中，选中「USB调试」。运行程序，程序会上传到已连接好的 Android 设备，并自动安装运行。</p>
+<p>参考资料：</p>
+<p>[1] 如何在 Windows 环境下安装 JDK <a href="http://wiki.eoe.cn/page/Install_JDK_in_Windows">http://wiki.eoe.cn/page/Install_JDK_in_Windows</a></p>
+<p>[2] 配置 Android SDK 开发环境 <a href="http://wiki.eoe.cn/page/Eclipse_Configure.html">http://wiki.eoe.cn/page/Eclipse_Configure.html</a></p>
+<p>[3] 【教程连载】ArcGIS Runtime for Android开发教程V2.0（2）开发环境配置 <a href="http://blog.csdn.net/arcgis_all/article/details/8232984">http://blog.csdn.net/arcgis_all/article/details/8232984</a></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2013-06-09T00:00:00" pubdate>周日 09 六月 2013</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/tag/arcgis.html">ArcGIS</a>
+    <a class="category" href="http://mookrs.com/tag/android.html">Android</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
+<aside class="sidebar">
+  <section>
+    <h1>Recent Posts</h1>
+    <ul id="recent_posts">
+      <li class="post">
+          <a href="http://mookrs.com/blogs//"></a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blogs/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blogs/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blogs/arcgis-for-android-server-configuration/">ArcGIS for Android 开发：ArcGIS for Server 配置</a>
+      </li>
+      <li class="post">
+          <a href="http://mookrs.com/blogs/arcgis-for-android-build-platform/">ArcGIS for Android 开发：Android 平台搭建</a>
+      </li>
+    </ul>
+  </section>
+  <section>
+      
+    <h1>Categories</h1>
+    <ul id="recent_posts">
+        <li><a href="http://mookrs.com/blog/category/books">Books</a></li>
+        <li><a href="http://mookrs.com/blog/category/essays">Essays</a></li>
+        <li><a href="http://mookrs.com/blog/category/tech">Tech</a></li>
+    </ul>
+  </section>
+ 
+
+  <section>
+  <h1>Tags</h1>
+    <a href="http://mookrs.com/tag/.html"></a>,    <a href="http://mookrs.com/tag/realtek.html">Realtek</a>,    <a href="http://mookrs.com/tag/wpf.html">WPF</a>,    <a href="http://mookrs.com/tag/fedora.html">Fedora</a>,    <a href="http://mookrs.com/tag/jekyll.html">Jekyll</a>,    <a href="http://mookrs.com/tag/windows.html">Windows</a>,    <a href="http://mookrs.com/tag/kde.html">KDE</a>,    <a href="http://mookrs.com/tag/pe.html">PE</a>,    <a href="http://mookrs.com/tag/picturemarkersymbol.html">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/tag/yue-du.html">阅读</a>,    <a href="http://mookrs.com/tag/arcgis.html">ArcGIS</a>,    <a href="http://mookrs.com/tag/mian-shi.html">面试</a>,    <a href="http://mookrs.com/tag/han-han.html">韩寒</a>,    <a href="http://mookrs.com/tag/linux.html">Linux</a>,    <a href="http://mookrs.com/tag/sphinx.html">Sphinx</a>,    <a href="http://mookrs.com/tag/ph.html">pH</a>,    <a href="http://mookrs.com/tag/android.html">Android</a>,    <a href="http://mookrs.com/tag/ubuntu.html">Ubuntu</a>,    <a href="http://mookrs.com/tag/software.html">software</a>  </section>
+
+
+    <section>
+        <h1>Social</h1>
+        <ul>
+            <li><a href="http://twitter.com/mookrs" target="_blank">Twitter</a></li>
+            <li><a href="https://github.com/mookrs" target="_blank">Github</a></li>
+            <li><a href="http://weibo.com/mookrs" target="_blank">微博</a></li>
+            <li><a href="http://www.douban.com/people/Aisophy/" target="_blank">豆瓣</a></li>
+        </ul>
+    </section>
+    <section>
+        <h1>Blogroll</h1>
+        <ul>
+            <li><a href="http://start.mookrs.com/" target="_blank">Mookrs Start Page</a></li>
+        </ul>
+    </section>
+
+</aside>    </div>
+  </div>
+  <footer role="contentinfo"><p>
+    Copyright &copy;  2011-2014  - Mookrs -
+  <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
+</p></footer>
+    <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-23664006-4']);
+    _gaq.push(['_trackPageview']);
+    (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-23664006-4');
+    ga('send', 'pageview');
+</script>
+	<script type="text/javascript">
+	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blogs/arcgis-for-android-build-platform/';
+          var disqus_url = 'http://mookrs.com/blogs/arcgis-for-android-build-platform/';
+          var disqus_title = 'ArcGIS for Android 开发：Android 平台搭建';
+	  (function() {
+	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+	    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+	   })();
+	</script>
+</body>
+</html>

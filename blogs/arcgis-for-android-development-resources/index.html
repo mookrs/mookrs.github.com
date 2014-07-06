@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>ArcGIS for Android 开发：开发资源</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,61 +41,71 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<div class="blog-index">
-  		<article>
+<div>
+  <article class="hentry" role="article">
 <header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blogs//"></a>
-      </h1>
-      <p class="meta"><time datetime="2014-07-06T00:00:00" pubdate>周日 06 七月 2014</time></p>
-</header>
-
-  <div class="entry-content"></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blogs//">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blogs/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </h1>
-      <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
-</header>
-
-  <div class="entry-content"><p>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /></p>
-<p>这种情况下，一旦缩小地图，偏移量就会特别厉害：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /></p>
-<p>原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。</p>
-<p>解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 <code>OffsetX="15" OffsetY="25"</code> 即可：</p>
-<p><img alt="" src="/static/img/2013/11/PictureMarkerSymbol-3.jpg" /></p>
-<p>参考链接：<a href="http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom">http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</a></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blogs/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">Read On &crarr;</a>
-  </footer>
-  		</article>
-  		<article>
-<header>
-      <h1 class="entry-title">
-        <a href="http://mookrs.com/blogs/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
-      </h1>
+      <h1 class="entry-title">ArcGIS for Android 开发：开发资源</h1>
       <p class="meta"><time datetime="2013-06-11T00:00:00" pubdate>周二 11 六月 2013</time></p>
 </header>
 
   <div class="entry-content"><h2>文档</h2>
 <p>从比较实际的角度出发，最有用的是 Esri 的开发帮助文档。</p>
 <p>一份是《ArcGIS API for Android 案例教程》，这个时间上比较旧，不过其中用到的 API 没什么变化，开发的过程比较详细，如果有一点 Java 基础，可以轻松入门。下载地址：<a href="http://vdisk.weibo.com/s/Fkr1z">http://vdisk.weibo.com/s/Fkr1z</a> 在线地址：<a href="http://blog.csdn.net/warrenwyf/article/category/784554">http://blog.csdn.net/warrenwyf/article/category/784554</a> </p>
-<p>另一份是《ArcGIS for Android 2.0 开发教程基础版》，时间上相对新一点，对 API 的介绍较多。在线地址：<a href="http://blog.csdn.net/arcgis_mobile/article/category/1161606">http://blog ...</a></p></div>
-  <footer>
-    <a rel="full-article" href="http://mookrs.com/blogs/arcgis-for-android-development-resources/">Read On &crarr;</a>
-  </footer>
-  		</article>
-<div class="pagination">
-    <a class="prev" href="http://mookrs.com/blog/page/2/">&larr; Older</a>
+<p>另一份是《ArcGIS for Android 2.0 开发教程基础版》，时间上相对新一点，对 API 的介绍较多。在线地址：<a href="http://blog.csdn.net/arcgis_mobile/article/category/1161606">http://blog.csdn.net/arcgis_mobile/article/category/1161606</a></p>
+<h2>网站</h2>
+<h3>Esri</h3>
+<p>ArcGIS Runtime SDK for Android 主页：<a href="http://developers.arcgis.com/en/android/">http://developers.arcgis.com/en/android/</a></p>
+<p>ArcGIS Runtime SDK for Android 帮助文档：<a href="http://resources.arcgis.com/en/help/android-sdk/concepts/">http://resources.arcgis.com/en/help/android-sdk/concepts/</a></p>
+<p>ArcGIS Android 10.1.1 API：<a href="http://developers.arcgis.com/en/android/api-reference/">http://developers.arcgis.com/en/android/api-reference/</a> 1.1 版离线下载：<a href="http://vdisk.weibo.com/s/FmsC4">http://vdisk.weibo.com/s/FmsC4</a></p>
+<p>ArcGIS Runtime SDK for Android 示例代码：<a href="http://developers.arcgis.com/en/android/sample-code/">http://developers.arcgis.com/en/android/sample-code/</a></p>
+<p>ArcGIS Server REST API：<a href="http://resources.arcgis.com/en/help/rest/apiref/">http://resources.arcgis.com/en/help/rest/apiref/</a></p>
+<h3>技术博客</h3>
+<p>ArcGIS_Mobile（已停止更新，并入「ArcGIS产品与技术专栏」）：<a href="http://blog.csdn.net/ArcGIS_Mobile">http://blog.csdn.net/ArcGIS_Mobile</a></p>
+<p>ArcgisServer_book：<a href="http://blog.csdn.net/ArcgisServer_book">http://blog.csdn.net/ArcgisServer_book</a></p>
+<p>ArcGIS产品与技术专栏：<a href="http://blog.csdn.net/arcgis_all">http://blog.csdn.net/arcgis_all</a></p>
+<p>牛魔王的作坊：<a href="http://blog.csdn.net/warrenwyf">http://blog.csdn.net/warrenwyf</a></p>
+<p>菩提老王的葡萄架：<a href="http://blog.newnaw.com/">http://blog.newnaw.com/</a></p>
+<h3>在线教程</h3>
+<p>Android 官方教程：<a href="https://developer.android.com/training/index.html">https://developer.android.com/training/index.html</a></p>
+<p>Android 官方教程的中文翻译：<a href="http://wiki.eoe.cn/">http://wiki.eoe.cn/</a></p>
+<h2>可能遇到的问题</h2>
+<ul>
+<li>
+<p>AVD 无法显示本地 AcrGIS Server 地图，查看 DDMS 报「Connection to http://127.0.0.1 refused」：<code>localhost</code> 这个地址被 AVD 占用了，把地址改成 <code>10.0.0.2</code> 即可。</p>
+</li>
+<li>
+<p>Android 真机无法访问电脑上的 ArcGIS Server 本地服务器（查找问题在哪儿可以查看 DDMS）：在 REST 服务地址没错的前提下，原因可能在于 Windows 防火墙阻挡了外部的接入。关闭防火墙即可。</p>
+</li>
+</ul>
+<h2>书籍</h2>
+<p>网络的资源用来入门，书上的内容没事翻翻即可。国内的《疯狂 Android 讲义》《Google Android 开发入门与实战》等书不过多推荐，看着也还行。《Learning Android》是我的入门书籍，比较薄，也很全面。英文版下载地址：<a href="http://vdisk.weibo.com/s/FmZ4-">http://vdisk.weibo.com/s/FmZ4-</a> 再加一本《Beginning Android 4》英文版下载地址：<a href="http://vdisk.weibo.com/s/FmX_M">http://vdisk.weibo.com/s/FmX_M</a></p>
+<h2>社区</h2>
+<p>eoe 移动开发者社区：<a href="http://android.eoe.cn/">http://android.eoe.cn/</a></p>
+<p>Esri 中国社区 Mobile GIS 版：<a href="http://bbs.esrichina-bj.cn/ESRI/forumdisplay.php?fid=27">http://bbs.esrichina-bj.cn/ESRI/forumdisplay.php?fid=27</a></p>
+<p>Esri 中国社区 ArcGIS Server 技术版：<a href="http://bbs.esrichina-bj.cn/ESRI/forumdisplay.php?fid=25">http://bbs.esrichina-bj.cn/ESRI/forumdisplay.php?fid=25</a></p>
+<p>华夏土地网 ArcGIS 版：<a href="http://bbs.hxland.com/forum-35-1.html">http://bbs.hxland.com/forum-35-1.html</a></p>
+<h2>视频</h2>
+<p>推荐 Mars 老师的 Android 教程（武大珞樱 PT 上的下载地址，仅限校园网访问）：<a href="http://pt.whu6.edu.cn/details.php?id=320">http://pt.whu6.edu.cn/details.php?id=320</a> 也可以追重制版，现在更新到了第二季：<a href="http://www.marschen.com/forum.php?mod=forumdisplay&amp;fid=2">http://www.marschen.com/forum.php?mod=forumdisplay&amp;fid=2</a></p>
+<h2>工具</h2>
+<p>我的建议是用 Google 搜索，技术问题 Google 出来的答案更靠谱。不必害怕英文。对于搜索可能被重置的问题，学会使用 <a href="https://code.google.com/p/goagent/">GoAgent</a>。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2013-06-11T00:00:00" pubdate>周二 11 六月 2013</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/tag/arcgis.html">ArcGIS</a>
+    <a class="category" href="http://mookrs.com/tag/android.html">Android</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
 
-  <br />
-</div></div>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -175,6 +185,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blogs/arcgis-for-android-development-resources/';
+          var disqus_url = 'http://mookrs.com/blogs/arcgis-for-android-development-resources/';
+          var disqus_title = 'ArcGIS for Android 开发：开发资源';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
