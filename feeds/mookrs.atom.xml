@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>Yet Another Mookrs</title><link href="http://mookrs.com/" rel="alternate"></link><link href="http://mookrs.com/feeds%5Cmookrs.atom.xml" rel="self"></link><id>http://mookrs.com/</id><updated>2013-11-29T00:00:00+08:00</updated><entry><title>ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</title><link href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/" rel="alternate"></link><updated>2013-11-29T00:00:00+08:00</updated><author><name>Mookrs</name></author><id>tag:mookrs.com,2013-11-29:blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/</id><summary type="html">&lt;p&gt;做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Yet Another Mookrs</title><link href="http://mookrs.com/" rel="alternate"></link><link href="http://mookrs.com/feeds%5Cmookrs.atom.xml" rel="self"></link><id>http://mookrs.com/</id><updated>2014-10-23T00:00:00+08:00</updated><entry><title>为 RadGridView 的行增加点击事件</title><link href="http://mookrs.com/blog/add-click-event-to-radgridview/" rel="alternate"></link><updated>2014-10-23T00:00:00+08:00</updated><author><name>Mookrs</name></author><id>tag:mookrs.com,2014-10-23:blog/add-click-event-to-radgridview/</id><summary type="html">&lt;p&gt;Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：&lt;/p&gt;
+&lt;p&gt;``` C#
+private void RadGridView_OnRowLoaded(object sender, RowLoadedEventArgs e)
+{
+    var row = e.Row as GridViewRow;
+    if (row != null)
+    {
+        // 防止事件处理程序被触发多次
+        row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, 
+            new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown));
+        row.AddHandler(UIElement.MouseLeftButtonDownEvent,
+            new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), true);
+    }
+}&lt;/p&gt;
+&lt;p&gt;// 处理选中行的 MouseLeftButtonDown 事件
+private void GridViewRow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+{
+    var row = sender as GridViewRow;
+    if (row != null)
+    {
+        // 执行的操作…
+    }
+}
+```&lt;/p&gt;
+&lt;p&gt;其他如 ListBox、DataGrid 等控件也可以用这种方法处理。&lt;/p&gt;
+&lt;p&gt;参考资料：&lt;/p&gt;
+&lt;p&gt;[1]  &lt;a href="http://www.telerik.com/forums/radgridview---click-event"&gt;RadGridView - click event&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;[2]  &lt;a href="http://stackoverflow.com/questions/1271375/how-to-capture-a-mouse-click-on-an-item-in-a-listbox-in-wpf"&gt;How to capture a mouse click on an Item in a ListBox in WPF?&lt;/a&gt;&lt;/p&gt;</summary><category term="WPF"></category><category term="Telerik"></category><category term="RadGridView"></category></entry><entry><title>ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</title><link href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/" rel="alternate"></link><updated>2013-11-29T00:00:00+08:00</updated><author><name>Mookrs</name></author><id>tag:mookrs.com,2013-11-29:blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/</id><summary type="html">&lt;p&gt;做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="/static/img/2013/11/PictureMarkerSymbol-1.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;这种情况下，一旦缩小地图，偏移量就会特别厉害：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="/static/img/2013/11/PictureMarkerSymbol-2.jpg" /&gt;&lt;/p&gt;

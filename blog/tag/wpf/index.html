@@ -45,6 +45,33 @@
   		<article>
 <header>
       <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a>
+      </h1>
+      <p class="meta"><time datetime="2014-10-23T00:00:00" pubdate>周四 23 十月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
+<p>``` C#
+private void RadGridView_OnRowLoaded(object sender, RowLoadedEventArgs e)
+{
+    var row = e.Row as GridViewRow;
+    if (row != null)
+    {
+        // 防止事件处理程序被触发多次
+        row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, 
+            new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown));
+        row.AddHandler(UIElement.MouseLeftButtonDownEvent,
+            new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), true);
+    }
+}</p>
+<p>// 处理选中行的 ...</p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/add-click-event-to-radgridview/">Read On &crarr;</a>
+  </footer>
+  		</article>
+  		<article>
+<header>
+      <h1 class="entry-title">
         <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
       </h1>
       <p class="meta"><time datetime="2013-11-29T00:00:00" pubdate>周五 29 十一月 2013</time></p>
@@ -71,6 +98,9 @@
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
+          <a href="http://mookrs.com/blog/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a>
+      </li>
+      <li class="post">
           <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
       </li>
     </ul>
@@ -88,7 +118,7 @@
 
   <section>
   <h1>Tags</h1>
-    <a href="http://mookrs.com/blog/tag/wpf/">WPF</a>,    <a href="http://mookrs.com/blog/tag/realtek/">Realtek</a>,    <a href="http://mookrs.com/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/blog/tag/fedora/">Fedora</a>,    <a href="http://mookrs.com/blog/tag/jekyll/">Jekyll</a>,    <a href="http://mookrs.com/blog/tag/windows/">Windows</a>,    <a href="http://mookrs.com/blog/tag/kde/">KDE</a>,    <a href="http://mookrs.com/blog/tag/pe/">PE</a>,    <a href="http://mookrs.com/blog/tag/yue-du/">阅读</a>,    <a href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>,    <a href="http://mookrs.com/blog/tag/mian-shi/">面试</a>,    <a href="http://mookrs.com/blog/tag/han-han/">韩寒</a>,    <a href="http://mookrs.com/blog/tag/linux/">Linux</a>,    <a href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>,    <a href="http://mookrs.com/blog/tag/ph/">pH</a>,    <a href="http://mookrs.com/blog/tag/android/">Android</a>,    <a href="http://mookrs.com/blog/tag/ubuntu/">Ubuntu</a>,    <a href="http://mookrs.com/blog/tag/software/">software</a>  </section>
+    <a href="http://mookrs.com/blog/tag/telerik/">Telerik</a>,    <a href="http://mookrs.com/blog/tag/realtek/">Realtek</a>,    <a href="http://mookrs.com/blog/tag/picturemarkersymbol/">PictureMarkerSymbol</a>,    <a href="http://mookrs.com/blog/tag/fedora/">Fedora</a>,    <a href="http://mookrs.com/blog/tag/jekyll/">Jekyll</a>,    <a href="http://mookrs.com/blog/tag/windows/">Windows</a>,    <a href="http://mookrs.com/blog/tag/kde/">KDE</a>,    <a href="http://mookrs.com/blog/tag/pe/">PE</a>,    <a href="http://mookrs.com/blog/tag/radgridview/">RadGridView</a>,    <a href="http://mookrs.com/blog/tag/yue-du/">阅读</a>,    <a href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>,    <a href="http://mookrs.com/blog/tag/mian-shi/">面试</a>,    <a href="http://mookrs.com/blog/tag/han-han/">韩寒</a>,    <a href="http://mookrs.com/blog/tag/linux/">Linux</a>,    <a href="http://mookrs.com/blog/tag/sphinx/">Sphinx</a>,    <a href="http://mookrs.com/blog/tag/wpf/">WPF</a>,    <a href="http://mookrs.com/blog/tag/ph/">pH</a>,    <a href="http://mookrs.com/blog/tag/android/">Android</a>,    <a href="http://mookrs.com/blog/tag/ubuntu/">Ubuntu</a>,    <a href="http://mookrs.com/blog/tag/software/">software</a>  </section>
 
 
     <section>
@@ -110,7 +140,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2013  - Mookrs -
+    Copyright &copy;  2013-2014  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
