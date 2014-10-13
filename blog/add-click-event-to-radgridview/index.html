@@ -49,29 +49,31 @@
 </header>
 
   <div class="entry-content"><p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
-<p>``` C#
-private void RadGridView_OnRowLoaded(object sender, RowLoadedEventArgs e)
-{
-    var row = e.Row as GridViewRow;
-    if (row != null)
-    {
-        // 防止事件处理程序被触发多次
-        row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, 
-            new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown));
-        row.AddHandler(UIElement.MouseLeftButtonDownEvent,
-            new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), true);
-    }
-}</p>
-<p>// 处理选中行的 MouseLeftButtonDown 事件
-private void GridViewRow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
-{
-    var row = sender as GridViewRow;
-    if (row != null)
-    {
-        // 执行的操作…
-    }
-}
-```</p>
+<div class="highlight"><pre><span class="k">private</span> <span class="k">void</span> <span class="nf">RadGridView_OnRowLoaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RowLoadedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Row</span> <span class="k">as</span> <span class="n">GridViewRow</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 防止事件处理程序被触发多次</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">RemoveHandler</span><span class="p">(</span><span class="n">UIElement</span><span class="p">.</span><span class="n">MouseLeftButtonDownEvent</span><span class="p">,</span> 
+            <span class="k">new</span> <span class="nf">MouseButtonEventHandler</span><span class="p">(</span><span class="n">GridViewRow_MouseLeftButtonDown</span><span class="p">));</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">AddHandler</span><span class="p">(</span><span class="n">UIElement</span><span class="p">.</span><span class="n">MouseLeftButtonDownEvent</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nf">MouseButtonEventHandler</span><span class="p">(</span><span class="n">GridViewRow_MouseLeftButtonDown</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 处理选中行的 MouseLeftButtonDown 事件</span>
+<span class="k">private</span> <span class="k">void</span> <span class="nf">GridViewRow_MouseLeftButtonDown</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MouseButtonEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">sender</span> <span class="k">as</span> <span class="n">GridViewRow</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 执行的操作…</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
 <p>其他如 ListBox、DataGrid 等控件也可以用这种方法处理。</p>
 <p>参考资料：</p>
 <p>[1]  <a href="http://www.telerik.com/forums/radgridview---click-event">RadGridView - click event</a></p>
