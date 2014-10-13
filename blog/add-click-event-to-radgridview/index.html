@@ -49,7 +49,7 @@
 </header>
 
   <div class="entry-content"><p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
-<div class="highlight"><pre><span class="k">private</span> <span class="k">void</span> <span class="nf">RadGridView_OnRowLoaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RowLoadedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<div class="highlight"><pre><span class="k">private</span> <span class="k">void</span> <span class="nf">RadGridView_RowLoaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RowLoadedEventArgs</span> <span class="n">e</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Row</span> <span class="k">as</span> <span class="n">GridViewRow</span><span class="p">;</span>
     <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
