@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>导入 ArcPy 及打包地图</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,14 +41,62 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<h1>Archives for 2014</h1>
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">导入 ArcPy 及打包地图</h1>
+      <p class="meta"><time datetime="2014-11-11T00:00:00+08:00" pubdate>二 11 十一月 2014</time></p>
+</header>
 
-<dl>
-    <dt>二 11 十一月 2014</dt>
-    <dd><a href="http://mookrs.com/blog/importing-arcpy-and-package-map/">导入 ArcPy 及打包地图</a></dd>
-    <dt>四 23 十月 2014</dt>
-    <dd><a href="http://mookrs.com/blog/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a></dd>
-</dl>
+  <div class="entry-content"><h2>导入 ArcPy</h2>
+<p>安装 ArcGIS 的时候一般会附带安装 Python，但是其版本比较旧，例如 ArcGIS 10.1 自带的还是 Python 2.6，而我通常选择使用较新的 Python 2.x 版本，这就造成了在执行跟 ArcPy 相关的命令时，将提示 <code>No module named arcpy</code> 的问题。对此，ArcGIS 官方文档提供了一个<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//002z00000008000000">导入 ArcPy</a> 的方法。</p>
+<p>打开资源管理器浏览至 python27\Lib\site-packages 文件夹，以 ArcGIS 10.2.2 版本为例，添加或编辑 Desktop10.2.2.pth 文件（或 Engine10.2.2.pth 或 Server10.2.2.pth），内容如下：</p>
+<div class="highlight"><pre>c:\Program Files\ArcGIS\Desktop10.2.2\arcpy
+c:\Program Files\ArcGIS\Desktop10.2.2\bin
+c:\Program Files\ArcGIS\Desktop10.2.2\ArcToolbox\Scripts
+</pre></div>
+
+
+<p>根据自己的实际路径修改完成后，如果提示 <code>No module named numpy</code>，那么还要去下载安装 <a href="http://www.numpy.org/">NumPy</a>，之后就可以正常使用 ArcPy 了。</p>
+<h2>打包地图</h2>
+<p>之前有同事通过 ArcGIS 的 GP 工具打包生成的 MPK 文件不能用于 ArcGIS Runtime，检查后发现 MPK 中均没有 .msd 文件。另一个问题是 MPK 中含有 v101 和 v10 两个文件夹，而我们的系统只需要 v101 即可。造成这些问题的原因都在于打包过程中没有指定正确的参数。类似地，利用 ArcPy 打包地图时，需要指定 arcgisruntime
+和 version 两个参数，<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//0017000000q5000000">官方文档</a>对各个参数做了详尽的解释。一个可能的示例代码如下：</p>
+<div class="highlight"><pre><span class="c"># Name: PackageMap.py</span>
+<span class="c"># Description:  Find all the map documents that reside in a specified folder and create map packages for each map document.</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">arcpy</span>
+
+<span class="kn">from</span> <span class="nn">arcpy</span> <span class="kn">import</span> <span class="n">env</span>
+
+<span class="c"># Set environment settings</span>
+<span class="n">env</span><span class="o">.</span><span class="n">overwriteOutput</span> <span class="o">=</span> <span class="bp">True</span>
+<span class="n">env</span><span class="o">.</span><span class="n">workspace</span> <span class="o">=</span> <span class="s">&quot;C:/arcgis&quot;</span> 
+
+<span class="c"># Loop through the workspace, find all the mxds and create a map package using the same name as the mxd</span>
+<span class="k">for</span> <span class="n">mxd</span> <span class="ow">in</span> <span class="n">arcpy</span><span class="o">.</span><span class="n">ListFiles</span><span class="p">(</span><span class="s">&quot;*.mxd&quot;</span><span class="p">):</span>
+    <span class="k">print</span> <span class="s">&quot;Packaging &quot;</span> <span class="o">+</span> <span class="n">mxd</span>
+    <span class="n">arcpy</span><span class="o">.</span><span class="n">PackageMap_management</span><span class="p">(</span><span class="n">mxd</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">mxd</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="s">&#39;.mpk&#39;</span><span class="p">,</span> <span class="s">&quot;PRESERVE&quot;</span><span class="p">,</span> <span class="s">&quot;CONVERT_ARCSDE&quot;</span><span class="p">,</span> <span class="s">&quot;#&quot;</span><span class="p">,</span> <span class="s">&quot;RUNTIME&quot;</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;10.1&quot;</span><span class="p">)</span>
+</pre></div></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2014-11-11T00:00:00+08:00" pubdate>二 11 十一月 2014</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/blog/tag/arcgis/">ArcGIS</a>
+    <a class="category" href="http://mookrs.com/blog/tag/arcpy/">ArcPy</a>
+    <a class="category" href="http://mookrs.com/blog/tag/python/">Python</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -105,7 +153,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2014  - Mookrs -
+    Copyright &copy;  2011-2014  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
@@ -128,6 +176,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blog/importing-arcpy-and-package-map/';
+          var disqus_url = 'http://mookrs.com/blog/importing-arcpy-and-package-map/';
+          var disqus_title = '导入 ArcPy 及打包地图';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
