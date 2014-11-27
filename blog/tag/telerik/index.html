@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>Yet Another Mookrs - Telerik</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,29 +41,44 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<ul>
-    <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
-    <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
-    <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
-</ul>
+<div class="blog-index">
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a>
+      </h1>
+      <p class="meta"><time datetime="2014-10-23T00:00:00+08:00" pubdate>四 23 十月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
+<div class="highlight"><pre><span class="k">private</span> <span class="k">void</span> <span class="nf">RadGridView_RowLoaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RowLoadedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Row</span> <span class="k">as</span> <span class="n">GridViewRow</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 防止事件处理程序被触发多次</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">RemoveHandler</span><span class="p">(</span><span class="n">UIElement</span><span class="p">.</span><span class="n">MouseLeftButtonDownEvent</span><span class="p">,</span> 
+            <span class="k">new</span> <span class="nf">MouseButtonEventHandler</span><span class="p">(</span><span class="n">GridViewRow_MouseLeftButtonDown</span><span class="p">));</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">AddHandler</span><span class="p">(</span><span class="n">UIElement</span><span class="p">.</span><span class="n">MouseLeftButtonDownEvent</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nf">MouseButtonEventHandler</span><span class="p">(</span><span class="n">GridViewRow_MouseLeftButtonDown</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 处理选中行的 MouseLeftButtonDown ...</span></pre></div></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/add-click-event-to-radgridview/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
-          <a href="http://mookrs.com/blog/smooth-listbox/">让 WPF 的 ListBox 更流畅地滑动</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/importing-arcpy-and-package-map/">导入 ArcPy 及打包地图</a>
-      </li>
-      <li class="post">
           <a href="http://mookrs.com/blog/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
       </li>
     </ul>
   </section>
@@ -102,7 +117,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2011-2014  - Mookrs -
+    Copyright &copy;  2014  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">

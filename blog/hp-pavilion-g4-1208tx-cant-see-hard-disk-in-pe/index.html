@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,11 +41,33 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<ul>
-    <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
-    <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
-    <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
-</ul>
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</h1>
+      <p class="meta"><time datetime="2012-02-19T00:00:00+08:00" pubdate>日 19 二月 2012</time></p>
+</header>
+
+  <div class="entry-content"><p><a href="http://www.360buy.com/product/533472.html">HP Pavilion g4-1208tx</a> 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现 750G 的硬盘连根毛都没看着……只能看见我自己的U盘……</p>
+<p>经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2012-02-19T00:00:00+08:00" pubdate>日 19 二月 2012</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/blog/tag/windows/">Windows</a>
+    <a class="category" href="http://mookrs.com/blog/tag/pe/">PE</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -125,6 +147,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/';
+          var disqus_url = 'http://mookrs.com/blog/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/';
+          var disqus_title = 'HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

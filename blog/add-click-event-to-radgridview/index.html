@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>为 RadGridView 的行增加点击事件</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,11 +41,62 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<ul>
-    <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
-    <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
-    <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
-</ul>
+<div>
+  <article class="hentry" role="article">
+<header>
+      <h1 class="entry-title">为 RadGridView 的行增加点击事件</h1>
+      <p class="meta"><time datetime="2014-10-23T00:00:00+08:00" pubdate>四 23 十月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
+<div class="highlight"><pre><span class="k">private</span> <span class="k">void</span> <span class="nf">RadGridView_RowLoaded</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">RowLoadedEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">e</span><span class="p">.</span><span class="n">Row</span> <span class="k">as</span> <span class="n">GridViewRow</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 防止事件处理程序被触发多次</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">RemoveHandler</span><span class="p">(</span><span class="n">UIElement</span><span class="p">.</span><span class="n">MouseLeftButtonDownEvent</span><span class="p">,</span> 
+            <span class="k">new</span> <span class="nf">MouseButtonEventHandler</span><span class="p">(</span><span class="n">GridViewRow_MouseLeftButtonDown</span><span class="p">));</span>
+        <span class="n">row</span><span class="p">.</span><span class="n">AddHandler</span><span class="p">(</span><span class="n">UIElement</span><span class="p">.</span><span class="n">MouseLeftButtonDownEvent</span><span class="p">,</span>
+            <span class="k">new</span> <span class="nf">MouseButtonEventHandler</span><span class="p">(</span><span class="n">GridViewRow_MouseLeftButtonDown</span><span class="p">),</span> <span class="k">true</span><span class="p">);</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1">// 处理选中行的 MouseLeftButtonDown 事件</span>
+<span class="k">private</span> <span class="k">void</span> <span class="nf">GridViewRow_MouseLeftButtonDown</span><span class="p">(</span><span class="kt">object</span> <span class="n">sender</span><span class="p">,</span> <span class="n">MouseButtonEventArgs</span> <span class="n">e</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">var</span> <span class="n">row</span> <span class="p">=</span> <span class="n">sender</span> <span class="k">as</span> <span class="n">GridViewRow</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">row</span> <span class="p">!=</span> <span class="k">null</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="c1">// 执行的操作…</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+
+
+<p>其他如 ListBox、DataGrid 等控件也可以用这种方法处理。</p>
+<p>参考资料：</p>
+<p>[1]  <a href="http://www.telerik.com/forums/radgridview---click-event">RadGridView - click event</a></p>
+<p>[2]  <a href="http://stackoverflow.com/questions/1271375/how-to-capture-a-mouse-click-on-an-item-in-a-listbox-in-wpf">How to capture a mouse click on an Item in a ListBox in WPF?</a></p></div>
+    <footer>
+<p class="meta">
+  <span class="byline author vcard">
+    Posted by <span class="fn">Mookrs</span>
+  </span>
+<time datetime="2014-10-23T00:00:00+08:00" pubdate>四 23 十月 2014</time>  <span class="categories">
+    <a class="category" href="http://mookrs.com/blog/tag/wpf/">WPF</a>
+    <a class="category" href="http://mookrs.com/blog/tag/telerik/">Telerik</a>
+    <a class="category" href="http://mookrs.com/blog/tag/radgridview/">RadGridView</a>
+  </span>
+</p><div class="sharing">
+</div>    </footer>
+  </article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div>
+  </section>
+</div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
@@ -125,6 +176,9 @@
 </script>
 	<script type="text/javascript">
 	  var disqus_shortname = 'mookrs';
+          var disqus_identifier = '/blog/add-click-event-to-radgridview/';
+          var disqus_url = 'http://mookrs.com/blog/add-click-event-to-radgridview/';
+          var disqus_title = '为 RadGridView 的行增加点击事件';
 	  (function() {
 	    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	    dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

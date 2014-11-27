@@ -4,7 +4,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Yet Another Mookrs</title>
+  <title>Yet Another Mookrs - ListBox</title>
   <meta name="author" content="Mookrs">
 
 
@@ -41,29 +41,35 @@
 </ul></nav>
   <div id="main">
     <div id="content">
-<ul>
-    <li><a href="http://mookrs.com/blog/category/books/">Books</a></li>
-    <li><a href="http://mookrs.com/blog/category/essays/">Essays</a></li>
-    <li><a href="http://mookrs.com/blog/category/tech/">Tech</a></li>
-</ul>
+<div class="blog-index">
+  		<article>
+<header>
+      <h1 class="entry-title">
+        <a href="http://mookrs.com/blog/smooth-listbox/">让 WPF 的 ListBox 更流畅地滑动</a>
+      </h1>
+      <p class="meta"><time datetime="2014-11-18T00:00:00+08:00" pubdate>二 18 十一月 2014</time></p>
+</header>
+
+  <div class="entry-content"><p>默认情况下，ListBox 的 item 是一个接着一个滑动（one item at a time）的，每个在上方的 item 都是完整的，不可能显示一半，比如这样：</p>
+<p><img alt="" src="/static/img/2014/11/listbox-1.jpg" />
+<img alt="" src="/static/img/2014/11/listbox-2.jpg" /></p>
+<p>这是因为 ListBox 的滑动行为由 ScrollViewer 提供，它的 CanContentScroll 属性默认设为了 True。如果想要一个接着一个像素地流畅滑动，必须为 ListBox 设置 <code>ScrollViewer.CanContentScroll="False"</code> 这个附加属性，完成后效果如下：</p>
+<p><img alt="" src="/static/img/2014/11/listbox-3.jpg" /></p>
+<p>参考链接：<a href="http://wpf.2000things.com/2014/02/06/1003-set-cancontentscroll-to-false-for-smooth-scrolling-in-a-listbox/">Set CanContentScroll to False for Smooth Scrolling in a ListBox</a></p></div>
+  <footer>
+    <a rel="full-article" href="http://mookrs.com/blog/smooth-listbox/">Read On &crarr;</a>
+  </footer>
+  		</article>
+<div class="pagination">
+
+  <br />
+</div></div>
 <aside class="sidebar">
   <section>
     <h1>Recent Posts</h1>
     <ul id="recent_posts">
       <li class="post">
           <a href="http://mookrs.com/blog/smooth-listbox/">让 WPF 的 ListBox 更流畅地滑动</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/importing-arcpy-and-package-map/">导入 ArcPy 及打包地图</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a>
-      </li>
-      <li class="post">
-          <a href="http://mookrs.com/blog/arcgis-for-android-development-resources/">ArcGIS for Android 开发：开发资源</a>
       </li>
     </ul>
   </section>
@@ -102,7 +108,7 @@
 </aside>    </div>
   </div>
   <footer role="contentinfo"><p>
-    Copyright &copy;  2011-2014  - Mookrs -
+    Copyright &copy;  2014  - Mookrs -
   <span class="credit">Powered by <a href="http://getpelican.com">Pelican</a></span>
 </p></footer>
     <script type="text/javascript">
