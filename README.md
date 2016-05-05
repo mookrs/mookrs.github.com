@@ -1,1 +1,1 @@
-Just for hoding source files.
+## Just a Hexo Blog
