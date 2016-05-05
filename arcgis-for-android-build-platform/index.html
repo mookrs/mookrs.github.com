@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> ArcGIS for Android 开发：Android 平台搭建 · Only Mookrs</title><meta name="description" content="ArcGIS for Android 开发：Android 平台搭建 - Mookrs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="https://github.com/mookrs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">ArcGIS for Android 开发：Android 平台搭建</h1><div class="post-meta"><div class="post-time">Jun 9, 2013</div></div><div class="post-content"><p>前言：《ArcGIS for Android 开发》这几篇文章本来是我为师弟写的一份入门指导。水平有限，难免有错误之处，欢迎指正，仅供参考。</p>
+<h2 id="u6E05_u5355_uFF1A"><a href="#u6E05_u5355_uFF1A" class="headerlink" title="清单："></a>清单：</h2><p>JDK + Eclipse + Android SDK + ADT + ArcGIS Runtime SDK for Android</p>
+<h2 id="u4E00_u3001_u5B89_u88C5_JDK"><a href="#u4E00_u3001_u5B89_u88C5_JDK" class="headerlink" title="一、安装 JDK"></a>一、安装 JDK</h2><h3 id="1-__u4E0B_u8F7D_JDK"><a href="#1-__u4E0B_u8F7D_JDK" class="headerlink" title="1. 下载 JDK"></a>1. 下载 JDK</h3><p>JDK（Java Development Kit）是 Oracle 公司针对 Java 开发人员发布的免费 SDK（Software Development Kit）。JDK 有多个类型版本，这里我们选择 Java SE（Standard Edition，标准版）。</p>
+<p>JDK 的下载地址在 <a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html" target="_blank" rel="external">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a>，选择 Java Platform (JDK) 7u17，点击它的 DOWNLOAD 按钮，跳转到新的页面：</p>
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/java-se-development-kit-7-downloads.png" alt=""></p>
+<p>这里有不同平台的版本可供下载，对于 Windows 系统分为 32 位（x86）和 64 位（x64）两种。我的电脑是 64 位 Windows 7 操作系统，所以选择下载 jdk-7u17-windows-x64.exe。下载相应版本的安装包前，需要接受相应的许可协议，默认是不接受许可协议（Decline License Agreement），必须先点击左边的单选按钮 Accept License Agreement，接受许可协议才能下载。</p>
+<h3 id="2-__u5B89_u88C5_JDK"><a href="#2-__u5B89_u88C5_JDK" class="headerlink" title="2. 安装 JDK"></a>2. 安装 JDK</h3><p>如果下载的是 exe 可执行程序，只需要运行该程序进行安装，无需设置环境变量，在安装过程中可以指定安装的路径。当然你也可以检查一下环境变量设置得是否正确，可以新建或修改环境变量：</p>
+<p>1）开始 → 计算机 → 属性 → 高级系统设置 → 环境变量 → 系统变量 → 新建/编辑</p>
+<p>2）配置变量</p>
+<ul>
+<li><p>变量名：JAVA_HOME</p>
+</li>
+<li><p>变量值：D:\Java\jdk1.7.0_11（JDK 的安装路径，我这里是 D:\Java\jdk1.7.0_11） </p>
+</li>
+<li><p>变量名：PATH </p>
+</li>
+<li><p>变量值：%JAVA_HOME%\bin;%JAVA_HOME%\jre\bin </p>
+</li>
+<li><p>变量名：CLASSPATH </p>
+</li>
+<li><p>变量值：.;%JAVA_HOME%\lib;%JAVA_HOME%\lib\toos.jar</p>
+</li>
+</ul>
+<h3 id="3-__u9A8C_u8BC1_u73AF_u5883_u53D8_u91CF"><a href="#3-__u9A8C_u8BC1_u73AF_u5883_u53D8_u91CF" class="headerlink" title="3. 验证环境变量"></a>3. 验证环境变量</h3><p>Win+R 输入 <code>cmd</code> 运行命令提示符窗口，在命令提示符窗口中输入 <code>java -version</code> 后按回车键，验证 Java 的环境变量是否配置成功。如果成功，会显示出相应的 Java 版本。</p>
+<h2 id="u4E8C_u3001_u5B89_u88C5_Eclipse"><a href="#u4E8C_u3001_u5B89_u88C5_Eclipse" class="headerlink" title="二、安装 Eclipse"></a>二、安装 Eclipse</h2><p>配置好 JDK 后，就可以开始配置 Android 的集成开发环境（IDE）了。官方推荐的 IDE 为 Eclipse，所以我们就以 Eclipse 作为 IDE。Eclipse 在 <a href="http://www.eclipse.org/downloads/" target="_blank" rel="external">http://www.eclipse.org/downloads/</a> 可以下载，我下载的版本是 Eclipse Classic 4.2.2 的 Windows 64 Bit 版本。</p>
+<p>选择相应版本后进入下载页面，里面有许多链接，这是由于 Eclipse 下载的用户特别多，为了缓解主服务器的压力，官方提供了很多镜像站点，系统会根据用户电脑的 IP 自动选择最佳的镜像站点，如下图所示：</p>
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/mirror-selection.png" alt=""></p>
+<p>点击 [China] Northeastern University (http) 链接就可以下载了。Eclipse 是绿色软件，下载后的文件是一个 zip 压缩包，解压后直接运行 eclipse.exe 即可使用。</p>
+<h2 id="u4E09_u3001_u5B89_u88C5_Android_SDK"><a href="#u4E09_u3001_u5B89_u88C5_Android_SDK" class="headerlink" title="三、安装 Android SDK"></a>三、安装 Android SDK</h2><h3 id="1-__u4E0B_u8F7D_Android_SDK"><a href="#1-__u4E0B_u8F7D_Android_SDK" class="headerlink" title="1. 下载 Android SDK"></a>1. 下载 Android SDK</h3><p>Android SDK 可到 Android Developers 官网 <a href="https://developer.android.com/sdk/index.html" target="_blank" rel="external">https://developer.android.com/sdk/index.html</a> 下载。因为我们已经安装了 Eclipse，所以要选择 USE AN EXISTING IDE，点击 Download the SDK Tools for Windows。</p>
+<p>然后勾选 I have read and agree with the above terms and conditions，同意许可协议，即可下载 Android SDK。我下载的版本为 installer_r21.1-windows.exe。</p>
+<h3 id="2-__u8BBE_u7F6E_u73AF_u5883_u53D8_u91CF"><a href="#2-__u8BBE_u7F6E_u73AF_u5883_u53D8_u91CF" class="headerlink" title="2. 设置环境变量"></a>2. 设置环境变量</h3><ul>
+<li><p>变量名：PATH</p>
+</li>
+<li><p>变量值：Android SDK 中 platform-tools 文件夹的绝对路径（例如我的位置为 D:\Program Files (X86)\Android\android-sdk\tools）</p>
+</li>
+</ul>
+<h3 id="3-__u68C0_u67E5_Android_SDK__u662F_u5426_u5B89_u88C5_u6210_u529F"><a href="#3-__u68C0_u67E5_Android_SDK__u662F_u5426_u5B89_u88C5_u6210_u529F" class="headerlink" title="3. 检查 Android SDK 是否安装成功"></a>3. 检查 Android SDK 是否安装成功</h3><p>设置好 Android SDK 的环境变量后，进入命令提示符窗口，运行 <code>android -h</code>。如果有类似以下的输出，表明安装成功：</p>
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/android-h.png" alt=""></p>
+<h3 id="4-__u5B89_u88C5_u5F00_u53D1_u6240_u7528_u7684_u5305"><a href="#4-__u5B89_u88C5_u5F00_u53D1_u6240_u7528_u7684_u5305" class="headerlink" title="4. 安装开发所用的包"></a>4. 安装开发所用的包</h3><p>从开始菜单打开 SDK Manager，勾选需要的工具和 API，选择 Install packages。</p>
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/android-sdk-manager.png" alt=""></p>
+<p>点击 Accept License 同意用户协议，Install 开始安装。</p>
+<h2 id="u56DB_u3001_u5B89_u88C5_ADT__u63D2_u4EF6_uFF08Android_Development_Tool_uFF09"><a href="#u56DB_u3001_u5B89_u88C5_ADT__u63D2_u4EF6_uFF08Android_Development_Tool_uFF09" class="headerlink" title="四、安装 ADT 插件（Android Development Tool）"></a>四、安装 ADT 插件（Android Development Tool）</h2><p>打开 Eclipse，在菜单中选择 Help → Install New Software，在弹出的 Install 窗口中点击右上方的 Add 按钮，在 Location 栏目中加入 ADT 的下载地址：<a href="https://dl-ssl.google.com/android/eclipse/" target="_blank" rel="external">https://dl-ssl.google.com/android/eclipse/</a>，Name 栏目可以填写也可以不填写。然后点击 OK。</p>
+<p>如果成功访问 Google 的相关服务器，会显示获取的 ADT 插件信息，全部选中里边的复选框。</p>
+<p>连续点击 Next 按钮，会要求用户同意 License，默认为不同意，且 Finish 按钮为灰，确保选中同意 License，然后点击 Finish 按钮。</p>
+<p>然后就进入 ADT 的下载安装过程中，根据用户的网络速度请耐心等待。</p>
+<p>如果出现警告信息，提示有未签名的插件，点击 OK 即可：</p>
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/security-warning.png" alt=""></p>
+<p>一旦下载安装成功会提示重启 Eclipse，点击 RestartNow 按钮重启 Eclipse。</p>
+<p>如果在上面的安装下载的过程中失败了，尝试重复上面的过程。如果不能访问 <a href="https://dl-ssl.google.com/android/eclipse/" target="_blank" rel="external">https://dl-ssl.google.com/android/eclipse/</a> 的话就改用 <a href="http://dl-ssl.google.com/android/eclipse/" target="_blank" rel="external">http://dl-ssl.google.com/android/eclipse/</a>，通常两个总有一个可以用，或者两个链接地址都可以用。仍然无法访问，挂上 VPN。</p>
+<p>最后打开 Eclipse 菜单中的 Window → Preferences，点击左侧的 Android，然后在右边 SDK Location 处设置 Android SDK 的位置。</p>
+<h2 id="u4E94_u3001_u5B89_u88C5_ArcGIS_Runtime_SDK_for_Android"><a href="#u4E94_u3001_u5B89_u88C5_ArcGIS_Runtime_SDK_for_Android" class="headerlink" title="五、安装 ArcGIS Runtime SDK for Android"></a>五、安装 ArcGIS Runtime SDK for Android</h2><p>ArcGIS Runtime SDK for Android 是 Esri 为开发者提供的 Android 应用开发工具包，内置了大量 API，可以从 Esri 官网下载插件，在本地进行安装。官网的插件下载地址为：<a href="http://developers.arcgis.com/en/android/" target="_blank" rel="external">http://developers.arcgis.com/en/android/</a>，当前版本的文件为 ArcGISAndroidSDK_v10.1.1.zip，安装方法与 ADT 插件类似。在 Eclipse 菜单中选择 Help → Install New Software，在弹出的 Install 窗口中点击右上方的 Add 按钮，在弹出窗口中点击 Archive，选择已经下载的 ArcGISAndroidSDK_v10.1.1.zip 压缩包，完成安装即可。</p>
+<p>安装完成并重启 Eclipse 后，打开菜单 File → New → Project…，若看到在 New Project 中，有 ArcGIS for Android 可供选择，说明 ArcGIS Runtime SDK for Android 已经安装成功。</p>
+<h2 id="u516D_u3001_u4F7F_u7528_u865A_u62DF_u8BBE_u5907_uFF08AVD_uFF09_u6216_u771F_u673A_u8FDB_u884C_u5F00_u53D1"><a href="#u516D_u3001_u4F7F_u7528_u865A_u62DF_u8BBE_u5907_uFF08AVD_uFF09_u6216_u771F_u673A_u8FDB_u884C_u5F00_u53D1" class="headerlink" title="六、使用虚拟设备（AVD）或真机进行开发"></a>六、使用虚拟设备（AVD）或真机进行开发</h2><h3 id="1-__u4F7F_u7528_AVD"><a href="#1-__u4F7F_u7528_AVD" class="headerlink" title="1. 使用 AVD"></a>1. 使用 AVD</h3><p>在使用 Android 模拟器进行开发时，由于对 OpenGL ES2.0 的要求，需要模拟器支持 GPU。Android 4.0.3 及以上版本的模拟器提供对 GPU 的支持，所以要使用 Android 4.0.3 以上版本的模拟器。</p>
+<p>在 Eclipse 中打开 Android Virtual Device Manager（工具条上手机里的小绿人），新建一个 AVD。Device 我们选择较为常见的 4.0”，Target 选择 4.1.2，CPU/ABI 选择 ARM（armeabi-v7a），RAM 设置为 768，Emulation Options 中勾选 Use Host GPU。</p>
+<p>我们可以在菜单的 File → New → Project… 中找到 ArcGIS Samples for Android，新建一个 Demo 测试 AVD。</p>
+<p>注意：因为我们安装的是 JDK 1.7（JDK 1.7 即 JDK 7），而 Android 默认使用的是 JDK 1.6，所以在运行前要在项目文件夹上单击鼠右键，选择 Android Tools → Fix Project Properties，将编译器改为 1.6 版本。另外，例子的 project.properties 文件中是 <code>target=android-10</code>，代表着使用的 Androd SDK 版本是 2.3.3，如果你没有安装 Android 2.3.3 的 API ，一定要改成自己使用的 API，例如 Android 4.1.2 对应的要改为 <code>target=android-16</code>。</p>
+<p>在项目文件夹上单击鼠标右键，选择 Run As → Android Application 即可运行。</p>
+<h3 id="2-__u4F7F_u7528_u771F_u673A"><a href="#2-__u4F7F_u7528_u771F_u673A" class="headerlink" title="2. 使用真机"></a>2. 使用真机</h3><p>如果有 Android 设备的话强烈建议用真机开发，AVD 除了占内存外运行的速度也十分糟糕。ArcGIS Runtime SDK for Android 对 Android 设备有些基本要求：Android 版本 2.2 及以上，支持 OpenGL ES2.0。除此之外，与一般 Android 项目在真机上开发没有区别。</p>
+<p>将 Android 设备通过数据线与电脑 USB 接口连接，在 Android 系统设置的「开发选项」中，选中「USB调试」。运行程序，程序会上传到已连接好的 Android 设备，并自动安装运行。</p>
+<p>参考资料：</p>
+<p>[1] 如何在 Windows 环境下安装 JDK <a href="http://wiki.eoe.cn/page/Install_JDK_in_Windows" target="_blank" rel="external">http://wiki.eoe.cn/page/Install_JDK_in_Windows</a></p>
+<p>[2] 配置 Android SDK 开发环境 <a href="http://wiki.eoe.cn/page/Eclipse_Configure.html" target="_blank" rel="external">http://wiki.eoe.cn/page/Eclipse_Configure.html</a></p>
+<p>[3] 【教程连载】ArcGIS Runtime for Android开发教程V2.0（2）开发环境配置 <a href="http://blog.csdn.net/arcgis_all/article/details/8232984" target="_blank" rel="external">http://blog.csdn.net/arcgis_all/article/details/8232984</a></p>
+</div></article></div></section><footer><div class="paginator"><a href="/arcgis-for-android-server-configuration/" class="prev">上一篇</a><a href="/start-sphinx/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'mookrs';
+var disqus_identifier = 'arcgis-for-android-build-platform/';
+var disqus_title = 'ArcGIS for Android 开发：Android 平台搭建';
+var disqus_url = 'http://mookrs.com/arcgis-for-android-build-platform/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//mookrs.disqus.com/count.js" async></script><div class="copyright"><p>© 2011 - 2016 <a href="http://mookrs.com">Mookrs</a>, unless otherwise noted.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-23664006-4",'auto');ga('send','pageview');</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>

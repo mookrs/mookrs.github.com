@@ -1,0 +1,17 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 开启 Windows「自动播放」功能 · Only Mookrs</title><meta name="description" content="开启 Windows「自动播放」功能 - Mookrs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="https://github.com/mookrs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">开启 Windows「自动播放」功能</h1><div class="post-meta"><div class="post-time">Feb 5, 2012</div></div><div class="post-content"><p>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想开启「自动播放」功能，可以通过打开 <code>控制面板 &gt; 系统和安全 &gt; 硬件和声音 &gt; 自动播放</code>，勾选 <code>为所有媒体和设备使用自动播放(U)</code>。</p>
+<p>若这样做无效，则进一步确定以下两点：</p>
+<ul>
+<li><p><code>Win+R</code> 打开运行，输入 <code>services.msc</code> 并回车，确保 <code>Shell Hardware Detection</code> 服务开启 </p>
+</li>
+<li><p>运行 <code>gpedit.msc</code>，打开 <code>计算机配置 &gt; 管理模板 &gt; Windows 组件 &gt; 自动播放策略 &gt; 关闭自动播放</code>，双击，勾选 <code>已禁用(D)</code></p>
+</li>
+</ul>
+</div></article></div></section><footer><div class="paginator"><a href="/the-realtek-network-controller-was-not-found/" class="prev">上一篇</a><a href="/problems-when-use-ubuntu/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'mookrs';
+var disqus_identifier = 'turn-on-windows-autoplay/';
+var disqus_title = '开启 Windows「自动播放」功能';
+var disqus_url = 'http://mookrs.com/turn-on-windows-autoplay/';
+(function() {
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//mookrs.disqus.com/count.js" async></script><div class="copyright"><p>© 2011 - 2016 <a href="http://mookrs.com">Mookrs</a>, unless otherwise noted.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-23664006-4",'auto');ga('send','pageview');</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
