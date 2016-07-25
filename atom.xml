@@ -201,14 +201,14 @@
     <link href="http://mookrs.com/arcgis-for-android-server-configuration/"/>
     <id>http://mookrs.com/arcgis-for-android-server-configuration/</id>
     <published>2013-06-09T16:00:00.000Z</published>
-    <updated>2016-05-05T07:06:53.000Z</updated>
+    <updated>2016-07-25T14:42:32.000Z</updated>
     <content type="html"><![CDATA[<p>对于 Server 的安装以及配置，在《ArcGIS 10.1 for Server 入门教程》这份文档中有详细的说明，可自行搜索。下文所说的「文档」均对应于该教程中的位置。</p>
 <h3 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h3><p><a href="http://pan.baidu.com/share/link?shareid=1622335099&amp;uk=1731248969" target="_blank" rel="external">ArcGIS 10.1 for Server 下载地址</a></p>
 <p>安装参考文档「2.2 Windows 系统下的安装」 。</p>
 <p>其中有一步需要创建 Server 账户和密码。该账户会在你的 Windows 系统中存在，跟 ArcGIS Server 有关的进程都会在此账户下运行。</p>
 <h3 id="u6388_u6743"><a href="#u6388_u6743" class="headerlink" title="授权"></a>授权</h3><p>这部分请自行搜索方法。</p>
 <p>注意：要想能够登陆 Manager，必须确保在任务管理器中 ArcGISServer.exe 进程正在运行。如果没有运行，到任务管理器的服务选项卡中启动。安装 ArcGIS for Server 后该服务会开机运行，很占内存，可以考虑在服务管理中将「启动类型」改为「手动」：</p>
-<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/Service.png" alt=""> </p>
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/service.png" alt=""> </p>
 <h3 id="u914D_u7F6E"><a href="#u914D_u7F6E" class="headerlink" title="配置"></a>配置</h3><p>参考文档「2.3 配置（单机部署）」。</p>
 <h3 id="u53D1_u5E03_Map_Service"><a href="#u53D1_u5E03_Map_Service" class="headerlink" title="发布 Map Service"></a>发布 Map Service</h3><p>参考文档「3.2 在 ArcCatalog 中发布 Map Service」。</p>
 <p>我们借助 REST 服务操作地图，地图服务启用的每个功能都对应一个 URL。</p>
@@ -439,15 +439,15 @@ directly.
     <link href="http://mookrs.com/autumn-feelings/"/>
     <id>http://mookrs.com/autumn-feelings/</id>
     <published>2012-09-13T16:00:00.000Z</published>
-    <updated>2016-05-05T10:08:07.000Z</updated>
+    <updated>2016-07-25T14:51:39.000Z</updated>
     <content type="html"><![CDATA[<p>从无话不说到无话可说，从一个眼神都是默契到一个表情一句不经意的话都是误会。</p>
 <p>到底因为什么变成这样了呢。</p>
 <p>连日来反思走过的路，大概真的是起点不对，终点才无疾而终。一切温柔只是习惯，却忘了本该情不自禁地流露。</p>
 <p>偶尔还是会酸酸的吧。</p>
 <p>所以开始庆幸种种原因疏远了的人，巧合让他们变成可以怀念的部分。至少百无聊奈时能发条短信说一句，「嘿，我在听一首歌，想起你，最近过得怎样？」</p>
 <p>所以也会担心，口口声声以学长自诩的我，处事时是否不够成熟。莫怪。</p>
-<p>昨天遇见 XP，她讲起最近的纠结，甚至有想要放弃的念头。我忽然说，北大是你的梦想么？你曾经那么努力地去争取、去奋战到底的不就是为了这个梦想么。这个世界上有梦想的人越来越少，拥有梦想并为之殒身不恤，无论结果如何，都是值得骄傲毫无遗憾的事。</p>
-<p>太特么煽情了。</p>
+<p>昨天遇见 XP，她讲起最近的纠结，甚至有想要放弃的念头。我忽然说，PKU 是你的梦想么？你曾经那么努力地去争取、去奋战到底的不就是为了这个梦想么。这个世界上有梦想的人越来越少，拥有梦想并为之殒身不恤，无论结果如何，都是值得骄傲毫无遗憾的事。</p>
+<p>好煽情啊喂。</p>
 <p>可是，她让人羡慕：会做梦、实现梦的人最幸福啊。</p>
 <p>秋天来啦，数学书还有那么多没看，可是为什么我蹦跶蹦跶得好开心。像一只……斑猪！:D</p>
 <p>因为——pH 学妹，我认识了你呀。</p>
@@ -470,7 +470,7 @@ directly.
     <link href="http://mookrs.com/fedora-kde/"/>
     <id>http://mookrs.com/fedora-kde/</id>
     <published>2012-08-30T16:00:00.000Z</published>
-    <updated>2016-05-05T08:04:38.000Z</updated>
+    <updated>2016-07-25T14:52:14.000Z</updated>
     <content type="html"><![CDATA[<p>把 Fodora 16 Gnome 换成了 Fedora 17 KDE，以下是配置过程中的记录。</p>
 <h2 id="u5B89_u88C5"><a href="#u5B89_u88C5" class="headerlink" title="安装"></a>安装</h2><p>我下载的镜像为 Fedora-17-x86_64-Live-KDE.iso，利用 <a href="http://www.pendrivelinux.com/universal-usb-installer-easy-as-1-2-3/" target="_blank" rel="external">Universal USB Installer</a> 软件进行U盘安装。</p>
 <h2 id="u4E2D_u6587_u652F_u6301"><a href="#u4E2D_u6587_u652F_u6301" class="headerlink" title="中文支持"></a>中文支持</h2><p>应用程序 - 管理 - 语言 里选择「Chinese(P.R.China) - 中文(简体)」，系统会自动下载中文语言包。</p>
@@ -484,7 +484,7 @@ directly.
 <p>如果有问题可以试一下清除 yum 缓存</p>
 <p><code># yum clean all</code></p>
 <h2 id="u4FEE_u590D_u542F_u52A8_u9519_u8BEF"><a href="#u4FEE_u590D_u542F_u52A8_u9519_u8BEF" class="headerlink" title="修复启动错误"></a>修复启动错误</h2><p>Fedora 17 启动的时候，出现一条一闪而过的错误信息：</p>
-<p><code>GRUB2 error: file ‘/boot/grub2/locale/en.mo.gz’ not found</code></p>
+<p><code>GRUB2 error: file &#39;/boot/grub2/locale/en.mo.gz&#39; not found</code></p>
 <p>解决办法是在 Konsole 中以 root 权限输入：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"># cp /usr/share/locale/en@quot/LC_MESSAGES/grub.mo /boot/grub2/locale/en.mo&#10;# gzip /boot/grub2/locale/en.mo</span><br></pre></td></tr></table></figure>
 <p>via <a href="http://www.linuxidc.com/Linux/2012-08/69083.htm" target="_blank" rel="external">http://www.linuxidc.com/Linux/2012-08/69083.htm</a> &amp; <a href="https://bugzilla.redhat.com/show_bug.cgi?id=817187" target="_blank" rel="external">https://bugzilla.redhat.com/show_bug.cgi?id=817187</a></p>
@@ -543,7 +543,7 @@ directly.
 <p>(4)「Font」-&gt;「Font」字体默认则可，也可选择喜欢的字体，「Encoding」: Unicode；</p>
 <p>(5)「Codecs &amp; demuxer」-&gt;「Video codec family」选择「FFmpeg’s libavcodec codec family」，「Audio codec family」选择「FFmpeg/libavcodec audio decoders」。</p>
 <p>另外，也可以到 mplayer 官网下载喜欢的皮肤，解压到 <code>/usr/share/mplayer/skins/</code> 即可。</p>
-<p>via <a href="/&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#104;&#x74;&#x74;&#112;&#x3a;&#x2f;&#x2f;&#98;&#x6c;&#111;&#103;&#46;&#x31;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;&#x2f;&#x63;&#x68;&#x66;&#99;&#x32;&#x30;&#x30;&#x39;&#64;&#121;&#x65;&#x61;&#104;&#x2f;&#98;&#x6c;&#111;&#x67;&#47;&#x73;&#x74;&#x61;&#116;&#105;&#99;&#47;&#x31;&#x33;&#x30;&#55;&#x30;&#x35;&#x36;&#51;&#52;&#50;&#x30;&#49;&#50;&#53;&#x31;&#49;&#48;&#49;&#55;&#53;&#53;&#x33;&#x35;&#53;&#47;">&#104;&#x74;&#x74;&#112;&#x3a;&#x2f;&#x2f;&#98;&#x6c;&#111;&#103;&#46;&#x31;&#x36;&#x33;&#x2e;&#x63;&#111;&#109;&#x2f;&#x63;&#x68;&#x66;&#99;&#x32;&#x30;&#x30;&#x39;&#64;&#121;&#x65;&#x61;&#104;&#x2f;&#98;&#x6c;&#111;&#x67;&#47;&#x73;&#x74;&#x61;&#116;&#105;&#99;&#47;&#x31;&#x33;&#x30;&#55;&#x30;&#x35;&#x36;&#51;&#52;&#50;&#x30;&#49;&#50;&#53;&#x31;&#49;&#48;&#49;&#55;&#53;&#53;&#x33;&#x35;&#53;&#47;</a></p>
+<p>via <a href="/&#109;&#97;&#105;&#x6c;&#116;&#111;&#58;&#x68;&#x74;&#x74;&#112;&#58;&#x2f;&#47;&#x62;&#108;&#111;&#103;&#x2e;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#x6d;&#47;&#99;&#104;&#x66;&#x63;&#50;&#48;&#x30;&#57;&#x40;&#x79;&#101;&#x61;&#104;&#x2f;&#x62;&#x6c;&#111;&#103;&#47;&#115;&#x74;&#97;&#116;&#105;&#99;&#x2f;&#49;&#x33;&#x30;&#x37;&#48;&#x35;&#x36;&#x33;&#52;&#50;&#48;&#x31;&#x32;&#x35;&#49;&#49;&#x30;&#49;&#55;&#53;&#x35;&#x33;&#x35;&#x35;&#47;">&#x68;&#x74;&#x74;&#112;&#58;&#x2f;&#47;&#x62;&#108;&#111;&#103;&#x2e;&#49;&#x36;&#51;&#46;&#99;&#x6f;&#x6d;&#47;&#99;&#104;&#x66;&#x63;&#50;&#48;&#x30;&#57;&#x40;&#x79;&#101;&#x61;&#104;&#x2f;&#x62;&#x6c;&#111;&#103;&#47;&#115;&#x74;&#97;&#116;&#105;&#99;&#x2f;&#49;&#x33;&#x30;&#x37;&#48;&#x35;&#x36;&#x33;&#52;&#50;&#48;&#x31;&#x32;&#x35;&#49;&#49;&#x30;&#49;&#55;&#53;&#x35;&#x33;&#x35;&#x35;&#47;</a></p>
 <h2 id="u5B89_u88C5_Chrome"><a href="#u5B89_u88C5_Chrome" class="headerlink" title="安装 Chrome"></a>安装 Chrome</h2><p>在 <code>/etc/yum.repos.d/google-chrome.repo</code> 中加入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[google-chrome]&#10;name=google-chrome - 64-bit&#10;baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64&#10;enabled=1&#10;gpgcheck=1&#10;gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</span><br></pre></td></tr></table></figure>
 <p>然后 <code># yum install google-chrome-stable</code></p>

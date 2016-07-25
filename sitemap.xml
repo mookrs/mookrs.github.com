@@ -2,8 +2,18 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mookrs.com/fedora-kde/</loc>
+    <lastmod>2016-07-25T14:52:14.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mookrs.com/autumn-feelings/</loc>
-    <lastmod>2016-05-05T10:08:07.000Z</lastmod>
+    <lastmod>2016-07-25T14:51:39.000Z</lastmod>
+  </url>
+  
+  <url>
+    <loc>http://mookrs.com/arcgis-for-android-server-configuration/</loc>
+    <lastmod>2016-07-25T14:42:32.000Z</lastmod>
   </url>
   
   <url>
@@ -13,12 +23,7 @@
   
   <url>
     <loc>http://mookrs.com/about/index.html</loc>
-    <lastmod>2016-05-05T08:28:48.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mookrs.com/fedora-kde/</loc>
-    <lastmod>2016-05-05T08:04:38.000Z</lastmod>
+    <lastmod>2016-05-05T08:33:02.000Z</lastmod>
   </url>
   
   <url>
@@ -64,11 +69,6 @@
   <url>
     <loc>http://mookrs.com/arcgis-for-android-development-resources/</loc>
     <lastmod>2016-05-05T07:10:17.000Z</lastmod>
-  </url>
-  
-  <url>
-    <loc>http://mookrs.com/arcgis-for-android-server-configuration/</loc>
-    <lastmod>2016-05-05T07:06:53.000Z</lastmod>
   </url>
   
   <url>
