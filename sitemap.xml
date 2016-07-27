@@ -2,6 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mookrs.com/flask-sqlalchemy-mysql-python-3/</loc>
+    <lastmod>2016-07-27T10:56:52.000Z</lastmod>
+  </url>
+  
+  <url>
     <loc>http://mookrs.com/fedora-kde/</loc>
     <lastmod>2016-07-25T14:52:14.000Z</lastmod>
   </url>
