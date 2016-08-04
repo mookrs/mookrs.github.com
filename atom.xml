@@ -4,7 +4,7 @@
   <subtitle><![CDATA[A fugitive from the world.]]></subtitle>
   <link href="/atom.xml" rel="self"/>
   <link href="http://mookrs.com/"/>
-  <updated>2016-07-27T10:56:52.000Z</updated>
+  <updated>2016-08-04T07:19:43.000Z</updated>
   <id>http://mookrs.com/</id>
   
   <author>
@@ -13,6 +13,109 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title><![CDATA[在 Ubuntu 16.04 上配置 Flask + Nginx + Gunicorn + Supervisor]]></title>
+    <link href="http://mookrs.com/ubuntu-flask-nginx-gunicorn-supervisor/"/>
+    <id>http://mookrs.com/ubuntu-flask-nginx-gunicorn-supervisor/</id>
+    <published>2016-07-31T17:05:04.000Z</published>
+    <updated>2016-08-04T07:19:43.000Z</updated>
+    <content type="html"><![CDATA[<p>仅供个人记录，附带了在另一台 Debian 8.0 x86_64 minimal 机器上的一些操作。</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04" target="_blank" rel="external">Initial Server Setup with Ubuntu 16.04</a></p>
+<p>SSH 登录</p>
+<p><code>&#39;ssh &lt;user&gt;@&lt;ip&gt; -p &lt;port&gt;&#39;</code></p>
+<p>修改 root 密码</p>
+<p><code>passwd root</code></p>
+<p>添加新账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">useradd &#60;user&#62;&#10;passwd &#60;user&#62;&#10;usermod -aG sudo &#60;user&#62;</span><br></pre></td></tr></table></figure>
+<p>新建用户目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /home/&#60;user&#62;&#10;chown -R &#60;user&#62; /home/&#60;user&#62;</span><br></pre></td></tr></table></figure>
+<p>替换 <code>sh</code> 为 <code>bash</code></p>
+<p><code>chsh -s /bin/bash  &lt;user&gt;</code></p>
+<p>以上三步一起完成</p>
+<p><code>useradd --create-home --user-group --shell /bin/bash &lt;user&gt;</code></p>
+<p>修改 SSH 端口，禁用 root 登录，禁用密码登录</p>
+<p><code>sudo vi /etc/ssh/sshd_config</code></p>
+<p>找到并修改 <code>Port &lt;数字&gt;</code>、<code>PermitRootLogin no</code>、<code>PasswordAuthentication no</code></p>
+<p>SSH-Key 登录，本地</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen&#10;cat ~/.ssh/id_rsa.pub</span><br></pre></td></tr></table></figure>
+<p>服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/.ssh&#10;chmod 700 ~/.ssh&#10;vi ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p>复制公钥进去</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chmod 600 ~/.ssh/authorized_keys</span><br></pre></td></tr></table></figure>
+<p><code>sudo systemctl reload sshd</code>（或 <code>/etc/init.d/ssh restart</code>）</p>
+<p>防火墙</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo ufw app list&#10;sudo ufw enable&#10;sudo ufw allow OpenSSH&#10;sudo ufw allow &#39;Nginx Full&#39;&#10;sudo ufw allow &#60;port&#62;</span><br></pre></td></tr></table></figure>
+<p>设置语系</p>
+<p><code>sudo locale-gen zh_CN.UTF-8</code></p>
+<p>设置时区（可选）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl list-timezones&#10;sudo timedatectl set-timezone Asia/Shanghai&#10;timedatectl</span><br></pre></td></tr></table></figure>
+<p><a href="http://askubuntu.com/questions/9540/how-do-i-change-the-computer-name" target="_blank" rel="external">修改服务器 hostname</a>，需要编辑 <code>/etc/hostname</code>、<code>/etc/hosts</code> 两个文件，<code>/etc/hosts</code> <a href="http://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none" target="_blank" rel="external">会提示</a> <code>sudo: unable to resolve host (none)</code></p>
+<p><a href="http://askubuntu.com/questions/244544/how-do-i-install-python-3-3" target="_blank" rel="external">编译安装 Python</a>（可选，Debian；Ubuntu 自带 Python 3）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz&#10;tar xJf ./Python-3.5.2.tar.xz&#10;cd ./Python-3.5.2&#10;./configure --prefix=/opt/python3.5&#10;make &#38;&#38; sudo make install&#10;sudo ln -fs /opt/python3.5/bin/python3 /usr/bin/python3.5</span><br></pre></td></tr></table></figure>
+<p>如果 <a href="http://stackoverflow.com/questions/19816275/no-acceptable-c-compiler-found-in-path-when-installing-python" target="_blank" rel="external">缺少编译组件</a>，提示 <code>configure: error: no acceptable C compiler found in $PATH</code></p>
+<p><code>sudo apt-get install build-essential</code></p>
+<p><a href="http://stackoverflow.com/questions/22592686/compiling-python-3-4-is-not-copying-pip" target="_blank" rel="external">报错</a> <code>Ignoring ensurepip failure: pip 8.1.1 requires SSL/TLS</code></p>
+<p><code>sudo apt-get install libssl-dev openssl</code></p>
+<p>Debian 上编译完的 Python <a href="http://stackoverflow.com/questions/1210664/no-module-named-sqlite3" target="_blank" rel="external">缺少 sqlite</a>，提示 <code>ImportError: No module named &#39;_sqlite3&#39;</code></p>
+<p><code>sudo apt-get install libsqlite3-dev</code></p>
+<p>安装 <a href="https://pip.pypa.io/" target="_blank" rel="external">pip</a>（Python 3 是 <code>python3-pip</code>）</p>
+<p><code>sudo apt-get install python-pip</code></p>
+<p>安装 <a href="https://virtualenv.pypa.io/" target="_blank" rel="external">virtualenv</a></p>
+<p><code>sudo pip install virtualenv</code></p>
+<p>安装虚拟环境</p>
+<p><code>virtualenv -p python3 venv</code></p>
+<p>Debian 上是</p>
+<p><code>virtualenv -p python3.5 venv</code></p>
+<p>完整命令实际是</p>
+<p><code>virtualenv --python=&lt;python path&gt; &lt;venv&gt;</code></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04" target="_blank" rel="external">How To Install Linux, Nginx, MySQL, PHP (LEMP stack) in Ubuntu 16.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts" target="_blank" rel="external">安装</a> <a href="https://nginx.org/" target="_blank" rel="external">Nginx</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install nginx&#10;sudo service nginx stop&#10;sudo service nginx start&#10;sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<p>配置 Nginx</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-14-04" target="_blank" rel="external">How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu 14.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04#definitions-and-concepts" target="_blank" rel="external">How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04" target="_blank" rel="external">How To Serve Flask Applications with Gunicorn and Nginx on Ubuntu 16.04</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo vi /etc/nginx/sites-available/&#60;project&#62;&#10;sudo ln -s /etc/nginx/sites-available/&#60;project&#62; /etc/nginx/sites-enabled&#10;sudo nginx -t&#10;sudo service nginx restart</span><br></pre></td></tr></table></figure>
+<p>Nginx 示例配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">server &#123;&#10;    location / &#123;&#10;        proxy_pass http://127.0.0.1:8000;&#10;        proxy_set_header Host $host;&#10;        proxy_set_header X-Real-IP $remote_addr;&#10;    &#125;&#10;    location /static &#123;&#10;        alias  /home/&#60;user&#62;/&#60;project&#62;/&#60;app&#62;/static/;&#10;    &#125;&#10;&#125;</span><br></pre></td></tr></table></figure>
+<p>安装 <a href="https://www.mysql.com/" target="_blank" rel="external">MySQL</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install mysql-server&#10;sudo mysql_secure_installation</span><br></pre></td></tr></table></figure>
+<p>安装 <a href="http://gunicorn.org/" target="_blank" rel="external">Gunicorn</a></p>
+<p><code>(venv) pip install gunicorn</code></p>
+<p><code>wsgi.py</code> 中有 Flask 实例 <code>app</code>，测试一下</p>
+<p><code>(venv) gunicorn -w 4 -b 127.0.0.1:8000 wsgi:app</code></p>
+<p><a href="http://stackoverflow.com/questions/7959977/how-to-stop-gunicorn-django-in-virtualenv" target="_blank" rel="external">结束运行</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps aux | grep gunicorn&#10;kill -9 &#60;pid&#62;</span><br></pre></td></tr></table></figure>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx" target="_blank" rel="external">How to Deploy Python WSGI Apps Using Gunicorn HTTP Server Behind Nginx</a></p>
+<p><a href="https://segmentfault.com/q/1010000003788857" target="_blank" rel="external">Gunicorn 配置文件的写法参考</a></p>
+<p><code>gunicorn.conf</code> <a href="http://docs.gunicorn.org/en/stable/settings.html" target="_blank" rel="external">配置文件</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">import os&#10;import multiprocessing&#10;&#10;path_of_current_dir = os.path.dirname(os.path.abspath(__file__))&#10;&#10;workers = multiprocessing.cpu_count() * 2 + 1&#10;proc_name = &#39;gunicorn.&#60;project&#62;&#39;&#10;&#10;loglevel = &#39;info&#39;&#10;pidfile = &#39;&#123;&#125;/run/gunicorn.pid&#39;.format(path_of_current_dir)&#10;accesslog = &#39;&#123;&#125;/logs/gunicorn_acc.log&#39;.format(path_of_current_dir)&#10;errorlog = &#39;&#123;&#125;/logs/gunicorn_err.log&#39;.format(path_of_current_dir)&#10;&#10;bind = &#39;127.0.0.1:8000&#39;</span><br></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/be9dd421fb8d" target="_blank" rel="external">python web 部署：nginx + gunicorn + supervisor + flask 部署笔记</a></p>
+<p><a href="http://www.simpleapples.com/2015/06/configure-nginx-supervisor-gunicorn-flask/" target="_blank" rel="external">在阿里云 CentOS7 中配置基于 Nginx + Supervisor + Gunicorn 的 Flask 项目</a></p>
+<p><a href="https://gist.github.com/binderclip/f6b6f5ed4d71fa64c7c5" target="_blank" rel="external">Flask Gunicorn Supervisor Nginx 项目部署小总结</a></p>
+<p>配置 <a href="http://supervisord.org/" target="_blank" rel="external">Supervisor</a>（不支持 Python 3，安装在虚拟环境以外）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install supervisor&#10;echo_supervisord_conf &#62; supervisor.conf</span><br></pre></td></tr></table></figure>
+<p>编辑 <code>supervisor.conf</code>，在末尾添加如下内容（<a href="http://supervisord.org/configuration.html" target="_blank" rel="external">Supervisor Configuration File</a>）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[program:&#60;project&#62;]&#10;command=/home/&#60;user&#62;/&#60;project&#62;/venv/bin/gunicorn -c /home/&#60;user&#62;/&#60;appname&#62;/gunicorn.conf wsgi:app&#10;directory=/home/&#60;user&#62;/&#60;project&#62;&#10;user=&#60;user&#62;&#10;stdout_logfile=/home/&#60;user&#62;/&#60;project&#62;/logs/supervisor_out.log&#10;redirect_stderr=true</span><br></pre></td></tr></table></figure>
+<p>Supervisor 的基本命令</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c supervisor.conf&#10;supervisorctl -c supervisor.conf status&#10;supervisorctl -c supervisor.conf reload&#10;supervisorctl -c supervisor.conf start [all]|[project]&#10;supervisorctl -c supervisor.conf stop [all]|[project]</span><br></pre></td></tr></table></figure>
+<p>也可以把 Supervisor 的配置文件放在 <code>/etc/supervisor/conf.d/</code>，这样就不用每次都运行 <code>supervisord</code> 加载配置文件了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo supervisorctl reread&#10;sudo supervisorctl update&#10;sudo supervisorctl start [all]|[project]</span><br></pre></td></tr></table></figure>
+<p><a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/" target="_blank" rel="external">Kickstarting Flask on Ubuntu - Setup and Deployment</a></p>
+]]></content>
+    <summary type="html">
+    <![CDATA[<p>仅供个人记录，附带了在另一台 Debian 8.0 x86_64 minimal 机器上的一些操作。</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-]]>
+    </summary>
+    
+      <category term="Linux" scheme="http://mookrs.com/tags/Linux/"/>
+    
+      <category term="Python" scheme="http://mookrs.com/tags/Python/"/>
+    
+      <category term="Tech" scheme="http://mookrs.com/categories/Tech/"/>
+    
+  </entry>
   
   <entry>
     <title><![CDATA[Flask-SQLAlchemy + MySQL + Python 3]]></title>
@@ -577,7 +680,7 @@ directly.
 <p>(4)「Font」-&gt;「Font」字体默认则可，也可选择喜欢的字体，「Encoding」: Unicode；</p>
 <p>(5)「Codecs &amp; demuxer」-&gt;「Video codec family」选择「FFmpeg’s libavcodec codec family」，「Audio codec family」选择「FFmpeg/libavcodec audio decoders」。</p>
 <p>另外，也可以到 mplayer 官网下载喜欢的皮肤，解压到 <code>/usr/share/mplayer/skins/</code> 即可。</p>
-<p>via <a href="/&#x6d;&#x61;&#x69;&#108;&#x74;&#111;&#x3a;&#x68;&#x74;&#116;&#x70;&#58;&#47;&#47;&#98;&#108;&#111;&#x67;&#x2e;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#99;&#104;&#102;&#99;&#50;&#48;&#48;&#57;&#x40;&#121;&#x65;&#97;&#104;&#47;&#98;&#108;&#x6f;&#103;&#47;&#x73;&#116;&#x61;&#x74;&#x69;&#x63;&#47;&#49;&#51;&#x30;&#55;&#x30;&#53;&#54;&#51;&#52;&#x32;&#x30;&#49;&#50;&#x35;&#49;&#x31;&#x30;&#49;&#x37;&#53;&#53;&#x33;&#53;&#x35;&#x2f;">&#x68;&#x74;&#116;&#x70;&#58;&#47;&#47;&#98;&#108;&#111;&#x67;&#x2e;&#x31;&#x36;&#x33;&#x2e;&#x63;&#x6f;&#x6d;&#x2f;&#99;&#104;&#102;&#99;&#50;&#48;&#48;&#57;&#x40;&#121;&#x65;&#97;&#104;&#47;&#98;&#108;&#x6f;&#103;&#47;&#x73;&#116;&#x61;&#x74;&#x69;&#x63;&#47;&#49;&#51;&#x30;&#55;&#x30;&#53;&#54;&#51;&#52;&#x32;&#x30;&#49;&#50;&#x35;&#49;&#x31;&#x30;&#49;&#x37;&#53;&#53;&#x33;&#53;&#x35;&#x2f;</a></p>
+<p>via <a href="/&#109;&#97;&#105;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#x74;&#116;&#112;&#x3a;&#47;&#x2f;&#x62;&#108;&#111;&#103;&#x2e;&#49;&#x36;&#x33;&#46;&#x63;&#x6f;&#109;&#x2f;&#99;&#x68;&#x66;&#99;&#50;&#48;&#x30;&#57;&#64;&#x79;&#101;&#x61;&#x68;&#47;&#98;&#108;&#111;&#x67;&#x2f;&#115;&#x74;&#97;&#116;&#105;&#x63;&#47;&#x31;&#51;&#48;&#55;&#48;&#x35;&#54;&#x33;&#52;&#x32;&#48;&#49;&#50;&#53;&#x31;&#x31;&#48;&#49;&#x37;&#x35;&#x35;&#51;&#53;&#x35;&#47;">&#x68;&#x74;&#116;&#112;&#x3a;&#47;&#x2f;&#x62;&#108;&#111;&#103;&#x2e;&#49;&#x36;&#x33;&#46;&#x63;&#x6f;&#109;&#x2f;&#99;&#x68;&#x66;&#99;&#50;&#48;&#x30;&#57;&#64;&#x79;&#101;&#x61;&#x68;&#47;&#98;&#108;&#111;&#x67;&#x2f;&#115;&#x74;&#97;&#116;&#105;&#x63;&#47;&#x31;&#51;&#48;&#55;&#48;&#x35;&#54;&#x33;&#52;&#x32;&#48;&#49;&#50;&#53;&#x31;&#x31;&#48;&#49;&#x37;&#x35;&#x35;&#51;&#53;&#x35;&#47;</a></p>
 <h2 id="u5B89_u88C5_Chrome"><a href="#u5B89_u88C5_Chrome" class="headerlink" title="安装 Chrome"></a>安装 Chrome</h2><p>在 <code>/etc/yum.repos.d/google-chrome.repo</code> 中加入</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[google-chrome]&#10;name=google-chrome - 64-bit&#10;baseurl=http://dl.google.com/linux/chrome/rpm/stable/x86_64&#10;enabled=1&#10;gpgcheck=1&#10;gpgkey=https://dl-ssl.google.com/linux/linux_signing_key.pub</span><br></pre></td></tr></table></figure>
 <p>然后 <code># yum install google-chrome-stable</code></p>
