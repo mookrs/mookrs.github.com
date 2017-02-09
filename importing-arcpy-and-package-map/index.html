@@ -1,15 +1,133 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 导入 ArcPy 及打包地图 · Only Mookrs</title><meta name="description" content="导入 ArcPy 及打包地图 - Mookrs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="https://github.com/mookrs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">导入 ArcPy 及打包地图</h1><div class="post-meta"><div class="post-time">Nov 11, 2014</div></div><div class="post-content"><h2 id="u5BFC_u5165_ArcPy"><a href="#u5BFC_u5165_ArcPy" class="headerlink" title="导入 ArcPy"></a>导入 ArcPy</h2><p>安装 ArcGIS 的时候一般会附带安装 Python，但是其版本比较旧，例如 ArcGIS 10.1 自带的还是 Python 2.6，而我通常选择使用较新的 Python 2.x 版本，这就造成了在执行跟 ArcPy 相关的命令时，将提示 <code>No module named arcpy</code> 的问题。对此，ArcGIS 官方文档提供了一个<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//002z00000008000000" target="_blank" rel="external">导入 ArcPy</a> 的方法。</p>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>导入 ArcPy 及打包地图 | Only Mookrs</title>
+  <meta name="description" content="A fugitive from the world." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Only Mookrs">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+            
+            <h1 class="blog-title">Only Mookrs</h1>
+            <h2 class="blog-description">A fugitive from the world.</h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2014-11-10T16:00:00.000Z" itemprop="datePublished">
+          2014-11-11
+      </time>
+    
+    
+    | 
+    <a href='/tags/ArcGIS/'>ArcGIS</a>,
+    
+    <a href='/tags/ArcPy/'>ArcPy</a>,
+    
+    <a href='/tags/Python/'>Python</a>
+    
+    
+</span>
+    <h1 class="post-title">导入 ArcPy 及打包地图</h1>
+    <section class="post-content">
+      <h2 id="导入-ArcPy"><a href="#导入-ArcPy" class="headerlink" title="导入 ArcPy"></a>导入 ArcPy</h2><p>安装 ArcGIS 的时候一般会附带安装 Python，但是其版本比较旧，例如 ArcGIS 10.1 自带的还是 Python 2.6，而我通常选择使用较新的 Python 2.x 版本，这就造成了在执行跟 ArcPy 相关的命令时，将提示 <code>No module named arcpy</code> 的问题。对此，ArcGIS 官方文档提供了一个<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//002z00000008000000" target="_blank" rel="external">导入 ArcPy</a> 的方法。</p>
 <p>打开资源管理器浏览至 python27\Lib\site-packages 文件夹，以 ArcGIS 10.2.2 版本为例，添加或编辑 Desktop10.2.2.pth 文件（或 Engine10.2.2.pth、Server10.2.2.pth），内容如下：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">c:\Program Files\ArcGIS\Desktop10.2.2\arcpy&#10;c:\Program Files\ArcGIS\Desktop10.2.2\bin&#10;c:\Program Files\ArcGIS\Desktop10.2.2\ArcToolbox\Scripts</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">c:\Program Files\ArcGIS\Desktop10.2.2\arcpy</div><div class="line">c:\Program Files\ArcGIS\Desktop10.2.2\bin</div><div class="line">c:\Program Files\ArcGIS\Desktop10.2.2\ArcToolbox\Scripts</div></pre></td></tr></table></figure>
 <p>根据自己的实际路径修改完成后，如果提示 <code>No module named numpy</code>，那么还要去下载安装 <a href="http://www.numpy.org/" target="_blank" rel="external">NumPy</a>，之后就可以正常使用 ArcPy 了。</p>
-<h2 id="u6253_u5305_u5730_u56FE"><a href="#u6253_u5305_u5730_u56FE" class="headerlink" title="打包地图"></a>打包地图</h2><p>之前有同事通过 ArcGIS 的 GP 工具打包生成的 MPK 文件不能用于 ArcGIS Runtime，检查后发现 MPK 中均没有 .msd 文件。另一个问题是 MPK 中含有 v101 和 v10 两个文件夹，而我们的系统只需要 v101 即可。造成这些问题的原因都在于打包过程中没有指定正确的参数。类似地，利用 ArcPy 打包地图时，需要指定 arcgisruntime<br>和 version 两个参数，<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//0017000000q5000000" target="_blank" rel="external">官方文档</a> 对各个参数做了详尽的解释。一个可能的示例代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Name: PackageMap.py</span></span><br><span class="line"><span class="comment"># Description:  Find all the map documents that reside in a specified folder and create map packages for each map document.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> arcpy</span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> arcpy <span class="keyword">import</span> env</span><br><span class="line"></span><br><span class="line"><span class="comment"># Set environment settings</span></span><br><span class="line">env.overwriteOutput = <span class="keyword">True</span></span><br><span class="line">env.workspace = <span class="string">"C:/arcgis"</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># Loop through the workspace, find all the mxds and create a map package using the same name as the mxd</span></span><br><span class="line"><span class="keyword">for</span> mxd <span class="keyword">in</span> arcpy.ListFiles(<span class="string">"*.mxd"</span>):</span><br><span class="line">    <span class="keyword">print</span> <span class="string">"Packaging "</span> + mxd</span><br><span class="line">    arcpy.PackageMap_management(mxd, os.path.splitext(mxd)[<span class="number">0</span>] + <span class="string">'.mpk'</span>, <span class="string">"PRESERVE"</span>, <span class="string">"CONVERT_ARCSDE"</span>, <span class="string">"#"</span>, <span class="string">"RUNTIME"</span>, version=<span class="string">"10.1"</span>)</span><br></pre></td></tr></table></figure>
-</div></article></div></section><footer><div class="paginator"><a href="/smooth-listbox/" class="prev">上一篇</a><a href="/add-click-event-to-radgridview/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'mookrs';
-var disqus_identifier = 'importing-arcpy-and-package-map/';
-var disqus_title = '导入 ArcPy 及打包地图';
-var disqus_url = 'http://mookrs.com/importing-arcpy-and-package-map/';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//mookrs.disqus.com/count.js" async></script><div class="copyright"><p>© 2011 - 2016 <a href="http://mookrs.com">Mookrs</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-23664006-4",'auto');ga('send','pageview');</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
+<h2 id="打包地图"><a href="#打包地图" class="headerlink" title="打包地图"></a>打包地图</h2><p>之前有同事通过 ArcGIS 的 GP 工具打包生成的 MPK 文件不能用于 ArcGIS Runtime，检查后发现 MPK 中均没有 .msd 文件。另一个问题是 MPK 中含有 v101 和 v10 两个文件夹，而我们的系统只需要 v101 即可。造成这些问题的原因都在于打包过程中没有指定正确的参数。类似地，利用 ArcPy 打包地图时，需要指定 arcgisruntime<br>和 version 两个参数，<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//0017000000q5000000" target="_blank" rel="external">官方文档</a> 对各个参数做了详尽的解释。一个可能的示例代码如下：</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><div class="line"><span class="comment"># Name: PackageMap.py</span></div><div class="line"><span class="comment"># Description:  Find all the map documents that reside in a specified folder and create map packages for each map document.</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> os</div><div class="line"><span class="keyword">import</span> arcpy</div><div class="line"></div><div class="line"><span class="keyword">from</span> arcpy <span class="keyword">import</span> env</div><div class="line"></div><div class="line"><span class="comment"># Set environment settings</span></div><div class="line">env.overwriteOutput = <span class="keyword">True</span></div><div class="line">env.workspace = <span class="string">"C:/arcgis"</span> </div><div class="line"></div><div class="line"><span class="comment"># Loop through the workspace, find all the mxds and create a map package using the same name as the mxd</span></div><div class="line"><span class="keyword">for</span> mxd <span class="keyword">in</span> arcpy.ListFiles(<span class="string">"*.mxd"</span>):</div><div class="line">    <span class="keyword">print</span> <span class="string">"Packaging "</span> + mxd</div><div class="line">    arcpy.PackageMap_management(mxd, os.path.splitext(mxd)[<span class="number">0</span>] + <span class="string">'.mpk'</span>, <span class="string">"PRESERVE"</span>, <span class="string">"CONVERT_ARCSDE"</span>, <span class="string">"#"</span>, <span class="string">"RUNTIME"</span>, version=<span class="string">"10.1"</span>)</div></pre></td></tr></table></figure>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>mookrs</h4>
+    <p></p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://mookrs.com/importing-arcpy-and-package-map/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://mookrs.com/importing-arcpy-and-package-map/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://mookrs.com/importing-arcpy-and-package-map/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/smooth-listbox/">
+        ← 让 WPF 的 ListBox 更流畅地滑动
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/add-click-event-to-radgridview/">
+        为 RadGridView 的行增加点击事件 →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Only Mookrs</a> &copy; 2011-2017 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://hexo.io/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+</body>
+</html>

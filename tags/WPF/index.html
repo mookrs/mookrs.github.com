@@ -1,1 +1,196 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> Only Mookrs</title><meta name="description" content="A Blog Powered By Hexo"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="https://github.com/mookrs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><ul class="archive post-list"><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/import-shapefile-in-arcgis-wpf-runtime/" class="post-title-link">ArcGIS Runtime SDK for WPF 导入 Shapefile 的注意事项</a></h2><div class="post-meta"><div class="post-time">Dec 27, 2014</div></div></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/smooth-listbox/" class="post-title-link">让 WPF 的 ListBox 更流畅地滑动</a></h2><div class="post-meta"><div class="post-time">Nov 18, 2014</div></div></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/add-click-event-to-radgridview/" class="post-title-link">为 RadGridView 的行增加点击事件</a></h2><div class="post-meta"><div class="post-time">Oct 23, 2014</div></div></article></li><li class="post-list-item"><article class="post-block"><h2 class="post-title"><a href="/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/" class="post-title-link">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a></h2><div class="post-meta"><div class="post-time">Nov 29, 2013</div></div></article></li></ul></section><footer><div class="paginator"></div><div class="copyright"><p>© 2011 - 2016 <a href="http://mookrs.com">Mookrs</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-23664006-4",'auto');ga('send','pageview');</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>Tag: WPF | Only Mookrs</title>
+  <meta name="description" content="A fugitive from the world." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Only Mookrs">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="home-template">
+
+  <header class="site-head" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+            
+            <h1 class="blog-title">Only Mookrs</h1>
+            <h2 class="blog-description">A fugitive from the world.</h2>
+        </div>
+    </div>
+</header>
+  
+<main class="content" role="main">
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2014-12-26T16:00:00.000Z" itemprop="datePublished">
+          2014-12-27
+      </time>
+    
+    
+    | 
+    <a href='/tags/ArcGIS/'>ArcGIS</a>,
+    
+    <a href='/tags/WPF/'>WPF</a>,
+    
+    <a href='/tags/shapefile/'>shapefile</a>
+    
+    
+</span>
+      <h2 class="post-title"><a href="/import-shapefile-in-arcgis-wpf-runtime/">ArcGIS Runtime SDK for WPF 导入 Shapefile 的注意事项</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        在最新的 ArcGIS Runtime SDK for .NET 中，Esri 添加了 直接导入 Shapefile 文件的功能。但是这一功能在早前版本的 WPF Runtime 中并未实现，为此官方提供了 借助 DynamicLayer 实现该功能的方法。
+需要注意的是，导入后的 Shapefile 被存入了 FeatureLayer，等执行完 featureLayer.Update();（之前记得调用 MyMap.Layers.Ad
+      
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2014-11-17T16:00:00.000Z" itemprop="datePublished">
+          2014-11-18
+      </time>
+    
+    
+    | 
+    <a href='/tags/WPF/'>WPF</a>,
+    
+    <a href='/tags/ListBox/'>ListBox</a>
+    
+    
+</span>
+      <h2 class="post-title"><a href="/smooth-listbox/">让 WPF 的 ListBox 更流畅地滑动</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        默认情况下，ListBox 的 item 是一个接着一个滑动（one item at a time）的，每个在上方的 item 都是完整的，不可能显示一半，比如这样：
+
+
+这是因为 ListBox 的滑动行为由 ScrollViewer 提供，它的 CanContentScroll 属性默认设为了 True。如果想要一个接着一个像素地流畅滑动，必须为 ListBox 设置 ScrollViewer.CanContentScroll=&q
+      
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2014-10-22T16:00:00.000Z" itemprop="datePublished">
+          2014-10-23
+      </time>
+    
+    
+    | 
+    <a href='/tags/WPF/'>WPF</a>,
+    
+    <a href='/tags/Telerik/'>Telerik</a>,
+    
+    <a href='/tags/RadGridView/'>RadGridView</a>
+    
+    
+</span>
+      <h2 class="post-title"><a href="/add-click-event-to-radgridview/">为 RadGridView 的行增加点击事件</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：
+private void RadGridView_RowLoaded(object sender, RowLoadedEventArgs
+      
+      </p>
+      
+    </section>
+  </article>
+  
+  <article class="post">
+    <header class="post-header">
+      <span class="post-meta">
+      <time datetime="2013-11-28T16:00:00.000Z" itemprop="datePublished">
+          2013-11-29
+      </time>
+    
+    
+    | 
+    <a href='/tags/ArcGIS/'>ArcGIS</a>,
+    
+    <a href='/tags/WPF/'>WPF</a>,
+    
+    <a href='/tags/PictureMarkerSymbol/'>PictureMarkerSymbol</a>
+    
+    
+</span>
+      <h2 class="post-title"><a href="/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</a></h2>
+    </header>
+    <section class="post-excerpt">
+      <p>
+      
+        做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：
+
+这种情况下，一旦缩小地图，偏移量就会特别厉害：
+
+原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。
+解决办法是，为 PictureMarkerSymbol 的 OffsetX 和
+      
+      </p>
+      
+    </section>
+  </article>
+  
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">Page 1 of 1</span>
+    
+  </nav>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Only Mookrs</a> &copy; 2011-2017 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://hexo.io/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+</body>
+</html>

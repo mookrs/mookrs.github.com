@@ -1,15 +1,133 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> 为 RadGridView 的行增加点击事件 · Only Mookrs</title><meta name="description" content="为 RadGridView 的行增加点击事件 - Mookrs"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="stylesheet" href="http://fonts.useso.com/css?family=Source+Sans+Pro:400,600" type="text/css"></head><body><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">博客</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">归档</a></li><li class="nav-list-item"><a href="https://github.com/mookrs" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">为 RadGridView 的行增加点击事件</h1><div class="post-meta"><div class="post-time">Oct 23, 2014</div></div><div class="post-content"><p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
-<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RadGridView_RowLoaded</span>(<span class="params"><span class="keyword">object</span> sender, RowLoadedEventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> row = e.Row <span class="keyword">as</span> GridViewRow;</span><br><span class="line">    <span class="keyword">if</span> (row != <span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 防止事件处理程序被触发多次</span></span><br><span class="line">        row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, </span><br><span class="line">            <span class="keyword">new</span> MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown));</span><br><span class="line">        row.AddHandler(UIElement.MouseLeftButtonDownEvent,</span><br><span class="line">            <span class="keyword">new</span> MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), <span class="keyword">true</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 处理选中行的 MouseLeftButtonDown 事件</span></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">GridViewRow_MouseLeftButtonDown</span>(<span class="params"><span class="keyword">object</span> sender, MouseButtonEventArgs e</span>)</span><br><span class="line"></span>&#123;</span><br><span class="line">    <span class="keyword">var</span> row = sender <span class="keyword">as</span> GridViewRow;</span><br><span class="line">    <span class="keyword">if</span> (row != <span class="keyword">null</span>)</span><br><span class="line">    &#123;</span><br><span class="line">        <span class="comment">// 执行的操作…</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>为 RadGridView 的行增加点击事件 | Only Mookrs</title>
+  <meta name="description" content="A fugitive from the world." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Only Mookrs">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+            
+            <h1 class="blog-title">Only Mookrs</h1>
+            <h2 class="blog-description">A fugitive from the world.</h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2014-10-22T16:00:00.000Z" itemprop="datePublished">
+          2014-10-23
+      </time>
+    
+    
+    | 
+    <a href='/tags/WPF/'>WPF</a>,
+    
+    <a href='/tags/Telerik/'>Telerik</a>,
+    
+    <a href='/tags/RadGridView/'>RadGridView</a>
+    
+    
+</span>
+    <h1 class="post-title">为 RadGridView 的行增加点击事件</h1>
+    <section class="post-content">
+      <p>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：</p>
+<figure class="highlight csharp"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">RadGridView_RowLoaded</span>(<span class="params"><span class="keyword">object</span> sender, RowLoadedEventArgs e</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> row = e.Row <span class="keyword">as</span> GridViewRow;</div><div class="line">    <span class="keyword">if</span> (row != <span class="literal">null</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 防止事件处理程序被触发多次</span></div><div class="line">        row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, </div><div class="line">            <span class="keyword">new</span> MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown));</div><div class="line">        row.AddHandler(UIElement.MouseLeftButtonDownEvent,</div><div class="line">            <span class="keyword">new</span> MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), <span class="literal">true</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 处理选中行的 MouseLeftButtonDown 事件</span></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">GridViewRow_MouseLeftButtonDown</span>(<span class="params"><span class="keyword">object</span> sender, MouseButtonEventArgs e</span>)</span></div><div class="line">&#123;</div><div class="line">    <span class="keyword">var</span> row = sender <span class="keyword">as</span> GridViewRow;</div><div class="line">    <span class="keyword">if</span> (row != <span class="literal">null</span>)</div><div class="line">    &#123;</div><div class="line">        <span class="comment">// 执行的操作…</span></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>其他如 ListBox、DataGrid 等控件也可以用这种方法处理。</p>
 <p>参考资料：</p>
 <p>[1] <a href="http://www.telerik.com/forums/radgridview---click-event" target="_blank" rel="external">RadGridView - click event</a></p>
 <p>[2] <a href="http://stackoverflow.com/questions/1271375/how-to-capture-a-mouse-click-on-an-item-in-a-listbox-in-wpf" target="_blank" rel="external">How to capture a mouse click on an Item in a ListBox in WPF?</a></p>
-</div></article></div></section><footer><div class="paginator"><a href="/importing-arcpy-and-package-map/" class="prev">上一篇</a><a href="/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/" class="next">下一篇</a></div><div id="disqus_thread"></div><script>var disqus_shortname = 'mookrs';
-var disqus_identifier = 'add-click-event-to-radgridview/';
-var disqus_title = '为 RadGridView 的行增加点击事件';
-var disqus_url = 'http://mookrs.com/add-click-event-to-radgridview/';
-(function() {
-    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-})();</script><script id="dsq-count-scr" src="//mookrs.disqus.com/count.js" async></script><div class="copyright"><p>© 2011 - 2016 <a href="http://mookrs.com">Mookrs</a>.</p></div></footer><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-23664006-4",'auto');ga('send','pageview');</script><script src="https://cdn.bootcss.com/mathjax/2.5.3/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script></body></html>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>mookrs</h4>
+    <p></p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://mookrs.com/add-click-event-to-radgridview/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://mookrs.com/add-click-event-to-radgridview/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://mookrs.com/add-click-event-to-radgridview/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <a class="newer-posts" href="/importing-arcpy-and-package-map/">
+        ← 导入 ArcPy 及打包地图
+    </a>
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/">
+        ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移 →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Only Mookrs</a> &copy; 2011-2017 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://hexo.io/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+</body>
+</html>

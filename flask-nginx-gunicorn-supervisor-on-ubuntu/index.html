@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+  <title>在 Ubuntu 16.04 上配置 Flask + Nginx + Gunicorn + Supervisor | Only Mookrs</title>
+  <meta name="description" content="A fugitive from the world." />
+  <meta name="HandheldFriendly" content="True" />
+  <meta name="MobileOptimized" content="320" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <link rel="stylesheet" type="text/css" href="/css/screen.css" />
+  <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Noto+Serif:400,700,400italic|Open+Sans:700,400" />
+
+  <meta name="generator" content="Only Mookrs">
+
+  
+  
+  <link rel="alternate" type="application/atom+xml" title="Atom 0.3" href="atom.xml">
+  
+  
+
+  
+</head>
+
+
+<body class="post-template">
+
+  <header class="site-head" >
+    <div class="vertical">
+        <div class="site-head-content inner">
+            
+            <h1 class="blog-title">Only Mookrs</h1>
+            <h2 class="blog-description">A fugitive from the world.</h2>
+        </div>
+    </div>
+</header>
+  
+
+<main class="content" role="main">
+  <article class="post">
+    <span class="post-meta">
+      <time datetime="2016-07-31T17:05:04.000Z" itemprop="datePublished">
+          2016-08-01
+      </time>
+    
+    
+    | 
+    <a href='/tags/Linux/'>Linux</a>,
+    
+    <a href='/tags/Python/'>Python</a>
+    
+    
+</span>
+    <h1 class="post-title">在 Ubuntu 16.04 上配置 Flask + Nginx + Gunicorn + Supervisor</h1>
+    <section class="post-content">
+      <p>仅供个人记录，附带了在另一台 Debian 8.0 x86_64 minimal 机器上的一些操作。</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04" target="_blank" rel="external">Initial Server Setup with Ubuntu 16.04</a></p>
+<p>SSH 登录</p>
+<p><code>&#39;ssh &lt;user&gt;@&lt;ip&gt; -p &lt;port&gt;&#39;</code></p>
+<p>修改 root 密码</p>
+<p><code>passwd root</code></p>
+<p>添加新账户</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">useradd &lt;user&gt;</div><div class="line">passwd &lt;user&gt;</div><div class="line">usermod -aG sudo &lt;user&gt;</div></pre></td></tr></table></figure>
+<p>新建用户目录</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir /home/&lt;user&gt;</div><div class="line">chown -R &lt;user&gt; /home/&lt;user&gt;</div></pre></td></tr></table></figure>
+<p>替换 <code>sh</code> 为 <code>bash</code></p>
+<p><code>chsh -s /bin/bash  &lt;user&gt;</code></p>
+<p>以上三步一起完成</p>
+<p><code>useradd --create-home --user-group --shell /bin/bash &lt;user&gt;</code></p>
+<p>修改 SSH 端口，禁用 root 登录，禁用密码登录</p>
+<p><code>sudo vi /etc/ssh/sshd_config</code></p>
+<p>找到并修改 <code>Port &lt;数字&gt;</code>、<code>PermitRootLogin no</code>、<code>PasswordAuthentication no</code></p>
+<p>SSH-Key 登录，本地</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ssh-keygen</div><div class="line">cat ~/.ssh/id_rsa.pub</div></pre></td></tr></table></figure>
+<p>服务器</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mkdir ~/.ssh</div><div class="line">chmod 700 ~/.ssh</div><div class="line">vi ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p>复制公钥进去</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">chmod 600 ~/.ssh/authorized_keys</div></pre></td></tr></table></figure>
+<p><code>sudo systemctl reload sshd</code>（或 <code>/etc/init.d/ssh restart</code>）</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands" target="_blank" rel="external">防火墙</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo ufw app list</div><div class="line">sudo ufw enable</div><div class="line">sudo ufw allow OpenSSH</div><div class="line">sudo ufw allow &apos;Nginx Full&apos;</div><div class="line">sudo ufw allow &lt;port&gt;</div></pre></td></tr></table></figure>
+<p>设置语系</p>
+<p><code>sudo locale-gen zh_CN.UTF-8</code></p>
+<p>设置时区（可选）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">timedatectl list-timezones</div><div class="line">sudo timedatectl set-timezone Asia/Shanghai</div><div class="line">timedatectl</div></pre></td></tr></table></figure>
+<p><a href="http://askubuntu.com/questions/9540/how-do-i-change-the-computer-name" target="_blank" rel="external">修改服务器 hostname</a>，需要编辑 <code>/etc/hostname</code>、<code>/etc/hosts</code> 两个文件，<code>/etc/hosts</code> <a href="http://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none" target="_blank" rel="external">会提示</a> <code>sudo: unable to resolve host (none)</code></p>
+<p><a href="http://askubuntu.com/questions/244544/how-do-i-install-python-3-3" target="_blank" rel="external">编译安装 Python</a>（可选，Debian；Ubuntu 自带 Python 3）：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz</div><div class="line">tar xJf ./Python-3.5.2.tar.xz</div><div class="line">cd ./Python-3.5.2</div><div class="line">./configure --prefix=/opt/python3.5</div><div class="line">make &amp;&amp; sudo make install</div><div class="line">sudo ln -fs /opt/python3.5/bin/python3 /usr/bin/python3.5</div></pre></td></tr></table></figure>
+<p>如果 <a href="http://stackoverflow.com/questions/19816275/no-acceptable-c-compiler-found-in-path-when-installing-python" target="_blank" rel="external">缺少编译组件</a>，提示 <code>configure: error: no acceptable C compiler found in $PATH</code></p>
+<p><code>sudo apt-get install build-essential</code></p>
+<p><a href="http://stackoverflow.com/questions/22592686/compiling-python-3-4-is-not-copying-pip" target="_blank" rel="external">报错</a> <code>Ignoring ensurepip failure: pip 8.1.1 requires SSL/TLS</code></p>
+<p><code>sudo apt-get install libssl-dev openssl</code></p>
+<p>Debian 上编译完的 Python <a href="http://stackoverflow.com/questions/1210664/no-module-named-sqlite3" target="_blank" rel="external">缺少 sqlite</a>，提示 <code>ImportError: No module named &#39;_sqlite3&#39;</code></p>
+<p><code>sudo apt-get install libsqlite3-dev</code></p>
+<p>安装 <a href="https://pip.pypa.io/" target="_blank" rel="external">pip</a>（Python 3 是 <code>python3-pip</code>）</p>
+<p><code>sudo apt-get install python-pip</code></p>
+<p>安装 <a href="https://virtualenv.pypa.io/" target="_blank" rel="external">virtualenv</a></p>
+<p><code>sudo pip install virtualenv</code></p>
+<p>安装虚拟环境</p>
+<p><code>virtualenv -p python3 venv</code></p>
+<p>Debian 上是</p>
+<p><code>virtualenv -p python3.5 venv</code></p>
+<p>完整命令实际是</p>
+<p><code>virtualenv --python=&lt;python path&gt; &lt;venv&gt;</code></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04" target="_blank" rel="external">How To Install Linux, Nginx, MySQL, PHP (LEMP stack) in Ubuntu 16.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts" target="_blank" rel="external">安装</a> <a href="https://nginx.org/" target="_blank" rel="external">Nginx</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo apt-get install nginx</div><div class="line">sudo service nginx stop</div><div class="line">sudo service nginx start</div><div class="line">sudo service nginx restart</div></pre></td></tr></table></figure>
+<p>配置 Nginx</p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-14-04" target="_blank" rel="external">How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu 14.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04#definitions-and-concepts" target="_blank" rel="external">How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04" target="_blank" rel="external">How To Serve Flask Applications with Gunicorn and Nginx on Ubuntu 16.04</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo vi /etc/nginx/sites-available/&lt;project&gt;</div><div class="line">sudo ln -s /etc/nginx/sites-available/&lt;project&gt; /etc/nginx/sites-enabled</div><div class="line">sudo nginx -t</div><div class="line">sudo service nginx restart</div></pre></td></tr></table></figure>
+<p>Nginx 示例配置</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">server &#123;</div><div class="line">    location / &#123;</div><div class="line">        proxy_pass http://127.0.0.1:8000;</div><div class="line">        proxy_set_header Host $host;</div><div class="line">        proxy_set_header X-Real-IP $remote_addr;</div><div class="line">    &#125;</div><div class="line">    location /static &#123;</div><div class="line">        alias  /home/&lt;user&gt;/&lt;project&gt;/&lt;app&gt;/static/;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>安装 <a href="https://www.mysql.com/" target="_blank" rel="external">MySQL</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo apt-get install mysql-server</div><div class="line">sudo mysql_secure_installation</div></pre></td></tr></table></figure>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-mysql-or-mariadb-with-your-django-application-on-ubuntu-14-04" target="_blank" rel="external">配置 MySQL</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">mysql -u root -p</div><div class="line">CREATE DATABASE myproject CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;</div><div class="line">CREATE USER myprojectuser@localhost IDENTIFIED BY &apos;password&apos;;</div><div class="line">GRANT ALL PRIVILEGES ON myproject.* TO myprojectuser@localhost;</div><div class="line">FLUSH PRIVILEGES;</div><div class="line">exit</div></pre></td></tr></table></figure>
+<p>安装 <a href="http://gunicorn.org/" target="_blank" rel="external">Gunicorn</a></p>
+<p><code>(venv) pip install gunicorn</code></p>
+<p><code>wsgi.py</code> 中有 Flask 实例 <code>app</code>，测试一下</p>
+<p><code>(venv) gunicorn -w 4 -b 127.0.0.1:8000 wsgi:app</code></p>
+<p><a href="http://stackoverflow.com/questions/7959977/how-to-stop-gunicorn-django-in-virtualenv" target="_blank" rel="external">结束运行</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">ps aux | grep gunicorn</div><div class="line">kill -9 &lt;pid&gt;</div></pre></td></tr></table></figure>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx" target="_blank" rel="external">How to Deploy Python WSGI Apps Using Gunicorn HTTP Server Behind Nginx</a></p>
+<p><a href="https://segmentfault.com/q/1010000003788857" target="_blank" rel="external">Gunicorn 配置文件的写法参考</a></p>
+<p><code>gunicorn.conf</code> <a href="http://docs.gunicorn.org/en/stable/settings.html" target="_blank" rel="external">配置文件</a></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">import os</div><div class="line">import multiprocessing</div><div class="line"></div><div class="line">path_of_current_dir = os.path.dirname(os.path.abspath(__file__))</div><div class="line"></div><div class="line">workers = multiprocessing.cpu_count() * 2 + 1</div><div class="line">proc_name = &apos;gunicorn.&lt;project&gt;&apos;</div><div class="line"></div><div class="line">loglevel = &apos;info&apos;</div><div class="line">pidfile = &apos;&#123;&#125;/run/gunicorn.pid&apos;.format(path_of_current_dir)</div><div class="line">accesslog = &apos;&#123;&#125;/logs/gunicorn_acc.log&apos;.format(path_of_current_dir)</div><div class="line">errorlog = &apos;&#123;&#125;/logs/gunicorn_err.log&apos;.format(path_of_current_dir)</div><div class="line"></div><div class="line">bind = &apos;127.0.0.1:8000&apos;</div></pre></td></tr></table></figure>
+<p><a href="http://www.jianshu.com/p/be9dd421fb8d" target="_blank" rel="external">python web 部署：nginx + gunicorn + supervisor + flask 部署笔记</a></p>
+<p><a href="http://www.simpleapples.com/2015/06/configure-nginx-supervisor-gunicorn-flask/" target="_blank" rel="external">在阿里云 CentOS7 中配置基于 Nginx + Supervisor + Gunicorn 的 Flask 项目</a></p>
+<p><a href="https://gist.github.com/binderclip/f6b6f5ed4d71fa64c7c5" target="_blank" rel="external">Flask Gunicorn Supervisor Nginx 项目部署小总结</a></p>
+<p><a href="https://serversforhackers.com/monitoring-processes-with-supervisord" target="_blank" rel="external">Monitoring Processes with Supervisord</a></p>
+<p>配置 <a href="http://supervisord.org/" target="_blank" rel="external">Supervisor</a>（不支持 Python 3，安装在虚拟环境以外）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo apt-get install supervisor</div><div class="line">echo_supervisord_conf &gt; supervisor.conf</div></pre></td></tr></table></figure>
+<p>编辑 <code>supervisor.conf</code>，在末尾添加如下内容（<a href="http://supervisord.org/configuration.html" target="_blank" rel="external">Supervisor Configuration File</a>）</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">[program:&lt;project&gt;]</div><div class="line">command=/home/&lt;user&gt;/&lt;project&gt;/venv/bin/gunicorn -c /home/&lt;user&gt;/&lt;appname&gt;/gunicorn.conf wsgi:app</div><div class="line">directory=/home/&lt;user&gt;/&lt;project&gt;</div><div class="line">user=&lt;user&gt;</div><div class="line">stdout_logfile=/home/&lt;user&gt;/&lt;project&gt;/logs/supervisor_out.log</div><div class="line">redirect_stderr=true</div></pre></td></tr></table></figure>
+<p>Supervisor 的基本命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">supervisord -c supervisor.conf</div><div class="line">supervisorctl -c supervisor.conf status</div><div class="line">supervisorctl -c supervisor.conf reload</div><div class="line">supervisorctl -c supervisor.conf start [all]|[project]</div><div class="line">supervisorctl -c supervisor.conf stop [all]|[project]</div></pre></td></tr></table></figure>
+<p>也可以把 Supervisor 的配置文件放在 <code>/etc/supervisor/conf.d/</code>，这样就不用每次都运行 <code>supervisord</code> 加载配置文件了</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">sudo supervisorctl reread</div><div class="line">sudo supervisorctl update</div><div class="line">sudo supervisorctl start [all]|[project]</div></pre></td></tr></table></figure>
+<p><a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/" target="_blank" rel="external">Kickstarting Flask on Ubuntu - Setup and Deployment</a></p>
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deployment-with-git-with-a-vps" target="_blank" rel="external">How To Set Up Automatic Deployment with Git with a VPS</a></p>
+<p><a href="https://segmentfault.com/a/1190000003808733" target="_blank" rel="external">基于Flask-Angular的项目组网架构与部署</a></p>
+
+    </section>
+    <footer class="post-footer">
+      <section class="author">
+    <h4>mookrs</h4>
+    <p></p>
+</section>
+      <section class="share">
+    <h4>Share this post</h4>
+    <a class="icon-twitter" href="http://twitter.com/share?url=http://mookrs.com/flask-nginx-gunicorn-supervisor-on-ubuntu/"
+       onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+        <span class="hidden">Twitter</span>
+    </a>
+    <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://mookrs.com/flask-nginx-gunicorn-supervisor-on-ubuntu/"
+       onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+        <span class="hidden">Facebook</span>
+    </a>
+    <a class="icon-google-plus" href="https://plus.google.com/share?url=http://mookrs.com/flask-nginx-gunicorn-supervisor-on-ubuntu/"
+       onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+        <span class="hidden">Google+</span>
+    </a>
+</section>
+    </footer>
+  </article>
+  <nav class="pagination" role="pagination">
+    
+    <span class="page-number">•</span>
+    
+    <a class="older-posts" href="/flask-sqlalchemy-mysql-python-3/">
+        Flask-SQLAlchemy + MySQL + Python 3 →
+    </a>
+    
+</nav>
+  <div id="comment" class="comments-area">
+    <h1 class="title"><a href="#disqus_comments" name="disqus_comments">Comments</a></h1>
+
+    
+</div>
+</main>
+
+
+  
+<footer class="site-footer">
+  
+  <a class="subscribe icon-feed" href="atom.xml"><span class="tooltip">Subscribe!</span></a>
+  
+  <div class="inner">
+     <section class="copyright">All content copyright <a href="/">Only Mookrs</a> &copy; 2011-2017 &bull; All rights reserved.</section>
+     <section class="poweredby">Proudly published with <a class="icon-ghost" href="https://hexo.io/">Hexo</a></section>
+  </div>
+</footer>
+
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<script type="text/javascript" src="/js/jquery.fitvids.js"></script>
+<script type="text/javascript" src="/js/index.js"></script>
+
+
+
+
+
+
+</body>
+</html>
