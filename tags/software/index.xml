@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on Only Mookrs</title>
+    <link>http://mookrs.com/tags/software/</link>
+    <description>Recent content in Software on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 28 Nov 2011 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ArcGIS Desktop 10 图文安装教程</title>
+      <link>http://mookrs.com/install-arcgis-desktop-10/</link>
+      <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/install-arcgis-desktop-10/</guid>
+      <description>1. 下载 ArcGIS Desktop 10 (1) 官方地址
+复制链接，在迅雷等下载软件里新建任务即可。注意，这个 3.75G 的 ArcGIS_Desktop10_122519.iso 文件为英文版，不包含补丁。
+(2) sp5补丁地址
+ArcGIS Desktop 10 的版本已更新到最终版 SP5 （2012-7-10），这里以 ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 SP2 并不需要先升级到 SP1，可以直接安装 SP2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
+2. 安装 ArcGIS Desktop 10 (1) 使用 DAEMON Tools Lite 之类的软件加载 iso 镜像文件，运行安装包里的 ESRI.exe，选择安装 ArcGIS Desktop。先安装 Desktop 或者 License Manager 都可以。
+ArcGIS Desktop 10 需要 .NET Framwork 3.5 SP1 支持，如果系统中没有安装时会提示。安装包中已附带 .</description>
+    </item>
+    
+  </channel>
+</rss>

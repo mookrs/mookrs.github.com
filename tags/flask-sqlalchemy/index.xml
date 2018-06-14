@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flask Sqlalchemy on Only Mookrs</title>
+    <link>http://mookrs.com/tags/flask-sqlalchemy/</link>
+    <description>Recent content in Flask Sqlalchemy on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 27 Jul 2016 18:52:26 +0800</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/flask-sqlalchemy/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python 3 下使用 Flask-SQLAlchemy &#43; MySQL</title>
+      <link>http://mookrs.com/flask-sqlalchemy-mysql-python-3/</link>
+      <pubDate>Wed, 27 Jul 2016 18:52:26 +0800</pubDate>
+      
+      <guid>http://mookrs.com/flask-sqlalchemy-mysql-python-3/</guid>
+      <description>按照 Flask-SQLAlchemy 文档的说明，配置好 SQLALCHEMY_DATABASE_URI = &#39;mysql://username:password@server/db&#39; 后操作 MySQL 报错 ImportError: No module named &#39;MySQLdb&#39;。既然缺少 MySQLdb 这个模块，按照正常的想法执行 pip install MySQL-python 应该能解决，但是却报错 ImportError: No module named &#39;ConfigParser&#39;。查了一下，这是由于 MySQL-python 不支持 Python 3（MySQL-3.23 through 5.5 and Python-2.4 through 2.7 are currently supported）。
+于是 找到了一个替代—— PyMySQL（还有一个 可能的选择 是 oursql）。执行 pip install PyMySQL，将数据库连接改为 mysql+pymysql://username:password@server/db，接下来的操作就一切正常了。
+其他备忘：
+ 执行 Flask-Migrate 的 python manage.py db migrate 时报错 sqlalchemy.exc.InternalError: (pymysql.err.InternalError) (1049, &amp;quot;Unknown database &#39;testdb&#39;&amp;quot;)，是因为要先建好数据库才能访问，SQLAlchemy 不会自己创建数据库。 数据库连接和依赖配置好后，依次执行：
+$ python manage.py db init $ python manage.</description>
+    </item>
+    
+  </channel>
+</rss>

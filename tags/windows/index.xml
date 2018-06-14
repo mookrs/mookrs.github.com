@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on Only Mookrs</title>
+    <link>http://mookrs.com/tags/windows/</link>
+    <description>Recent content in Windows on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 09 Feb 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 Sphinx 制作文档</title>
+      <link>http://mookrs.com/start-sphinx/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/start-sphinx/</guid>
+      <description>Sphinx 是一个由 Python 编写的文档生成工具，可以用 reStructuredText 语法生成美观的文档。
+1. 确保已经安装 Python
+2. 安装 setuptools，以便使用 easy_install 命令
+3. 安装 Sphinx
+easy_install sphinx
+4. Sphinx 使用
+ 使用向导创建文档项目，执行 sphinx-quickstart   Welcome to the Sphinx 1.1.3 quickstart utility. Please enter values for the following settings (just press Enter to accept a default value, if one is given in brackets). Enter the root path for documentation.  Root path for the documentation [.]: // 输入根目录，默认为当前目录 You have two options for placing the build directory for Sphinx output.</description>
+    </item>
+    
+    <item>
+      <title>HP Pavilion g4-1208tx 笔记本 PE 下不识别硬盘</title>
+      <link>http://mookrs.com/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/</link>
+      <pubDate>Sun, 19 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/hp-pavilion-g4-1208tx-cant-see-hard-disk-in-pe/</guid>
+      <description>HP Pavilion g4-1208tx 笔记本预装 Windows 7 Home Basic 64bit 系统，自带的还原软件占用了 10 多 G 硬盘，我按照常规步骤打算用深度 Windows PE 硬盘安装系统。进入 PE 发现完全找不到 750G 的硬盘，只能看见我自己的U盘……
+经过搜索应该在 BIOS 里把硬盘模式改成 IDE，但是惠普的 BIOS 里根本没有 IDE 模式开关。因此得改用带 SATA 驱动的 PE，试了几个以后还是没法识别。干脆直接用 Win7 内核的 PE，进入 PE 以后果然可以识别硬盘了。正常分区，装系统和软件，完成。</description>
+    </item>
+    
+    <item>
+      <title>解决「The Realtek Network Controller was not found」</title>
+      <link>http://mookrs.com/the-realtek-network-controller-was-not-found/</link>
+      <pubDate>Thu, 09 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/the-realtek-network-controller-was-not-found/</guid>
+      <description>家里今天装配了一台电脑，主板是昂达 N68GD3，Win7 32 位下有线网卡不能直接驱动。当时没有其它电脑在手边，还好试着挂载了一下 Ubuntu 镜像，能连上网络。根据 ZOL 的硬件信息找到 Realtek RTL8103E 的相关驱动，安装报错「Findfile failed」，然后继续报错「The Realtek Network Controller was not found. If Deep Sleep Mode is enabled Please Plug the Cable.」意思是 Realtek 网络控制器未找到，如果进入了深度睡眠状态，请插上网线。
+搜索到 国外的一个网站 是这样解答的：大意是要先关机，开机箱取出 CMOS 电池和内存条，等到主板、内存都处于掉电状态，相关信息自动重置后，再放入 CMOS 电池并插上内存条。但是我考虑电脑在 Ubuntu 下是可以联网的，应该不是网卡的问题也用不着拆机箱。
+尝试去别的网站找网卡驱动，这次没有报错「Findfile failed」，不过还是报「The Realtek Network Controller was not found. If Deep Sleep Mode is enabled Please Plug the Cable.」这时找到 一个豆友的文章，去了下 Realtek 的官网，到 这个页面 下载了驱动文件 Win7 and WinServer 2008 R2 Auto Installation Program (SID:1483418)，安装后网卡在设备管理器里即可识别。</description>
+    </item>
+    
+    <item>
+      <title>开启 Windows「自动播放」功能</title>
+      <link>http://mookrs.com/turn-on-windows-autoplay/</link>
+      <pubDate>Sun, 05 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/turn-on-windows-autoplay/</guid>
+      <description>装好 Windows 后，我通常会禁用「自动播放」这一功能，因为每次插入U盘时弹出的提示都很烦。如果想重新开启「自动播放」功能，可以通过打开 控制面板 &amp;gt; 系统和安全 &amp;gt; 硬件和声音 &amp;gt; 自动播放，勾选 为所有媒体和设备使用自动播放(U)。
+若这样做无效，则进一步确定以下两点：
+ Win+R 打开运行，输入 services.msc 并回车，确保 Shell Hardware Detection 服务开启
+ 运行 gpedit.msc，打开 计算机配置 &amp;gt; 管理模板 &amp;gt; Windows 组件 &amp;gt; 自动播放策略 &amp;gt; 关闭自动播放，双击，勾选 已禁用(D)
+  </description>
+    </item>
+    
+  </channel>
+</rss>

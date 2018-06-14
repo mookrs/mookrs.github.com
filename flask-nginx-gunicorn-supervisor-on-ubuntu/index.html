@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.42" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Ubuntu 16.04 下配置 Flask &#43; Nginx &#43; Gunicorn &#43; Supervisor &middot; Only Mookrs</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Only Mookrs" />
+
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://mookrs.com/"><h1>Only Mookrs</h1></a>
+      <p class="lead">
+       Stay Simple, Stay Naïve. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="http://mookrs.com/">Home</a> </li>
+      <li><a href="/categories"> Categories </a></li><li><a href="/tags"> Tags </a></li><li><a href="https://github.com/mookrs"> GitHub </a></li>
+    </ul>
+
+    <p>© 2011 - 2018. All rights reserved.</p>
+  </div>
+</div>
+
+    <div class="content container">
+    <div class="post">
+  <h1>Ubuntu 16.04 下配置 Flask &#43; Nginx &#43; Gunicorn &#43; Supervisor</h1>
+  <span class="post-date">Mon, Aug 1, 2016</span>
+  <p>仅供个人记录，附带了在另一台 Debian 8.0 x86_64 minimal 机器上的一些操作。</p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/initial-server-setup-with-ubuntu-16-04">Initial Server Setup with Ubuntu 16.04</a></p>
+
+<p>SSH 登录</p>
+
+<pre><code class="language-bash">ssh &lt;user&gt;@&lt;ip&gt; -p &lt;port&gt;
+</code></pre>
+
+<p>修改 root 密码</p>
+
+<pre><code class="language-bash">passwd root
+</code></pre>
+
+<p>添加新账户</p>
+
+<pre><code class="language-bash">useradd &lt;user&gt;
+passwd &lt;user&gt;
+usermod -aG sudo &lt;user&gt;
+</code></pre>
+
+<p>新建用户目录，替换 <code>sh</code> 为 <code>bash</code></p>
+
+<pre><code class="language-bash">useradd --create-home --user-group --shell /bin/bash &lt;user&gt;
+</code></pre>
+
+<p>修改 SSH 端口，禁用 root 登录，禁用密码登录</p>
+
+<pre><code class="language-bash">sudo vi /etc/ssh/sshd_config
+</code></pre>
+
+<p>找到并修改 <code>Port &lt;数字&gt;</code>、<code>PermitRootLogin no</code>、<code>PasswordAuthentication no</code></p>
+
+<p>SSH-Key 登录，本地</p>
+
+<pre><code class="language-bash">ssh-keygen
+cat ~/.ssh/id_rsa.pub
+</code></pre>
+
+<p>服务器</p>
+
+<pre><code class="language-bash">mkdir ~/.ssh
+chmod 700 ~/.ssh
+vi ~/.ssh/authorized_keys
+</code></pre>
+
+<p>复制公钥进去</p>
+
+<pre><code class="language-bash">chmod 600 ~/.ssh/authorized_keys
+</code></pre>
+
+<p><code>sudo systemctl reload sshd</code>（或 <code>/etc/init.d/ssh restart</code>）</p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/ufw-essentials-common-firewall-rules-and-commands">防火墙</a></p>
+
+<pre><code class="language-bash">sudo ufw app list
+sudo ufw enable
+sudo ufw allow OpenSSH
+sudo ufw allow 'Nginx Full'
+sudo ufw allow &lt;port&gt;
+</code></pre>
+
+<p>设置语系</p>
+
+<pre><code class="language-bash">sudo locale-gen zh_CN.UTF-8
+</code></pre>
+
+<p>设置时区（可选）</p>
+
+<pre><code class="language-bash">timedatectl list-timezones
+sudo timedatectl set-timezone Asia/Shanghai
+timedatectl
+</code></pre>
+
+<p><a href="http://askubuntu.com/questions/9540/how-do-i-change-the-computer-name">修改服务器 hostname</a>，需要编辑 <code>/etc/hostname</code>、<code>/etc/hosts</code> 两个文件，只修改 <code>/etc/hosts</code> <a href="http://askubuntu.com/questions/59458/error-message-when-i-run-sudo-unable-to-resolve-host-none">会提示</a> <code>sudo: unable to resolve host (none)</code></p>
+
+<p><a href="http://askubuntu.com/questions/244544/how-do-i-install-python-3-3">编译安装 Python</a>（可选，我在 Debian 上的操作；Ubuntu 自带 Python 3）：</p>
+
+<pre><code class="language-bash">wget https://www.python.org/ftp/python/3.5.2/Python-3.5.2.tar.xz
+tar xJf ./Python-3.5.2.tar.xz
+cd ./Python-3.5.2
+./configure --prefix=/opt/python3.5
+make &amp;&amp; sudo make install
+sudo ln -fs /opt/python3.5/bin/python3 /usr/bin/python3.5
+</code></pre>
+
+<p>如果 <a href="http://stackoverflow.com/questions/19816275/no-acceptable-c-compiler-found-in-path-when-installing-python">缺少编译组件</a>，提示 <code>configure: error: no acceptable C compiler found in $PATH</code>：</p>
+
+<pre><code class="language-bash">sudo apt-get install build-essential
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/22592686/compiling-python-3-4-is-not-copying-pip">报错</a> <code>Ignoring ensurepip failure: pip 8.1.1 requires SSL/TLS</code></p>
+
+<pre><code class="language-bash">sudo apt-get install libssl-dev openssl
+</code></pre>
+
+<p>Debian 上编译完的 Python <a href="http://stackoverflow.com/questions/1210664/no-module-named-sqlite3">缺少 sqlite</a>，提示 <code>ImportError: No module named '_sqlite3'</code></p>
+
+<pre><code class="language-bash">sudo apt-get install libsqlite3-dev
+</code></pre>
+
+<p>安装 <a href="https://pip.pypa.io/">pip</a>（Python 3 是 <code>python3-pip</code>）</p>
+
+<pre><code class="language-bash">sudo apt-get install python-pip
+</code></pre>
+
+<p>安装 <a href="https://virtualenv.pypa.io/">virtualenv</a></p>
+
+<pre><code class="language-bash">sudo pip install virtualenv
+</code></pre>
+
+<p>安装虚拟环境</p>
+
+<pre><code class="language-bash">virtualenv -p python3 venv
+</code></pre>
+
+<p>Debian 上是</p>
+
+<pre><code class="language-bash">virtualenv -p python3.5 venv
+</code></pre>
+
+<p>完整命令实际是</p>
+
+<pre><code class="language-bash">virtualenv --python=&lt;python path&gt; &lt;venv&gt;
+</code></pre>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-linux-nginx-mysql-php-lemp-stack-in-ubuntu-16-04">How To Install Linux, Nginx, MySQL, PHP (LEMP stack) in Ubuntu 16.04</a></p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts">安装</a> <a href="https://nginx.org/">Nginx</a></p>
+
+<pre><code class="language-bash">sudo apt-get install nginx
+sudo service nginx stop
+sudo service nginx start
+sudo service nginx restart
+</code></pre>
+
+<p>配置 Nginx</p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-django-with-postgres-nginx-and-gunicorn-on-ubuntu-14-04">How To Set Up Django with Postgres, Nginx, and Gunicorn on Ubuntu 14.04</a></p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-uwsgi-and-nginx-to-serve-python-apps-on-ubuntu-14-04#definitions-and-concepts">How To Set Up uWSGI and Nginx to Serve Python Apps on Ubuntu 14.04</a></p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-serve-flask-applications-with-gunicorn-and-nginx-on-ubuntu-16-04">How To Serve Flask Applications with Gunicorn and Nginx on Ubuntu 16.04</a></p>
+
+<pre><code class="language-bash">sudo vi /etc/nginx/sites-available/&lt;project&gt;
+sudo ln -s /etc/nginx/sites-available/&lt;project&gt; /etc/nginx/sites-enabled
+sudo nginx -t
+sudo service nginx restart
+</code></pre>
+
+<p>Nginx 示例配置</p>
+
+<pre><code class="language-nginx">server {
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+    location /static {
+        alias  /home/&lt;user&gt;/&lt;project&gt;/&lt;app&gt;/static/;
+    }
+}
+</code></pre>
+
+<p>安装 <a href="https://www.mysql.com/">MySQL</a></p>
+
+<pre><code class="language-bash">sudo apt-get install mysql-server
+sudo mysql_secure_installation
+</code></pre>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-use-mysql-or-mariadb-with-your-django-application-on-ubuntu-14-04">配置 MySQL</a></p>
+
+<pre><code class="language-bash">mysql -u root -p
+CREATE DATABASE myproject CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER myprojectuser@localhost IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON myproject.* TO myprojectuser@localhost;
+FLUSH PRIVILEGES;
+exit
+</code></pre>
+
+<p>安装 <a href="http://gunicorn.org/">Gunicorn</a></p>
+
+<pre><code class="language-bash">(venv) pip install gunicorn
+</code></pre>
+
+<p><code>wsgi.py</code> 中有 Flask 实例 <code>app</code>，测试一下</p>
+
+<pre><code class="language-bash">(venv) gunicorn -w 4 -b 127.0.0.1:8000 wsgi:app
+</code></pre>
+
+<p><a href="http://stackoverflow.com/questions/7959977/how-to-stop-gunicorn-django-in-virtualenv">结束运行</a></p>
+
+<pre><code class="language-bash">ps aux | grep gunicorn
+kill -9 &lt;pid&gt;
+</code></pre>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-python-wsgi-apps-using-gunicorn-http-server-behind-nginx">How to Deploy Python WSGI Apps Using Gunicorn HTTP Server Behind Nginx</a></p>
+
+<p><a href="https://segmentfault.com/q/1010000003788857">Gunicorn 配置文件的写法参考</a></p>
+
+<p><code>gunicorn.conf</code> <a href="http://docs.gunicorn.org/en/stable/settings.html">配置文件</a></p>
+
+<pre><code class="language-python">import os
+import multiprocessing
+
+path_of_current_dir = os.path.dirname(os.path.abspath(__file__))
+
+workers = multiprocessing.cpu_count() * 2 + 1
+proc_name = 'gunicorn.&lt;project&gt;'
+
+loglevel = 'info'
+pidfile = '{}/run/gunicorn.pid'.format(path_of_current_dir)
+accesslog = '{}/logs/gunicorn_acc.log'.format(path_of_current_dir)
+errorlog = '{}/logs/gunicorn_err.log'.format(path_of_current_dir)
+
+bind = '127.0.0.1:8000'
+</code></pre>
+
+<p><a href="http://www.jianshu.com/p/be9dd421fb8d">python web 部署：nginx + gunicorn + supervisor + flask 部署笔记</a></p>
+
+<p><a href="http://www.simpleapples.com/2015/06/configure-nginx-supervisor-gunicorn-flask/">在阿里云 CentOS7 中配置基于 Nginx + Supervisor + Gunicorn 的 Flask 项目</a></p>
+
+<p><a href="https://gist.github.com/binderclip/f6b6f5ed4d71fa64c7c5">Flask Gunicorn Supervisor Nginx 项目部署小总结</a></p>
+
+<p><a href="https://serversforhackers.com/monitoring-processes-with-supervisord">Monitoring Processes with Supervisord</a></p>
+
+<p>配置 <a href="http://supervisord.org/">Supervisor</a>（不支持 Python 3，安装在虚拟环境以外）</p>
+
+<pre><code class="language-bash">sudo apt-get install supervisor
+echo_supervisord_conf &gt; supervisor.conf
+</code></pre>
+
+<p>编辑 <code>supervisor.conf</code>，在末尾添加如下内容（<a href="http://supervisord.org/configuration.html">Supervisor Configuration File</a>）</p>
+
+<pre><code class="language-ini">[program:&lt;project&gt;]
+command=/home/&lt;user&gt;/&lt;project&gt;/venv/bin/gunicorn -c /home/&lt;user&gt;/&lt;appname&gt;/gunicorn.conf wsgi:app
+directory=/home/&lt;user&gt;/&lt;project&gt;
+user=&lt;user&gt;
+stdout_logfile=/home/&lt;user&gt;/&lt;project&gt;/logs/supervisor_out.log
+redirect_stderr=true
+</code></pre>
+
+<p>Supervisor 的基本命令</p>
+
+<pre><code class="language-bash">supervisord -c supervisor.conf
+supervisorctl -c supervisor.conf status
+supervisorctl -c supervisor.conf reload
+supervisorctl -c supervisor.conf start [all]|[project]
+supervisorctl -c supervisor.conf stop [all]|[project]
+</code></pre>
+
+<p>也可以把 Supervisor 的配置文件放在 <code>/etc/supervisor/conf.d/</code>，这样就不用每次都运行 <code>supervisord</code> 加载配置文件了</p>
+
+<pre><code class="language-bash">sudo supervisorctl reread
+sudo supervisorctl update
+sudo supervisorctl start [all]|[project]
+</code></pre>
+
+<p><a href="https://realpython.com/blog/python/kickstarting-flask-on-ubuntu-setup-and-deployment/">Kickstarting Flask on Ubuntu - Setup and Deployment</a></p>
+
+<p><a href="https://www.digitalocean.com/community/tutorials/how-to-set-up-automatic-deployment-with-git-with-a-vps">How To Set Up Automatic Deployment with Git with a VPS</a></p>
+
+<p><a href="https://segmentfault.com/a/1190000003808733">基于Flask-Angular的项目组网架构与部署</a></p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mookrs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23664006-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

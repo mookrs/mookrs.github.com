@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Telerik on Only Mookrs</title>
+    <link>http://mookrs.com/tags/telerik/</link>
+    <description>Recent content in Telerik on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 23 Oct 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/telerik/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>为 RadGridView 的行增加点击事件</title>
+      <link>http://mookrs.com/add-click-event-to-radgridview/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/add-click-event-to-radgridview/</guid>
+      <description>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：
+private void RadGridView_RowLoaded(object sender, RowLoadedEventArgs e) { var row = e.Row as GridViewRow; if (row != null) { // 防止事件处理程序被触发多次 row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown)); row.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), true); } } // 处理选中行的 MouseLeftButtonDown 事件 private void GridViewRow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) { var row = sender as GridViewRow; if (row != null) { // 执行的操作… } }  其他如 ListBox、DataGrid 等控件也可以用这种方法处理。</description>
+    </item>
+    
+  </channel>
+</rss>

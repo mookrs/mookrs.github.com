@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wpf on Only Mookrs</title>
+    <link>http://mookrs.com/tags/wpf/</link>
+    <description>Recent content in Wpf on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 27 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/wpf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ArcGIS Runtime SDK for WPF 导入 Shapefile 的注意事项</title>
+      <link>http://mookrs.com/import-shapefile-in-arcgis-wpf-runtime/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/import-shapefile-in-arcgis-wpf-runtime/</guid>
+      <description>在最新的 ArcGIS Runtime SDK for .NET 中，Esri 添加了 直接导入 Shapefile 文件的功能。但是这一功能在早前版本的 WPF Runtime 中并未实现，为此官方提供了 借助 DynamicLayer 实现该功能的方法。
+需要注意的是，导入后的 Shapefile 被存入了 FeatureLayer，等执行完 featureLayer.Update();（之前记得调用 MyMap.Layers.Add(featureLayer); 或 featureLayer.Initialize();，以便初始化 FeatureLayer 进入 Initialized 事件），却很奇怪地发现无法遍历获得这个 FeatureLayer 中的 Graphic。我咨询了 Esri 技术支持人员，对方表示我的方法理论上是没有问题的，后来搜索到官方论坛上 How to open shape file in ArcGIS Runtime WPF SDK as Graphics/Feature layer 的讨论，Mike Branscomb（MBranscomb-esristaff）在 3 楼提到如果想获得 Graphic，必须进入 UpdateCompleted 事件中才行，例如：
+featureLayer.UpdateCompleted += (s, e) =&amp;gt; { foreach (Graphic graphic in featureLayer.Graphics) { // ... } // .</description>
+    </item>
+    
+    <item>
+      <title>让 WPF 的 ListBox 更流畅地滑动</title>
+      <link>http://mookrs.com/smooth-listbox/</link>
+      <pubDate>Tue, 18 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/smooth-listbox/</guid>
+      <description>默认情况下，ListBox 的 item 是一个接着一个滑动（one item at a time）的，每个在上方的 item 都是完整的，不可能显示一半，比如这样：
+这是因为 ListBox 的滑动行为由 ScrollViewer 提供，它的 CanContentScroll 属性默认设为了 True。如果想要一个接着一个像素地流畅滑动，必须为 ListBox 设置 ScrollViewer.CanContentScroll=&amp;quot;False&amp;quot; 这个附加属性，完成后效果如下：
+参考链接：Set CanContentScroll to False for Smooth Scrolling in a ListBox</description>
+    </item>
+    
+    <item>
+      <title>为 RadGridView 的行增加点击事件</title>
+      <link>http://mookrs.com/add-click-event-to-radgridview/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/add-click-event-to-radgridview/</guid>
+      <description>Telerik 的 RadGridView 本身有一个 SelectionChanged 事件，可以处理行的选择改变操作。但是已经选中了的行再次点击时并不会触发这个事件，因此有必要为 RadGridView 的行增加点击事件。考虑在 RadGridView 的 RowLoaded 事件里实现以下代码：
+private void RadGridView_RowLoaded(object sender, RowLoadedEventArgs e) { var row = e.Row as GridViewRow; if (row != null) { // 防止事件处理程序被触发多次 row.RemoveHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown)); row.AddHandler(UIElement.MouseLeftButtonDownEvent, new MouseButtonEventHandler(GridViewRow_MouseLeftButtonDown), true); } } // 处理选中行的 MouseLeftButtonDown 事件 private void GridViewRow_MouseLeftButtonDown(object sender, MouseButtonEventArgs e) { var row = sender as GridViewRow; if (row != null) { // 执行的操作… } }  其他如 ListBox、DataGrid 等控件也可以用这种方法处理。</description>
+    </item>
+    
+    <item>
+      <title>ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</title>
+      <link>http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/</link>
+      <pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/</guid>
+      <description>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：
+这种情况下，一旦缩小地图，偏移量就会特别厉害：
+原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。
+解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 OffsetX=&amp;quot;15&amp;quot; OffsetY=&amp;quot;25&amp;quot; 即可：
+参考资料：http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</description>
+    </item>
+    
+  </channel>
+</rss>

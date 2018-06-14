@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Listbox on Only Mookrs</title>
+    <link>http://mookrs.com/tags/listbox/</link>
+    <description>Recent content in Listbox on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 18 Nov 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/listbox/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>让 WPF 的 ListBox 更流畅地滑动</title>
+      <link>http://mookrs.com/smooth-listbox/</link>
+      <pubDate>Tue, 18 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/smooth-listbox/</guid>
+      <description>默认情况下，ListBox 的 item 是一个接着一个滑动（one item at a time）的，每个在上方的 item 都是完整的，不可能显示一半，比如这样：
+这是因为 ListBox 的滑动行为由 ScrollViewer 提供，它的 CanContentScroll 属性默认设为了 True。如果想要一个接着一个像素地流畅滑动，必须为 ListBox 设置 ScrollViewer.CanContentScroll=&amp;quot;False&amp;quot; 这个附加属性，完成后效果如下：
+参考链接：Set CanContentScroll to False for Smooth Scrolling in a ListBox</description>
+    </item>
+    
+  </channel>
+</rss>

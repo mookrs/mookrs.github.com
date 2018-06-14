@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shapefile on Only Mookrs</title>
+    <link>http://mookrs.com/tags/shapefile/</link>
+    <description>Recent content in Shapefile on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 27 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/shapefile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ArcGIS Runtime SDK for WPF 导入 Shapefile 的注意事项</title>
+      <link>http://mookrs.com/import-shapefile-in-arcgis-wpf-runtime/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/import-shapefile-in-arcgis-wpf-runtime/</guid>
+      <description>在最新的 ArcGIS Runtime SDK for .NET 中，Esri 添加了 直接导入 Shapefile 文件的功能。但是这一功能在早前版本的 WPF Runtime 中并未实现，为此官方提供了 借助 DynamicLayer 实现该功能的方法。
+需要注意的是，导入后的 Shapefile 被存入了 FeatureLayer，等执行完 featureLayer.Update();（之前记得调用 MyMap.Layers.Add(featureLayer); 或 featureLayer.Initialize();，以便初始化 FeatureLayer 进入 Initialized 事件），却很奇怪地发现无法遍历获得这个 FeatureLayer 中的 Graphic。我咨询了 Esri 技术支持人员，对方表示我的方法理论上是没有问题的，后来搜索到官方论坛上 How to open shape file in ArcGIS Runtime WPF SDK as Graphics/Feature layer 的讨论，Mike Branscomb（MBranscomb-esristaff）在 3 楼提到如果想获得 Graphic，必须进入 UpdateCompleted 事件中才行，例如：
+featureLayer.UpdateCompleted += (s, e) =&amp;gt; { foreach (Graphic graphic in featureLayer.Graphics) { // ... } // .</description>
+    </item>
+    
+  </channel>
+</rss>

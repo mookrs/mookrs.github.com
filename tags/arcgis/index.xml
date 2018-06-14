@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Arcgis on Only Mookrs</title>
+    <link>http://mookrs.com/tags/arcgis/</link>
+    <description>Recent content in Arcgis on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 27 Dec 2014 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/arcgis/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ArcGIS Runtime SDK for WPF 导入 Shapefile 的注意事项</title>
+      <link>http://mookrs.com/import-shapefile-in-arcgis-wpf-runtime/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/import-shapefile-in-arcgis-wpf-runtime/</guid>
+      <description>在最新的 ArcGIS Runtime SDK for .NET 中，Esri 添加了 直接导入 Shapefile 文件的功能。但是这一功能在早前版本的 WPF Runtime 中并未实现，为此官方提供了 借助 DynamicLayer 实现该功能的方法。
+需要注意的是，导入后的 Shapefile 被存入了 FeatureLayer，等执行完 featureLayer.Update();（之前记得调用 MyMap.Layers.Add(featureLayer); 或 featureLayer.Initialize();，以便初始化 FeatureLayer 进入 Initialized 事件），却很奇怪地发现无法遍历获得这个 FeatureLayer 中的 Graphic。我咨询了 Esri 技术支持人员，对方表示我的方法理论上是没有问题的，后来搜索到官方论坛上 How to open shape file in ArcGIS Runtime WPF SDK as Graphics/Feature layer 的讨论，Mike Branscomb（MBranscomb-esristaff）在 3 楼提到如果想获得 Graphic，必须进入 UpdateCompleted 事件中才行，例如：
+featureLayer.UpdateCompleted += (s, e) =&amp;gt; { foreach (Graphic graphic in featureLayer.Graphics) { // ... } // .</description>
+    </item>
+    
+    <item>
+      <title>导入 ArcPy 及打包地图</title>
+      <link>http://mookrs.com/importing-arcpy-and-package-map/</link>
+      <pubDate>Tue, 11 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/importing-arcpy-and-package-map/</guid>
+      <description>导入 ArcPy 安装 ArcGIS 的时候一般会附带安装 Python，但是其版本比较旧，例如 ArcGIS 10.1 自带的还是 Python 2.6，而我通常选择使用较新的 Python 2.x 版本，这就造成了在执行跟 ArcPy 相关的命令时，将提示 No module named arcpy 的问题。对此，ArcGIS 官方文档提供了一个导入 ArcPy 的方法。
+打开资源管理器浏览至 python27\Lib\site-packages 文件夹，以 ArcGIS 10.2.2 版本为例，添加或编辑 Desktop10.2.2.pth 文件（或 Engine10.2.2.pth、Server10.2.2.pth），内容如下：
+c:\Program Files\ArcGIS\Desktop10.2.2\arcpy c:\Program Files\ArcGIS\Desktop10.2.2\bin c:\Program Files\ArcGIS\Desktop10.2.2\ArcToolbox\Scripts  根据自己的实际路径修改完成后，如果提示 No module named numpy，那么还要去下载安装 NumPy，之后就可以正常使用 ArcPy 了。
+打包地图 之前有同事通过 ArcGIS 的 GP 工具打包生成的 MPK 文件不能用于 ArcGIS Runtime，检查后发现 MPK 中均没有 .msd 文件。另一个问题是 MPK 中含有 v101 和 v10 两个文件夹，而我们的系统只需要 v101 即可。造成这些问题的原因都在于打包过程中没有指定正确的参数。类似地，利用 ArcPy 打包地图时，需要指定 arcgisruntime 和 version 两个参数，官方文档 对各个参数做了详尽的解释。一个可能的示例代码如下：</description>
+    </item>
+    
+    <item>
+      <title>ArcGIS Runtime SDK for WPF 环境下 PictureMarkerSymbol 向右下方偏移</title>
+      <link>http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/</link>
+      <pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/picturemarkersymbol-shifting-on-zoom-when-using-arcgis-runtime-sdk-for-wpf/</guid>
+      <description>做基于 ArcGIS Runtime SDK for WPF 的地图开发时，我希望利用 PictureMarkerSymbol 在地图上放置一个定位图片，标识出查询得到的地点。但是发现总有偏移，如图：
+这种情况下，一旦缩小地图，偏移量就会特别厉害：
+原因我猜测是由于图片默认以左上方的顶点定位，所以虽然左上方确实在中心位置，但是整张图片的看起来已经偏移了。
+解决办法是，为 PictureMarkerSymbol 的 OffsetX 和 OffsetY 属性设置为图片宽度和长度一半的值。例如图片为长宽为 30×50，那么设置 OffsetX=&amp;quot;15&amp;quot; OffsetY=&amp;quot;25&amp;quot; 即可：
+参考资料：http://forums.arcgis.com/threads/96639-PictureMarkerSymbol-Shifting-on-Zoom</description>
+    </item>
+    
+    <item>
+      <title>ArcGIS for Android 开发：开发资源</title>
+      <link>http://mookrs.com/arcgis-for-android-development-resources/</link>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/arcgis-for-android-development-resources/</guid>
+      <description>文档 从比较实际的角度出发，最有用的是 Esri 的开发帮助文档。
+一份是《ArcGIS API for Android 案例教程》，这个时间上比较旧，不过其中用到的 API 没什么变化，开发的过程比较详细，如果有一点 Java 基础，可以轻松入门。在线地址：http://blog.csdn.net/warrenwyf/article/category/784554
+另一份是《ArcGIS for Android 2.0 开发教程基础版》，时间上相对新一点，对 API 的介绍较多。在线地址：http://blog.csdn.net/arcgis_mobile/article/category/1161606
+网站 Esri ArcGIS Runtime SDK for Android 主页：http://developers.arcgis.com/en/android/
+ArcGIS Runtime SDK for Android 帮助文档：http://resources.arcgis.com/en/help/android-sdk/concepts/
+ArcGIS Android 10.1.1 API：http://developers.arcgis.com/en/android/api-reference/
+ArcGIS Runtime SDK for Android 示例代码：http://developers.arcgis.com/en/android/sample-code/
+ArcGIS Server REST API：http://resources.arcgis.com/en/help/rest/apiref/
+技术博客 ArcGIS_Mobile（已停止更新，并入「ArcGIS产品与技术专栏」）：http://blog.csdn.net/ArcGIS_Mobile
+ArcgisServer_book：http://blog.csdn.net/ArcgisServer_book
+ArcGIS产品与技术专栏：http://blog.csdn.net/arcgis_all
+牛魔王的作坊：http://blog.csdn.net/warrenwyf
+菩提老王的葡萄架：http://blog.newnaw.com/
+在线教程 Android 官方教程：https://developer.android.com/training/index.html
+Android 官方教程的中文翻译：http://wiki.eoe.cn/
+可能遇到的问题  AVD 无法显示本地 AcrGIS Server 地图，查看 DDMS 报Connection to http://127.</description>
+    </item>
+    
+    <item>
+      <title>ArcGIS for Android 开发：ArcGIS for Server 配置</title>
+      <link>http://mookrs.com/arcgis-for-android-server-configuration/</link>
+      <pubDate>Mon, 10 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/arcgis-for-android-server-configuration/</guid>
+      <description>对于 Server 的安装以及配置，在《ArcGIS 10.1 for Server 入门教程》这份文档中有详细的说明，可自行搜索。下文所说的「文档」均对应于该教程中的位置。
+安装 ArcGIS 10.1 for Server 下载地址
+安装参考文档「2.2 Windows 系统下的安装」 。
+其中有一步需要创建 Server 账户和密码。该账户会在你的 Windows 系统中存在，跟 ArcGIS Server 有关的进程都会在此账户下运行。
+授权 这部分请自行搜索方法。
+注意：要想能够登陆 Manager，必须确保在任务管理器中 ArcGISServer.exe 进程正在运行。如果没有运行，到任务管理器的服务选项卡中启动。安装 ArcGIS for Server 后该服务会开机运行，很占内存，可以考虑在服务管理中将「启动类型」改为「手动」：
+配置 参考文档「2.3 配置（单机部署）」。
+发布 Map Service 参考文档「3.2 在 ArcCatalog 中发布 Map Service」。
+我们借助 REST 服务操作地图，地图服务启用的每个功能都对应一个 URL。
+比如我们的地图服务命名为 WhuMap，保存在 root 根目录下，那么 REST 服务的访问地址则形如 http://localhost:6080/arcgis/rest/services/WhuMap/MapServer，这也是在 Java 代码中 ArcGISDynamicMapServiceLayer 所使用的地址。如果用 AVD 开发，要把 localhost 改为 10.0.0.2；如果用真机开发，要把真机和运行着 ArcGIS for Server 的电脑置于同一个局域网内，在 PC 的 cmd 窗口中输入 ipconfig，获得本机的 IP 地址，例如用 192.</description>
+    </item>
+    
+    <item>
+      <title>ArcGIS for Android 开发：Android 平台搭建</title>
+      <link>http://mookrs.com/arcgis-for-android-build-platform/</link>
+      <pubDate>Sun, 09 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/arcgis-for-android-build-platform/</guid>
+      <description>前言：《ArcGIS for Android 开发》这几篇文章本来是我为师弟写的一份入门指导。水平有限，仅供参考。
+清单： JDK + Eclipse + Android SDK + ADT + ArcGIS Runtime SDK for Android
+一、安装 JDK 1. 下载 JDK JDK（Java Development Kit）是 Oracle 公司针对 Java 开发人员发布的免费 SDK（Software Development Kit）。JDK 有多个类型版本，这里我们选择 Java SE（Standard Edition，标准版）。
+JDK 的下载地址在 http://www.oracle.com/technetwork/java/javase/downloads/index.html，选择 Java Platform (JDK) 7u17，点击它的 DOWNLOAD 按钮，跳转到新的页面：
+这里有不同平台的版本可供下载，对于 Windows 系统分为 32 位（x86）和 64 位（x64）两种。我的电脑是 64 位 Windows 7 操作系统，所以选择下载 jdk-7u17-windows-x64.exe。下载相应版本的安装包前，需要接受相应的许可协议，默认是不接受许可协议（Decline License Agreement），必须先点击左边的单选按钮 Accept License Agreement，接受许可协议才能下载。
+2. 安装 JDK 如果下载的是 exe 可执行程序，只需要运行该程序进行安装，无需设置环境变量，在安装过程中可以指定安装的路径。当然你也可以检查一下环境变量设置得是否正确，可以新建或修改环境变量：</description>
+    </item>
+    
+    <item>
+      <title>ArcGIS Desktop 10 图文安装教程</title>
+      <link>http://mookrs.com/install-arcgis-desktop-10/</link>
+      <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/install-arcgis-desktop-10/</guid>
+      <description>1. 下载 ArcGIS Desktop 10 (1) 官方地址
+复制链接，在迅雷等下载软件里新建任务即可。注意，这个 3.75G 的 ArcGIS_Desktop10_122519.iso 文件为英文版，不包含补丁。
+(2) sp5补丁地址
+ArcGIS Desktop 10 的版本已更新到最终版 SP5 （2012-7-10），这里以 ArcGIS Desktop 10 Service Pack 2 演示升级过程。升级到 SP2 并不需要先升级到 SP1，可以直接安装 SP2 补丁。由于我们仅安装 Desktop 和 LicenseManager，所以只需下载 ArcGISDesktop10sp2.msp 和 ArcGISLicenseManager10sp2.msp 这两个补丁文件。如图：
+2. 安装 ArcGIS Desktop 10 (1) 使用 DAEMON Tools Lite 之类的软件加载 iso 镜像文件，运行安装包里的 ESRI.exe，选择安装 ArcGIS Desktop。先安装 Desktop 或者 License Manager 都可以。
+ArcGIS Desktop 10 需要 .NET Framwork 3.5 SP1 支持，如果系统中没有安装时会提示。安装包中已附带 .</description>
+    </item>
+    
+  </channel>
+</rss>

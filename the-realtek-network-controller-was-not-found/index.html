@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.42" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>解决「The Realtek Network Controller was not found」 &middot; Only Mookrs</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Only Mookrs" />
+
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://mookrs.com/"><h1>Only Mookrs</h1></a>
+      <p class="lead">
+       Stay Simple, Stay Naïve. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="http://mookrs.com/">Home</a> </li>
+      <li><a href="/categories"> Categories </a></li><li><a href="/tags"> Tags </a></li><li><a href="https://github.com/mookrs"> GitHub </a></li>
+    </ul>
+
+    <p>© 2011 - 2018. All rights reserved.</p>
+  </div>
+</div>
+
+    <div class="content container">
+    <div class="post">
+  <h1>解决「The Realtek Network Controller was not found」</h1>
+  <span class="post-date">Thu, Feb 9, 2012</span>
+  <p>家里今天装配了一台电脑，主板是昂达 N68GD3，Win7 32 位下有线网卡不能直接驱动。当时没有其它电脑在手边，还好试着挂载了一下 Ubuntu 镜像，能连上网络。根据 <a href="http://detail.zol.com.cn/motherboard/index294964.shtml">ZOL</a> 的硬件信息找到 Realtek RTL8103E 的相关驱动，安装报错「Findfile failed」，然后继续报错「The Realtek Network Controller was not found. If Deep Sleep Mode is enabled Please Plug the Cable.」意思是 Realtek 网络控制器未找到，如果进入了深度睡眠状态，请插上网线。</p>
+
+<p>搜索到 <a href="http://adeelejaz.com/blog/realteks-network-controller-deep-sleep-mode-issue/">国外的一个网站</a> 是这样解答的：大意是要先关机，开机箱取出 CMOS 电池和内存条，等到主板、内存都处于掉电状态，相关信息自动重置后，再放入 CMOS 电池并插上内存条。但是我考虑电脑在 Ubuntu 下是可以联网的，应该不是网卡的问题也用不着拆机箱。</p>
+
+<p>尝试去别的网站找网卡驱动，这次没有报错「Findfile failed」，不过还是报「The Realtek Network Controller was not found. If Deep Sleep Mode is enabled Please Plug the Cable.」这时找到 <a href="http://www.douban.com/note/189617233/">一个豆友的文章</a>，去了下 Realtek 的官网，到 <a href="http://www.realtek.com.tw/downloads/downloadsView.aspx?Langid=3&amp;PNid=13&amp;PFid=5&amp;Level=5&amp;Conn=4&amp;DownTypeID=3&amp;GetDown=false">这个页面</a> 下载了驱动文件 Win7 and WinServer 2008 R2 Auto Installation Program (SID:1483418)，安装后网卡在设备管理器里即可识别。</p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mookrs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23664006-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

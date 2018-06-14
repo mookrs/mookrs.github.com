@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.42" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>ArcGIS for Android 开发：ArcGIS for Server 配置 &middot; Only Mookrs</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Only Mookrs" />
+
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://mookrs.com/"><h1>Only Mookrs</h1></a>
+      <p class="lead">
+       Stay Simple, Stay Naïve. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="http://mookrs.com/">Home</a> </li>
+      <li><a href="/categories"> Categories </a></li><li><a href="/tags"> Tags </a></li><li><a href="https://github.com/mookrs"> GitHub </a></li>
+    </ul>
+
+    <p>© 2011 - 2018. All rights reserved.</p>
+  </div>
+</div>
+
+    <div class="content container">
+    <div class="post">
+  <h1>ArcGIS for Android 开发：ArcGIS for Server 配置</h1>
+  <span class="post-date">Mon, Jun 10, 2013</span>
+  
+
+<p>对于 Server 的安装以及配置，在《ArcGIS 10.1 for Server 入门教程》这份文档中有详细的说明，可自行搜索。下文所说的「文档」均对应于该教程中的位置。</p>
+
+<h3 id="安装">安装</h3>
+
+<p><a href="http://pan.baidu.com/share/link?shareid=1622335099&amp;uk=1731248969">ArcGIS 10.1 for Server 下载地址</a></p>
+
+<p>安装参考文档「2.2 Windows 系统下的安装」 。</p>
+
+<p>其中有一步需要创建 Server 账户和密码。该账户会在你的 Windows 系统中存在，跟 ArcGIS Server 有关的进程都会在此账户下运行。</p>
+
+<h3 id="授权">授权</h3>
+
+<p>这部分请自行搜索方法。</p>
+
+<p>注意：要想能够登陆 Manager，必须确保在任务管理器中 ArcGISServer.exe 进程正在运行。如果没有运行，到任务管理器的服务选项卡中启动。安装 ArcGIS for Server 后该服务会开机运行，很占内存，可以考虑在服务管理中将「启动类型」改为「手动」：</p>
+
+<p><img src="http://o6nuvystd.bkt.clouddn.com/2013/06/service.png" alt="" /></p>
+
+<h3 id="配置">配置</h3>
+
+<p>参考文档「2.3 配置（单机部署）」。</p>
+
+<h3 id="发布-map-service">发布 Map Service</h3>
+
+<p>参考文档「3.2 在 ArcCatalog 中发布 Map Service」。</p>
+
+<p>我们借助 REST 服务操作地图，地图服务启用的每个功能都对应一个 URL。</p>
+
+<p>比如我们的地图服务命名为 WhuMap，保存在 root 根目录下，那么 REST 服务的访问地址则形如 <a href="http://localhost:6080/arcgis/rest/services/WhuMap/MapServer">http://localhost:6080/arcgis/rest/services/WhuMap/MapServer</a>，这也是在 Java 代码中 ArcGISDynamicMapServiceLayer 所使用的地址。如果用 AVD 开发，要把 <code>localhost</code> 改为 <code>10.0.0.2</code>；如果用真机开发，要把真机和运行着 ArcGIS for Server 的电脑置于同一个局域网内，在 PC 的 cmd 窗口中输入 <code>ipconfig</code>，获得本机的 IP 地址，例如用 <code>192.168.43.219</code> 替代 <code>localhost</code>。</p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mookrs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23664006-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

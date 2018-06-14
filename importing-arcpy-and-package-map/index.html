@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.42" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>导入 ArcPy 及打包地图 &middot; Only Mookrs</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Only Mookrs" />
+
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://mookrs.com/"><h1>Only Mookrs</h1></a>
+      <p class="lead">
+       Stay Simple, Stay Naïve. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="http://mookrs.com/">Home</a> </li>
+      <li><a href="/categories"> Categories </a></li><li><a href="/tags"> Tags </a></li><li><a href="https://github.com/mookrs"> GitHub </a></li>
+    </ul>
+
+    <p>© 2011 - 2018. All rights reserved.</p>
+  </div>
+</div>
+
+    <div class="content container">
+    <div class="post">
+  <h1>导入 ArcPy 及打包地图</h1>
+  <span class="post-date">Tue, Nov 11, 2014</span>
+  
+
+<h2 id="导入-arcpy">导入 ArcPy</h2>
+
+<p>安装 ArcGIS 的时候一般会附带安装 Python，但是其版本比较旧，例如 ArcGIS 10.1 自带的还是 Python 2.6，而我通常选择使用较新的 Python 2.x 版本，这就造成了在执行跟 ArcPy 相关的命令时，将提示 <code>No module named arcpy</code> 的问题。对此，ArcGIS 官方文档提供了一个<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//002z00000008000000">导入 ArcPy</a> 的方法。</p>
+
+<p>打开资源管理器浏览至 python27\Lib\site-packages 文件夹，以 ArcGIS 10.2.2 版本为例，添加或编辑 Desktop10.2.2.pth 文件（或 Engine10.2.2.pth、Server10.2.2.pth），内容如下：</p>
+
+<pre><code>c:\Program Files\ArcGIS\Desktop10.2.2\arcpy
+c:\Program Files\ArcGIS\Desktop10.2.2\bin
+c:\Program Files\ArcGIS\Desktop10.2.2\ArcToolbox\Scripts
+</code></pre>
+
+<p>根据自己的实际路径修改完成后，如果提示 <code>No module named numpy</code>，那么还要去下载安装 <a href="http://www.numpy.org/">NumPy</a>，之后就可以正常使用 ArcPy 了。</p>
+
+<h2 id="打包地图">打包地图</h2>
+
+<p>之前有同事通过 ArcGIS 的 GP 工具打包生成的 MPK 文件不能用于 ArcGIS Runtime，检查后发现 MPK 中均没有 .msd 文件。另一个问题是 MPK 中含有 v101 和 v10 两个文件夹，而我们的系统只需要 v101 即可。造成这些问题的原因都在于打包过程中没有指定正确的参数。类似地，利用 ArcPy 打包地图时，需要指定 arcgisruntime
+和 version 两个参数，<a href="http://resources.arcgis.com/zh-cn/help/main/10.2/index.html#//0017000000q5000000">官方文档</a> 对各个参数做了详尽的解释。一个可能的示例代码如下：</p>
+
+<pre><code class="language-python"># Name: PackageMap.py
+# Description:  Find all the map documents that reside in a specified folder and create map packages for each map document.
+
+import os
+import arcpy
+
+from arcpy import env
+
+# Set environment settings
+env.overwriteOutput = True
+env.workspace = &quot;C:/arcgis&quot; 
+
+# Loop through the workspace, find all the mxds and create a map package using the same name as the mxd
+for mxd in arcpy.ListFiles(&quot;*.mxd&quot;):
+    print &quot;Packaging &quot; + mxd
+    arcpy.PackageMap_management(mxd, os.path.splitext(mxd)[0] + &quot;.mpk&quot;, &quot;PRESERVE&quot;, &quot;CONVERT_ARCSDE&quot;, &quot;#&quot;, &quot;RUNTIME&quot;, version=&quot;10.1&quot;)
+</code></pre>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mookrs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23664006-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>

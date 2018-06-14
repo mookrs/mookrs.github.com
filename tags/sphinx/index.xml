@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sphinx on Only Mookrs</title>
+    <link>http://mookrs.com/tags/sphinx/</link>
+    <description>Recent content in Sphinx on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Sat, 09 Feb 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/sphinx/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用 Sphinx 制作文档</title>
+      <link>http://mookrs.com/start-sphinx/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/start-sphinx/</guid>
+      <description>Sphinx 是一个由 Python 编写的文档生成工具，可以用 reStructuredText 语法生成美观的文档。
+1. 确保已经安装 Python
+2. 安装 setuptools，以便使用 easy_install 命令
+3. 安装 Sphinx
+easy_install sphinx
+4. Sphinx 使用
+ 使用向导创建文档项目，执行 sphinx-quickstart   Welcome to the Sphinx 1.1.3 quickstart utility. Please enter values for the following settings (just press Enter to accept a default value, if one is given in brackets). Enter the root path for documentation.  Root path for the documentation [.]: // 输入根目录，默认为当前目录 You have two options for placing the build directory for Sphinx output.</description>
+    </item>
+    
+  </channel>
+</rss>

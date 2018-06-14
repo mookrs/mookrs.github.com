@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fedora on Only Mookrs</title>
+    <link>http://mookrs.com/tags/fedora/</link>
+    <description>Recent content in Fedora on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Fri, 31 Aug 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/fedora/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fedora 17 KDE 个人配置</title>
+      <link>http://mookrs.com/fedora-kde/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/fedora-kde/</guid>
+      <description>把 Fodora 16 Gnome 换成了 Fedora 17 KDE，以下是配置过程中的记录。
+安装 我下载的镜像为 Fedora-17-x86_64-Live-KDE.iso，利用 Universal USB Installer 软件进行U盘安装。
+中文支持 应用程序 - 管理 - 语言 里选择「Chinese(P.R.China) - 中文(简体)」，系统会自动下载中文语言包。
+system settings - locale - coutry/region &amp;amp; language - languages 把「Chinese Simplified」 加到 「Prefered Languages」 并 apply。
+输入法：应用程序 - 设置 - 输入法选择器，选择「使用IBus（推荐）」。
+登陆界面换成中文：编辑 /etc/sysconfig/i18n
+原来是 LANG=&amp;quot;en_US.UTF-8&amp;quot;
+添加 LANG=&amp;quot;zh_CN.UTF-8&amp;quot;
+更新 更新系统和软件
+# yum update
+如果有问题可以试一下清除 yum 缓存
+# yum clean all
+修复启动错误 Fedora 17 启动的时候，出现一条一闪而过的错误信息：
+GRUB2 error: file &#39;/boot/grub2/locale/en.</description>
+    </item>
+    
+  </channel>
+</rss>

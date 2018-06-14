@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Jekyll on Only Mookrs</title>
+    <link>http://mookrs.com/tags/jekyll/</link>
+    <description>Recent content in Jekyll on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Thu, 19 Apr 2012 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/jekyll/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hello Jekyll</title>
+      <link>http://mookrs.com/hello-jekyll/</link>
+      <pubDate>Thu, 19 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/hello-jekyll/</guid>
+      <description>这是我迁移到 Jekyll 后的第一篇文章（后记：之后又迁移到了 Hexo、Hugo）。Jekyll 是一个很好的静态内容生成系统，可以部署到免费的 Github Page 或 Heroku 上，也可以部署到自己的服务器上。之前在 Windows 和 Ubuntu 环境下尝试配置了 Octopress，但总有小毛病，于是转向 Jekyll-Bootstrap。其中的过程可谓历尽波折，Windows 上的编码就困扰过我一个通宵……
+在 Windows 上搭建 Ruby on Rails 环境，强烈建议使用 RailsInstaller，它简化了 Rails 在 Windows 上的安装过程，包含有 Ruby、Rails、Bundler、Git、Sqlite、TinyTDS、SQL Server support 和 DevKit。我换了个 Git 的版本。
+以下是部署 Jekyll 或 Octopress 的参考链接：  在 Windows7 下从头开始安装部署 Octopress
+ Github Pages 极简教程
+ 使用 Github Pages 建独立博客
+ Octopress 搭建 Blog：配置篇
+  学习 Git 的参考链接：  git - 简易指南
+ GotGitHub</description>
+    </item>
+    
+  </channel>
+</rss>

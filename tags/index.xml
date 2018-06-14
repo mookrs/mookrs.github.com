@@ -1,0 +1,240 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Only Mookrs</title>
+    <link>http://mookrs.com/tags/</link>
+    <description>Recent content in Tags on Only Mookrs</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Tue, 11 Jun 2013 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://mookrs.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Android</title>
+      <link>http://mookrs.com/tags/android/</link>
+      <pubDate>Tue, 11 Jun 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/android/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arcgis</title>
+      <link>http://mookrs.com/tags/arcgis/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/arcgis/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Arcpy</title>
+      <link>http://mookrs.com/tags/arcpy/</link>
+      <pubDate>Tue, 11 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/arcpy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fedora</title>
+      <link>http://mookrs.com/tags/fedora/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/fedora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask</title>
+      <link>http://mookrs.com/tags/flask/</link>
+      <pubDate>Wed, 27 Jul 2016 18:52:26 +0800</pubDate>
+      
+      <guid>http://mookrs.com/tags/flask/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Flask Sqlalchemy</title>
+      <link>http://mookrs.com/tags/flask-sqlalchemy/</link>
+      <pubDate>Wed, 27 Jul 2016 18:52:26 +0800</pubDate>
+      
+      <guid>http://mookrs.com/tags/flask-sqlalchemy/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Jekyll</title>
+      <link>http://mookrs.com/tags/jekyll/</link>
+      <pubDate>Thu, 19 Apr 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kde</title>
+      <link>http://mookrs.com/tags/kde/</link>
+      <pubDate>Fri, 31 Aug 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/kde/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>http://mookrs.com/tags/linux/</link>
+      <pubDate>Mon, 01 Aug 2016 01:05:04 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Listbox</title>
+      <link>http://mookrs.com/tags/listbox/</link>
+      <pubDate>Tue, 18 Nov 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/listbox/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mysql</title>
+      <link>http://mookrs.com/tags/mysql/</link>
+      <pubDate>Wed, 27 Jul 2016 18:52:26 +0800</pubDate>
+      
+      <guid>http://mookrs.com/tags/mysql/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pe</title>
+      <link>http://mookrs.com/tags/pe/</link>
+      <pubDate>Sun, 19 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/pe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Ph</title>
+      <link>http://mookrs.com/tags/ph/</link>
+      <pubDate>Fri, 14 Sep 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/ph/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Picturemarkersymbol</title>
+      <link>http://mookrs.com/tags/picturemarkersymbol/</link>
+      <pubDate>Fri, 29 Nov 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/picturemarkersymbol/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>http://mookrs.com/tags/python/</link>
+      <pubDate>Mon, 01 Aug 2016 01:05:04 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Radgridview</title>
+      <link>http://mookrs.com/tags/radgridview/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/radgridview/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Realtek</title>
+      <link>http://mookrs.com/tags/realtek/</link>
+      <pubDate>Thu, 09 Feb 2012 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/realtek/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Shapefile</title>
+      <link>http://mookrs.com/tags/shapefile/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/shapefile/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Software</title>
+      <link>http://mookrs.com/tags/software/</link>
+      <pubDate>Mon, 28 Nov 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/software/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sphinx</title>
+      <link>http://mookrs.com/tags/sphinx/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/sphinx/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Telerik</title>
+      <link>http://mookrs.com/tags/telerik/</link>
+      <pubDate>Thu, 23 Oct 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/telerik/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>http://mookrs.com/tags/windows/</link>
+      <pubDate>Sat, 09 Feb 2013 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Wpf</title>
+      <link>http://mookrs.com/tags/wpf/</link>
+      <pubDate>Sat, 27 Dec 2014 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/wpf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>阅读</title>
+      <link>http://mookrs.com/tags/%E9%98%85%E8%AF%BB/</link>
+      <pubDate>Mon, 12 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/%E9%98%85%E8%AF%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>韩寒</title>
+      <link>http://mookrs.com/tags/%E9%9F%A9%E5%AF%92/</link>
+      <pubDate>Mon, 12 Dec 2011 00:00:00 +0000</pubDate>
+      
+      <guid>http://mookrs.com/tags/%E9%9F%A9%E5%AF%92/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

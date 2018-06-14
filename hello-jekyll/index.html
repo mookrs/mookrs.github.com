@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.42" />
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Hello Jekyll &middot; Only Mookrs</title>
+
+  
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/print.css" media="print">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/poole.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/syntax.css">
+  <link type="text/css" rel="stylesheet" href="http://mookrs.com/css/hyde.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Abril+Fatface|PT+Sans:400,400i,700">
+
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.png">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Only Mookrs" />
+
+  
+</head>
+
+  <body class="theme-base-08 ">
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <a href="http://mookrs.com/"><h1>Only Mookrs</h1></a>
+      <p class="lead">
+       Stay Simple, Stay Naïve. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="http://mookrs.com/">Home</a> </li>
+      <li><a href="/categories"> Categories </a></li><li><a href="/tags"> Tags </a></li><li><a href="https://github.com/mookrs"> GitHub </a></li>
+    </ul>
+
+    <p>© 2011 - 2018. All rights reserved.</p>
+  </div>
+</div>
+
+    <div class="content container">
+    <div class="post">
+  <h1>Hello Jekyll</h1>
+  <span class="post-date">Thu, Apr 19, 2012</span>
+  
+
+<p>这是我迁移到 <a href="https://github.com/mojombo/jekyll">Jekyll</a> 后的第一篇文章（后记：之后又迁移到了 Hexo、Hugo）。Jekyll 是一个很好的静态内容生成系统，可以部署到免费的 <a href="http://pages.github.com/">Github Page</a> 或 <a href="http://www.heroku.com/">Heroku</a> 上，也可以部署到自己的服务器上。之前在 Windows 和 Ubuntu 环境下尝试配置了 <a href="http://octopress.org/">Octopress</a>，但总有小毛病，于是转向 <a href="http://jekyllbootstrap.com/">Jekyll-Bootstrap</a>。其中的过程可谓历尽波折，Windows 上的编码就困扰过我一个通宵……</p>
+
+<p>在 Windows 上搭建 Ruby on Rails 环境，强烈建议使用 <a href="http://railsinstaller.org/">RailsInstaller</a>，它简化了 Rails 在 Windows 上的安装过程，包含有 <a href="http://ruby-lang.org/">Ruby</a>、<a href="http://rubyonrails.org/">Rails</a>、<a href="http://gembundler.com/">Bundler</a>、<a href="http://git-scm.com/">Git</a>、<a href="http://sqlite.org/">Sqlite</a>、<a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>、<a href="https://github.com/rails-sqlserver/activerecord-sqlserver-adapter">SQL Server support</a> 和 <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">DevKit</a>。我换了个 Git 的版本。</p>
+
+<h2 id="以下是部署-jekyll-或-octopress-的参考链接">以下是部署 Jekyll 或 Octopress 的参考链接：</h2>
+
+<ul>
+<li><p><a href="http://sinosmond.github.com/blog/2012/03/12/install-and-deploy-octopress-to-github-on-windows7-from-scratch/">在 Windows7 下从头开始安装部署 Octopress</a></p></li>
+
+<li><p><a href="http://chen.yanping.me/cn/blog/2012/03/18/github-pages-step-by-step/">Github Pages 极简教程</a></p></li>
+
+<li><p><a href="http://beiyuu.com/github-pages/">使用 Github Pages 建独立博客</a></p></li>
+
+<li><p><a href="http://evsseny.appspot.com/2012/03/30/Octopress-blog-Configuration.html">Octopress 搭建 Blog：配置篇</a></p></li>
+</ul>
+
+<h2 id="学习-git-的参考链接">学习 Git 的参考链接：</h2>
+
+<ul>
+<li><p><a href="http://rogerdudler.github.com/git-guide/index.zh.html">git - 简易指南</a></p></li>
+
+<li><p><a href="http://www.worldhello.net/gotgithub/index.html">GotGitHub</a></p></li>
+
+<li><p><a href="http://gitbook.liuhui998.com/index.html">Git Community Book 中文版</a></p></li>
+</ul>
+
+<h2 id="设置-gem-的更新源">设置 gem 的更新源</h2>
+
+<p><code>$ gem sources --remove http://rubygems.org/</code></p>
+
+<p><code>$ gem sources -a http://ruby.taobao.org/</code></p>
+
+<p>当 <code>$ gem sources -l</code> 时确保只有 <code>http://ruby.taobao.org</code> 输出</p>
+
+<h2 id="测试-git-是否连接正常">测试 git 是否连接正常</h2>
+
+<p><code>$ ssh -T git@github.com</code></p>
+
+<h2 id="安装用来解析-markdown-语言的-rdiscount-或-kramdown">安装用来解析 markdown 语言的 rdiscount 或 kramdown</h2>
+
+<p><code>$ gem install rdiscount kramdown</code></p>
+
+<h2 id="配置-config-yml-文件">配置 _config.yml 文件</h2>
+
+<p>_config.yml 里的的冒号后必须要有空格，否则会报错。如果有中文，需要存成 UTF-8 格式。我一般会修改固定链接格式，其他选项有必要的都一一修改好。</p>
+
+<h2 id="windows-系统下文章或标题有中文则不能生成网站">Windows 系统下文章或标题有中文则不能生成网站</h2>
+
+<p>参考 <a href="http://www.oschina.net/question/129471_37163">http://www.oschina.net/question/129471_37163</a></p>
+
+<p>编辑</p>
+
+<p><code>D:\RailsInstaller\Ruby1.9.3\lib\ruby\gems\1.9.1\gems\jekyll-0.11.2\lib\jekyll\convertible.rb</code></p>
+
+<p>第27行</p>
+
+<p><code>self.content = File.read(File.join(base, name))</code></p>
+
+<p>替换为</p>
+
+<p><code>self.content = File.read(File.join(base, name), :encoding =&gt; &quot;utf-8&quot;)</code></p>
+
+<h2 id="其他">其他</h2>
+
+<p>添加 CNAME，404 页面。</p>
+
+<p>将 Disqus 改成国内的多说或者友言是没问题的，不过考虑到博客的受众，我决定保留 Disqus。</p>
+
+</div>
+
+<h2>Comments</h2>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "mookrs" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+    </div>
+
+    
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-23664006-4', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+  </body>
+</html>
