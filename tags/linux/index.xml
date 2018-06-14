@@ -21,13 +21,12 @@
 Initial Server Setup with Ubuntu 16.04
 SSH 登录
 ssh &amp;lt;user&amp;gt;@&amp;lt;ip&amp;gt; -p &amp;lt;port&amp;gt;  修改 root 密码
-passwd root  添加新账户
-useradd &amp;lt;user&amp;gt; passwd &amp;lt;user&amp;gt; usermod -aG sudo &amp;lt;user&amp;gt;  新建用户目录，替换 sh 为 bash
-useradd --create-home --user-group --shell /bin/bash &amp;lt;user&amp;gt;  修改 SSH 端口，禁用 root 登录，禁用密码登录
+passwd root  添加新账户，新建用户目录，替换 sh 为 bash
+useradd --create-home --user-group --shell /bin/bash &amp;lt;user&amp;gt; passwd &amp;lt;user&amp;gt; usermod -aG sudo &amp;lt;user&amp;gt;  修改 SSH 端口，禁用 root 登录，禁用密码登录
 sudo vi /etc/ssh/sshd_config  找到并修改 Port &amp;lt;数字&amp;gt;、PermitRootLogin no、PasswordAuthentication no
 SSH-Key 登录，本地
 ssh-keygen cat ~/.ssh/id_rsa.pub  服务器
-mkdir ~/.ssh chmod 700 ~/.</description>
+mkdir ~/.ssh chmod 700 ~/.ssh vi ~/.ssh/authorized_keys  复制公钥进去</description>
     </item>
     
     <item>

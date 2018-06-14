@@ -57,13 +57,12 @@
 Initial Server Setup with Ubuntu 16.04
 SSH 登录
 ssh &lt;user&gt;@&lt;ip&gt; -p &lt;port&gt;  修改 root 密码
-passwd root  添加新账户
-useradd &lt;user&gt; passwd &lt;user&gt; usermod -aG sudo &lt;user&gt;  新建用户目录，替换 sh 为 bash
-useradd --create-home --user-group --shell /bin/bash &lt;user&gt;  修改 SSH 端口，禁用 root 登录，禁用密码登录
+passwd root  添加新账户，新建用户目录，替换 sh 为 bash
+useradd --create-home --user-group --shell /bin/bash &lt;user&gt; passwd &lt;user&gt; usermod -aG sudo &lt;user&gt;  修改 SSH 端口，禁用 root 登录，禁用密码登录
 sudo vi /etc/ssh/sshd_config  找到并修改 Port &lt;数字&gt;、PermitRootLogin no、PasswordAuthentication no
 SSH-Key 登录，本地
 ssh-keygen cat ~/.ssh/id_rsa.pub  服务器
-mkdir ~/.ssh chmod 700 ~/.
+mkdir ~/.ssh chmod 700 ~/.ssh vi ~/.ssh/authorized_keys  复制公钥进去
   
   <div class="read-more-link">
     <a href="/flask-nginx-gunicorn-supervisor-on-ubuntu/">Read More…</a>
